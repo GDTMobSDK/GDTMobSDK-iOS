@@ -11,6 +11,9 @@
 #import "GDTAppDelegate.h"
 #import "S2SBiddingManager.h"
 
+#define DEMO_BANNER_WIDTH GDTScreenWidth
+#define DEMO_BANNER_HEIGHT (DEMO_BANNER_WIDTH / 6.4)
+
 @interface UnifiedBannerViewController () <GDTUnifiedBannerViewDelegate>
 @property (nonatomic, strong) GDTUnifiedBannerView *bannerView;
 
@@ -86,7 +89,7 @@
 - (GDTUnifiedBannerView *)bannerView
 {
     if (!_bannerView) {
-        CGRect rect = {CGPointZero, CGSizeMake(375, 100)};
+        CGRect rect = {CGPointZero, CGSizeMake(DEMO_BANNER_WIDTH, DEMO_BANNER_HEIGHT)};
         NSString *placementId = self.placementIdText.text.length > 0 ? self.placementIdText.text: self.placementIdText.placeholder;
         if (self.useToken) {
             _bannerView = [[GDTUnifiedBannerView alloc] initWithPlacementId:placementId
@@ -218,7 +221,9 @@
  *  banner2.0被用户关闭时调用
  */
 - (void)unifiedBannerViewWillClose:(nonnull GDTUnifiedBannerView *)unifiedBannerView {
-    self.bannerView = nil;
+    // 真正关闭
+//    [self.bannerView removeFromSuperview];
+//    self.bannerView = nil;
     NSLog(@"%s",__FUNCTION__);
 }
 

@@ -64,6 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  banner2.0被用户关闭时调用
+ *  会立即关闭当前banner广告，若启用轮播，（刷新间隔 - 当前广告已展示时间）后会展示新的广告
+ *  若未启用轮播或不需要再展示，需在回调中将unifiedBannerView从父view移除置nil
  */
 - (void)unifiedBannerViewWillClose:(GDTUnifiedBannerView *)unifiedBannerView;
 
