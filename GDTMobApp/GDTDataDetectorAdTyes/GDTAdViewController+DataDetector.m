@@ -14,6 +14,7 @@
     [super loadView];
     self.demoArray = [@[
                         @[@"Data Detector", @"DataDetectorViewController"],
+                        @[@"防沉迷", @"AntiAddictionViewController"],
                         @[@"自渲染2.0", @"UnifiedNativeAdViewController"],
                         @[@"开屏广告", @"SplashViewController"],
                         @[@"原生模板广告", @"NativeExpressAdViewController"],
