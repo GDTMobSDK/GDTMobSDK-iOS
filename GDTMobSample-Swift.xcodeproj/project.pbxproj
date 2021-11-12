@@ -35,7 +35,6 @@
 		3B19B7E7212D690000E9EBC5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7E6212D690000E9EBC5 /* CoreTelephony.framework */; };
 		3B19B7E9212D690B00E9EBC5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7E8212D690B00E9EBC5 /* libz.tbd */; };
 		3B19B7EB212D691300E9EBC5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7EA212D691300E9EBC5 /* Security.framework */; };
-		3B19B7ED212D691B00E9EBC5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7EC212D691B00E9EBC5 /* StoreKit.framework */; };
 		3B19B7EF212D692400E9EBC5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7EE212D692400E9EBC5 /* libxml2.tbd */; };
 		3B19B7F1212D692B00E9EBC5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7F0212D692B00E9EBC5 /* AVFoundation.framework */; };
 		3B19B7F3212D693000E9EBC5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19B7F2212D693000E9EBC5 /* WebKit.framework */; };
@@ -108,7 +107,6 @@
 		3B19B7E6212D690000E9EBC5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3B19B7E8212D690B00E9EBC5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3B19B7EA212D691300E9EBC5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		3B19B7EC212D691B00E9EBC5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3B19B7EE212D692400E9EBC5 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		3B19B7F0212D692B00E9EBC5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3B19B7F2212D693000E9EBC5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -176,7 +174,6 @@
 				3B19B7F3212D693000E9EBC5 /* WebKit.framework in Frameworks */,
 				3B19B7F1212D692B00E9EBC5 /* AVFoundation.framework in Frameworks */,
 				3B19B7EF212D692400E9EBC5 /* libxml2.tbd in Frameworks */,
-				3B19B7ED212D691B00E9EBC5 /* StoreKit.framework in Frameworks */,
 				3B19B7EB212D691300E9EBC5 /* Security.framework in Frameworks */,
 				3B19B7E9212D690B00E9EBC5 /* libz.tbd in Frameworks */,
 				3B19B7E7212D690000E9EBC5 /* CoreTelephony.framework in Frameworks */,
@@ -215,7 +212,6 @@
 				3B19B7F2212D693000E9EBC5 /* WebKit.framework */,
 				3B19B7F0212D692B00E9EBC5 /* AVFoundation.framework */,
 				3B19B7EE212D692400E9EBC5 /* libxml2.tbd */,
-				3B19B7EC212D691B00E9EBC5 /* StoreKit.framework */,
 				3B19B7EA212D691300E9EBC5 /* Security.framework */,
 				3B19B7E8212D690B00E9EBC5 /* libz.tbd */,
 				3B19B7E6212D690000E9EBC5 /* CoreTelephony.framework */,

@@ -9,7 +9,6 @@
 #import "BDGDT_UnifiedBannerAdAdapter.h"
 #import <BaiduMobAdSDK/BaiduMobAdView.h>
 #import "GDTUnifiedBannerAdNetworkConnectorProtocol.h"
-#import "GDTAdErrors.h"
 
 static NSString *s_appId = nil;
 
@@ -82,7 +81,9 @@ static NSString *s_appId = nil;
 
 - (void)failedDisplayAd:(BaiduMobFailReason)reason {
     if ([self.connector respondsToSelector:@selector(adapter_unifiedBannerViewFailedToLoad:error:)]) {
-        [self.connector adapter_unifiedBannerViewFailedToLoad:self error:[GDTAdErrors errorWithCode:GDTErrorCodeNoAdError detailCode:GDTErrorDetailCodeDefault]];
+        [self.connector adapter_unifiedBannerViewFailedToLoad:self error:[NSError errorWithDomain:@"kBaiduADNErrorDomain" code:reason userInfo:@{
+            @"BaiduMobFailReason":@(reason)
+        }]];
     }
 }
 
