@@ -194,7 +194,7 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
     NSLog(@"eCPM:%ld eCPMLevel:%@", [unifiedInterstitial eCPM], [unifiedInterstitial eCPMLevel]);
     NSLog(@"videoDuration:%lf isVideo: %@", unifiedInterstitial.videoDuration, @(unifiedInterstitial.isVideoAd));
     
-    // 在 bidding 结束之后, 调用对应的竟胜/竟败接口
+    // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
     if (self.useToken) {
         // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
         // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；

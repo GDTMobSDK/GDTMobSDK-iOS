@@ -194,7 +194,7 @@
  */
 - (void)play
 {
-//    [self.relatedView.videoAdView tapPlay];
+    [self.relatedView.videoAdView play];
 }
 
 /**
@@ -202,7 +202,7 @@
  */
 - (void)pause
 {
-//    [self.relatedView.videoAdView tapPause];
+    [self.relatedView.videoAdView pause];
 }
 
 /**
@@ -210,7 +210,6 @@
  */
 - (void)stop
 {
-    [self.relatedView.videoAdView playerSeekToTime:0];
 }
 
 /**

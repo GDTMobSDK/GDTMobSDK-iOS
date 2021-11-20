@@ -13,7 +13,7 @@
 #pragma mark - KSFullscreenVideoAdDelegate
 
 - (void)fullscreenVideoAdDidLoad:(KSFullscreenVideoAd *)fullscreenVideoAd {
-    
+    [self.connector adapter_unifiedInterstitialSuccessToLoadAd:self.adapter];
 }
 
 /**
@@ -28,24 +28,21 @@
  This method is called when cached successfully.
  */
 - (void)fullscreenVideoAdVideoDidLoad:(KSFullscreenVideoAd *)fullscreenVideoAd {
-    //todo 是否要添加videoDidLoad的回调
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.connector adapter_unifiedInterstitialSuccessToLoadAd:self.adapter];
-    });
+    
 }
 
 /**
  This method is called when video ad slot will be showing.
  */
 - (void)fullscreenVideoAdWillVisible:(KSFullscreenVideoAd *)fullscreenVideoAd {
-    [self.connector adapter_unifiedInterstitialWillExposure:self.adapter];
+
 }
 
 /**
  This method is called when video ad slot has been shown.
  */
 - (void)fullscreenVideoAdDidVisible:(KSFullscreenVideoAd *)fullscreenVideoAd {
-    
+    [self.connector adapter_unifiedInterstitialWillExposure:self.adapter];
 }
 
 /**

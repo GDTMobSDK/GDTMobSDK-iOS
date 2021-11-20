@@ -82,6 +82,11 @@
 + (NSString *)getBuyerId;
 
 /**
+ 获取用于 Server Bidding 请求SDK侧相关请求参数信息
+ */
++ (NSString *)getSDKInfoWithPlacementId:(NSString *)placementId;
+
+/**
  设置个性化推荐状态
  @param state 1为关闭个性化推荐，其他值或未设置为打开
  */

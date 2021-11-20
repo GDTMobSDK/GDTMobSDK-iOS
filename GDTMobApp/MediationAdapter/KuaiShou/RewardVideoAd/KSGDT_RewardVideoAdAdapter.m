@@ -59,7 +59,7 @@
     
     KSRewardedVideoModel *model = [[KSRewardedVideoModel alloc] init];
     model.userId = self.serverSideVerificationOptions.userIdentifier;
-    
+    model.extra = self.serverSideVerificationOptions.customRewardString;
     self.rewardVideoAd = [[KSRewardedVideoAd alloc] initWithPosId:self.posId rewardedVideoModel:model];
     self.rewardVideoAd.delegate = self.delegateObject;
     [self.rewardVideoAd loadAdData];

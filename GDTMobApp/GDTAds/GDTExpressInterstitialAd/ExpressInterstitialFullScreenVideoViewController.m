@@ -142,7 +142,7 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
     NSLog(@"videoDuration:%lf isVideo: %@", unifiedInterstitial.videoDuration, @(unifiedInterstitial.isVideoAd));
     NSLog(@"eCPM:%ld eCPMLevel:%@", [unifiedInterstitial eCPM], [unifiedInterstitial eCPMLevel]);
     
-    // 在 bidding 结束之后, 调用对应的竟胜/竟败接口
+    // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
     [self reportBiddingResult:unifiedInterstitial];
 }
 

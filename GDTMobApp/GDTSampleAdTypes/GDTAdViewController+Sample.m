@@ -16,8 +16,8 @@
     self.demoArray = [@[
                         @[@"自渲染2.0", @"UnifiedNativeAdViewController"],
                         @[@"开屏广告", @"SplashViewController"],
-                        @[@"原生模板广告", @"NativeExpressAdViewController"],
-                        @[@"原生视频模板广告", @"NativeExpressVideoAdViewController"],
+                        @[@"原生模板广告(优量汇渲染)", @"NativeExpressAdViewController"],
+                        @[@"原生视频模板广告(优量汇渲染)", @"NativeExpressVideoAdViewController"],
                         @[@"激励视频广告", @"RewardVideoViewController"],
                         @[@"HybridAd", @"HybridAdViewController"],
                         @[@"Banner2.0", @"UnifiedBannerViewController"],

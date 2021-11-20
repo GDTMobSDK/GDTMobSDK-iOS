@@ -59,8 +59,7 @@ static NSString *s_addId = nil;
 
 #pragma mark - KSNativeAdsManagerDelegate
 
-- (void)feedAdsManagerSuccessToLoad:(KSFeedAdsManager *)adsManager
-                          nativeAds:(NSArray<KSFeedAd *> *_Nullable)feedAdDataArray {
+- (void)feedAdsManagerSuccessToLoad:(KSFeedAdsManager *)adsManager nativeAds:(NSArray<KSFeedAd *> *_Nullable)feedAdDataArray {
     NSMutableArray<KSGDT_NativeExpressAdViewAdapter *> *viewAdapters = [NSMutableArray array];
     for (KSFeedAd *feedAd in feedAdDataArray) {
         KSGDT_NativeExpressAdViewAdapter *adapter = [[KSGDT_NativeExpressAdViewAdapter alloc] initWithFeedAd:feedAd];

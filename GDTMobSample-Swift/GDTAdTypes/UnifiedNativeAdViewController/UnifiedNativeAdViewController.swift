@@ -26,8 +26,8 @@ class UnifiedNativeAdViewController: UIViewController{
     private var demoArray =
         ["图片Feed",
         "视频Feed",
-        "竖版全屏视频",
-        "竖版Feed视频",
+        "沉浸式视频流",
+        "视频信息流",
         "视频贴片广告"]
     
     
@@ -87,9 +87,9 @@ extension UnifiedNativeAdViewController:UITableViewDataSource,UITableViewDelegat
             vc = UnifiedNativeAdFeedImageViewController()
         case "视频Feed":
             vc = UnifiedNativeAdFeedVideoTableViewController()
-        case "竖版全屏视频":
+        case "沉浸式视频流":
             vc = UnifiedNativeAdPortraitVideoViewController()
-        case "竖版Feed视频":
+        case "视频信息流":
             vc = UnifiedNativeAdPortraitFeedViewController()
         case "视频贴片广告":
             vc = UnifiedNativePreVideoViewController()

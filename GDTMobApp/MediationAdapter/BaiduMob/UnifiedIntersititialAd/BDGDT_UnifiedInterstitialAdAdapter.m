@@ -64,8 +64,8 @@ static NSString *s_appId = nil;
         self.interstitialAd = [[BaiduMobAdInterstitial alloc] init];
         self.interstitialAd.delegate = self.delegateObject;
         self.interstitialAd.AdUnitTag = self.posId;
-        self.interstitialAd.interstitialType =  BaiduMobAdViewTypeInterstitialPauseVideo;
-        [self.interstitialAd loadUsingSize:CGRectMake(0, 0, 300.0, 300.0)];
+        self.interstitialAd.interstitialType =  BaiduMobAdViewTypeInterstitialOther;
+        [self.interstitialAd load];
     }
 }
 

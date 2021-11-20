@@ -102,10 +102,9 @@
     slot.ID = self.posId;
     slot.AdType = BUAdSlotAdTypeFeed;
     slot.position = BUAdSlotPositionFeed;
-    BUSize *imgSize1 = [BUSize sizeBy:BUProposalSize_Feed228_150];
-    BUSize *imgSize2 = [BUSize sizeBy:BUProposalSize_Feed690_388];
-    slot.imgSizeArray = [@[imgSize1, imgSize2] mutableCopy];
-    
+    slot.supportRenderControl = YES;
+    slot.imgSize = [BUSize sizeBy:BUProposalSize_Feed228_150];
+    self.adSize = CGSizeMake(self.adSize.width, 0);
     self.nativeExpressAdManager = [[BUNativeExpressAdManager alloc] initWithSlot:slot adSize:self.adSize];
     self.nativeExpressAdManager.delegate = self;
     [self.nativeExpressAdManager loadAdDataWithCount:count];

@@ -36,6 +36,8 @@ typedef NS_ENUM(NSUInteger, GDTMediaPlayerStatus) {
     GDTMediaPlayerStatusPaused = 3,          // 用户行为导致暂停
     GDTMediaPlayerStatusError = 4,           // 播放出错
     GDTMediaPlayerStatusStoped = 5,          // 播放停止
+    
+    GDTMediaPlayerStatusWillStart = 10,      // 即将播放
 };
 
 typedef enum GDTSDKLoginType {

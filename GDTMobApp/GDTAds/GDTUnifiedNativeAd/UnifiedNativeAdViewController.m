@@ -74,8 +74,8 @@ static NSInteger ADVTYPE_COUNT = 6;
     self.demoArray = @[
                         @[@"图片Feed", @"UnifiedNativeAdFeedImageViewController"],
                         @[@"视频Feed", @"UnifiedNativeAdFeedVideoTableViewController"],
-                        @[@"竖版全屏视频", @"UnifiedNativeAdPortraitVideoViewController"],
-                        @[@"竖版Feed视频", @"UnifiedNativeAdPortraitFeedViewController"],
+                        @[@"沉浸式视频流", @"UnifiedNativeAdPortraitVideoViewController"],
+                        @[@"视频信息流", @"UnifiedNativeAdPortraitFeedViewController"],
                         @[@"视频贴片广告", @"UnifiedNativePreVideoViewController"],
                         ];
     
@@ -207,11 +207,7 @@ static NSInteger ADVTYPE_COUNT = 6;
     vc.videoConfig = self.videoConfig;
     vc.token = self.token;
     vc.useToken = self.useToken;
-    if ([vc isKindOfClass:[UnifiedNativeAdPortraitVideoViewController class]]) {
-        [self presentViewController:vc animated:YES completion:nil];
-    } else {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

@@ -9,7 +9,7 @@
 #import "UnifiedNativeAdPortraitVideoTableViewCell.h"
 
 @interface UnifiedNativeAdPortraitVideoTableViewCell() <GDTMediaViewDelegate>
-
+@property (nonatomic, strong) UIButton *icon;
 @end
 
 @implementation UnifiedNativeAdPortraitVideoTableViewCell
@@ -18,35 +18,101 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, GDTScreenHeight - 145, GDTScreenWidth, 145)];
-        bgView.backgroundColor = [UIColor blackColor];
-        bgView.alpha = 0.3;
-        [self.adView insertSubview:bgView aboveSubview:self.adView.mediaView];
+        // 底部渐变
+        UIView *gradientView = [[UIView alloc] initWithFrame:CGRectMake(0, GDTScreenHeight - 225, GDTScreenWidth, 225)];
+        gradientView.alpha = 0.5;
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.frame = gradientView.bounds;
+        gradientLayer.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0].CGColor,
+                                 (id)[[UIColor blackColor] colorWithAlphaComponent:1].CGColor];
+        
+        [gradientView.layer addSublayer:gradientLayer];
+        [self.adView insertSubview:gradientView aboveSubview:self.adView.mediaView];
+        
+        [self setupSubViews];
     }
     return self;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
+- (void)setupSubViews {
+    // adView
+    self.adView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
+    [self.adView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
+    [self.adView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor].active = YES;
+    [self.adView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor].active = YES;
     
-    self.adView.backgroundColor = [UIColor grayColor];
-    self.adView.clickButton.frame = CGRectMake(15, GDTScreenHeight - 75, GDTScreenWidth - 30, 44);
-    self.adView.clickButton.backgroundColor = [UIColor blueColor];
+    CGFloat elementWidth = GDTScreenWidth * 511.0 / 750;
     
-    self.adView.iconImageView.frame = CGRectMake(15, GDTScreenHeight - 145, 60, 60);
-    self.adView.iconImageView.layer.cornerRadius = 30;
+    // 头像
+    self.adView.iconImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.iconImageView.widthAnchor constraintEqualToConstant:50].active = YES;
+    [self.adView.iconImageView.heightAnchor constraintEqualToConstant:50].active = YES;
+    [self.adView.iconImageView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-7].active = YES;
+    [self.adView.iconImageView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-274.5].active = YES;
+    self.adView.iconImageView.layer.cornerRadius = 10;
     self.adView.iconImageView.layer.masksToBounds = YES;
-    self.adView.titleLabel.frame = CGRectMake(85, GDTScreenHeight - 145, GDTScreenWidth - 100, 30);
-    self.adView.titleLabel.textColor = [UIColor whiteColor];
-    self.adView.descLabel.frame = CGRectMake(85, GDTScreenHeight - 115, GDTScreenWidth - 100, 30);
-    self.adView.descLabel.textColor = [UIColor whiteColor];
-    //    CGFloat imageWidth = width;
-    self.adView.frame = self.bounds;
-    // mediaView logoView frame 更新在父view之后设置
-    self.adView.mediaView.frame = self.adView.bounds;
     
-    self.adView.logoView.frame = CGRectMake(CGRectGetWidth(self.adView.frame) - kGDTLogoImageViewDefaultWidth, CGRectGetHeight(self.adView.frame) - kGDTLogoImageViewDefaultHeight - 60, kGDTLogoImageViewDefaultWidth, kGDTLogoImageViewDefaultHeight);
+    // 头像挂件
+    self.icon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    self.icon.layer.cornerRadius = 12;
+    self.icon.clipsToBounds = YES;
+    self.icon.backgroundColor = [UIColor colorWithRed:0.192 green:0.522 blue:0.988 alpha:1];
+    self.icon.alpha = 0;
+    self.icon.contentEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4);
+    self.icon.userInteractionEnabled = NO;
+    [self.adView addSubview:self.icon];
+    self.icon.contentMode = UIViewContentModeCenter;
+    self.icon.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.icon.centerYAnchor constraintEqualToAnchor:self.adView.iconImageView.bottomAnchor].active = YES;
+    [self.icon.centerXAnchor constraintEqualToAnchor:self.adView.iconImageView.centerXAnchor].active = YES;
+    [self.icon.widthAnchor constraintEqualToConstant:24].active = YES;
+    [self.icon.heightAnchor constraintEqualToConstant:24].active = YES;
+    
+    // descLabel
+    self.adView.descLabel.numberOfLines = 2;
+    self.adView.descLabel.font = [UIFont systemFontOfSize:14];
+    self.adView.descLabel.textColor = [UIColor whiteColor];
+    self.adView.descLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.descLabel.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:12].active = YES;
+    [self.adView.descLabel.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-72].active = YES;
+    [self.adView.descLabel.widthAnchor constraintEqualToConstant:elementWidth].active = YES;
+    [self.adView.descLabel.heightAnchor constraintLessThanOrEqualToConstant:39].active = YES;
+    
+    // titleLabel
+    self.adView.titleLabel.textColor = [UIColor whiteColor];
+    self.adView.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:16];
+    self.adView.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.titleLabel.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:12].active = YES;
+    [self.adView.titleLabel.bottomAnchor constraintEqualToAnchor:self.adView.descLabel.topAnchor constant:-3.5].active = YES;
+    
+    // clickButton
+    self.adView.clickButton.frame = CGRectMake(12, GDTScreenHeight - 84, elementWidth, 37);
+    self.adView.clickButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1];
+    self.adView.clickButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.adView.clickButton.layer.cornerRadius = 3;
+    self.adView.clickButton.clipsToBounds = YES;
+    self.adView.clickButton.alpha = 0;
+    self.adView.clickButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.clickButton.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:12].active = YES;
+    [self.adView.clickButton.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-72].active = YES;
+    [self.adView.clickButton.widthAnchor constraintEqualToConstant:elementWidth].active = YES;
+    [self.adView.clickButton.heightAnchor constraintEqualToConstant:35].active = YES;
+    
+    // mediaView
+    self.adView.mediaView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.mediaView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
+    [self.adView.mediaView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
+    [self.adView.mediaView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor].active = YES;
+    [self.adView.mediaView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor].active = YES;
+    
+    // logoView
+    self.adView.logoView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.logoView.widthAnchor constraintEqualToConstant:kGDTLogoImageViewDefaultWidth].active = YES;
+    [self.adView.logoView.heightAnchor constraintEqualToConstant:kGDTLogoImageViewDefaultHeight].active = YES;
+    [self.adView.logoView.rightAnchor constraintEqualToAnchor:self.adView.rightAnchor].active = YES;
+    [self.adView.logoView.bottomAnchor constraintEqualToAnchor:self.adView.bottomAnchor constant:-60].active = YES;
+    
 }
 
 #pragma mark - public
@@ -61,6 +127,34 @@
                                                                 self.adView.imageView,
                                                                 self.adView.titleLabel,
                                                                 self.adView.descLabel]];
+    NSString *imageName = dataObject.isAppAd ? @"feed_download" : @"feed_link";
+    UIImage *image = [UIImage imageNamed:imageName];
+    [self.adView.clickButton setImage:image forState:UIControlStateNormal];
+    [self.icon setImage:image forState:UIControlStateNormal];
+}
+
+- (void)resetAnimations {
+    [self.adView.layer removeAllAnimations];
+    [self.adView.titleLabel.layer removeAllAnimations];
+    [self.adView.descLabel.layer removeAllAnimations];
+    [self.adView.clickButton.layer removeAllAnimations];
+    self.adView.titleLabel.transform = CGAffineTransformIdentity;
+    self.adView.descLabel.transform = CGAffineTransformIdentity;
+    self.adView.clickButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1];
+    self.adView.clickButton.alpha = 0;
+    self.icon.alpha = 0;
+    [UIView animateWithDuration:0.3 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.icon.alpha = 1;
+    } completion:nil];
+    NSInteger delayTime = [self.adView.dataObject isVideoAd] ? 4 : 0;
+    [UIView animateWithDuration:[self.adView.dataObject isVideoAd] ? 0.3 : 0 delay:delayTime options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.adView.titleLabel.transform = CGAffineTransformMakeTranslation(0, -47);
+        self.adView.descLabel.transform = CGAffineTransformMakeTranslation(0, -47);
+        self.adView.clickButton.alpha = 1;
+    } completion:nil];
+    [UIView animateWithDuration:0.3 delay:delayTime + 2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.adView.clickButton.backgroundColor = [UIColor colorWithRed:0.192 green:0.522 blue:0.988 alpha:1];
+    } completion:nil];
 }
 
 #pragma mark - GDTMediaViewDelegate

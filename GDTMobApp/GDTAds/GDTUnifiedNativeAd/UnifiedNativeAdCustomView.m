@@ -24,6 +24,7 @@
         [self addSubview:self.midImageView];
         [self addSubview:self.rightImageView];
         [self addSubview:self.CTAButton];
+        [self addSubview:self.logoView];
     }
     return self;
 }

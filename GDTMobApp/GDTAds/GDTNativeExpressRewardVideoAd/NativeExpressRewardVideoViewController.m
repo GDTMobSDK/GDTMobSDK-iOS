@@ -25,7 +25,6 @@ static NSString *LANDSCAPE_AD_PLACEMENTID = @"4021136889274300";//模板激励�
 @property (weak, nonatomic) IBOutlet UIButton *changePlacementId;
 @property (weak, nonatomic) IBOutlet UISwitch *videoMutedSwitch;
 @property (nonatomic, strong) UIAlertController *changePosIdController;
-
 @end
 
 @implementation NativeExpressRewardVideoViewController
@@ -162,7 +161,7 @@ static NSString *LANDSCAPE_AD_PLACEMENTID = @"4021136889274300";//模板激励�
     NSLog(@"eCPM:%ld eCPMLevel:%@", [rewardedVideoAd eCPM], [rewardedVideoAd eCPMLevel]);
     NSLog(@"videoDuration :%lf",rewardedVideoAd.videoDuration);
     
-    // 在 bidding 结束之后, 调用对应的竟胜/竟败接口
+    // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
     [self reportBiddingResult:rewardedVideoAd];
 }
 

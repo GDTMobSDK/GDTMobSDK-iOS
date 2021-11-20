@@ -163,7 +163,7 @@
         NSLog(@"成功请求到广告数据");
         self.dataObject = unifiedNativeAdDataObjects[0];
         NSLog(@"eCPM:%ld eCPMLevel:%@", [self.dataObject eCPM], [self.dataObject eCPMLevel]);
-        // 在 bidding 结束之后, 调用对应的竟胜/竟败接口
+        // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
         if (self.useToken) {
             // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
             // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；

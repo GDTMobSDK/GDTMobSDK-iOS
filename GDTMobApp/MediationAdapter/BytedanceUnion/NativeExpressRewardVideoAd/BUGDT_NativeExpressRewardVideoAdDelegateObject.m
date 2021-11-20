@@ -42,6 +42,10 @@
  */
 - (void)nativeExpressRewardedVideoAdWillVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd
 {
+    [self.connector adapter_rewardVideoAdWillVisible:self.adapter];
+}
+
+- (void)nativeExpressRewardedVideoAdDidVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
     [self.connector adapter_rewardVideoAdDidExposed:self.adapter];
 }
 

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GDTNativeExpressRewardedVideoAdDelegate;
 
-GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressRewardVideoAd类即将在12月废弃，请使用GDTRewardVideoAd类")
+GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressRewardVideoAd类即将在2022年1月废弃，请使用GDTRewardVideoAd类")
 @interface GDTNativeExpressRewardVideoAd : NSObject
 
 @property (nonatomic, getter=isAdValid, readonly) BOOL adValid;
@@ -35,7 +35,7 @@ GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressRewardVideoAd类即将在12月废�
 - (instancetype)initWithPlacementId:(NSString *)placementId;
 
 /**
- 加载广告方法 支持 iOS9 及以上系统
+ 加载广告方法 支持 iOS10 及以上系统
  */
 - (void)loadAd;
 /**
@@ -47,15 +47,15 @@ GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressRewardVideoAd类即将在12月废�
 - (BOOL)showAdFromRootViewController:(UIViewController *)rootViewController;
 
 /**
- *  竟胜之后调用, 需要在调用广告 show 之前调用
- *  @param price - 竟胜价格 (单位: 分)
+ *  竞胜之后调用, 需要在调用广告 show 之前调用
+ *  @param price - 竞胜价格 (单位: 分)
  */
 - (void)sendWinNotificationWithPrice:(NSInteger)price;
 
 /**
- *  竟败之后调用
- *  @param price - 竟胜价格 (单位: 分)
- *  @param reason - 优量汇广告竟败原因
+ *  竞败之后调用
+ *  @param price - 竞胜价格 (单位: 分)
+ *  @param reason - 优量汇广告竞败原因
  *  @param adnID - adnID
  */
 - (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;

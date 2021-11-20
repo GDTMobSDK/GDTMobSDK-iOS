@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressProAdManager类即将在12月废弃，请使用GDTNativeExpressAd类")
+GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressProAdManager类即将在2022年1月废弃，请使用GDTNativeExpressAd类")
 @interface GDTNativeExpressProAdManager : NSObject
 
 /**
@@ -56,15 +56,15 @@ GDT_DEPRECATED_MSG_ATTRIBUTE("GDTNativeExpressProAdManager类即将在12月废�
 - (void)loadAd:(NSInteger)count;
 
 /**
- *  竟胜之后调用, 需要在调用广告 show 之前调用
- *  @param price - 竟胜价格 (单位: 分)
+ *  竞胜之后调用, 需要在调用广告 show 之前调用
+ *  @param price - 竞胜价格 (单位: 分)
  */
 - (void)sendWinNotificationWithPrice:(NSInteger)price;
 
 /**
- *  竟败之后调用
- *  @param price - 竟胜价格 (单位: 分)
- *  @param reason - 优量汇广告竟败原因
+ *  竞败之后调用
+ *  @param price - 竞胜价格 (单位: 分)
+ *  @param reason - 优量汇广告竞败原因
  *  @param adnID - adnID
  */
 - (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;
