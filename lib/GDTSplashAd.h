@@ -93,7 +93,7 @@
 @property (nonatomic, weak) id<GDTSplashAdDelegate> delegate;
 
 /**
- *  拉取广告超时时间，默认为3秒
+ *  拉取广告超时时间，默认为5秒
  *  详解：拉取广告超时时间，开发者调用loadAd方法以后会立即展示backgroundImage，然后在该超时时间内，如果广告拉
  *  取成功，则立马展示开屏广告，否则放弃此次广告展示机会。
  */
