@@ -15,7 +15,6 @@ class HybridAdViewController: UIViewController, GDTHybridAdDelegate {
         
     }
     @IBAction func clickLoad(_ sender: Any) {
-        GDTSDKConfig.registerAppId(Constant.appID)
         let hybridAD = GDTHybridAd.init(type: GDTHybridAdOptions.rewardVideo)
         hybridAD.delegate = self
         hybridAD.load(withUrl: self.urlTestField.text!)

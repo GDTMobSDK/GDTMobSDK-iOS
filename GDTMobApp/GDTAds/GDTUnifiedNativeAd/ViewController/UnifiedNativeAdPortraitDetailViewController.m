@@ -23,11 +23,12 @@
     self.nativeAdView.viewController = self;
     self.nativeAdView.delegate = self;
     
-    [self.nativeAdView registerDataObject:self.dataObject clickableViews:@[self.nativeAdView.titleLabel,
-                                                                           self.nativeAdView.iconImageView,
-                                                                           self.nativeAdView.descLabel,
-                                                                           self.nativeAdView.clickButton]];
-    
+    if ([self.dataObject isAdValid]) {
+        [self.nativeAdView registerDataObject:self.dataObject clickableViews:@[self.nativeAdView.titleLabel,
+                                                                               self.nativeAdView.iconImageView,
+                                                                               self.nativeAdView.descLabel,
+                                                                               self.nativeAdView.clickButton]];
+    }
     
     [self.nativeAdView setupWithUnifiedNativeAdObject:self.dataObject];
     

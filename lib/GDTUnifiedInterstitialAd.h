@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GDTSDKDefines.h"
 #import "GDTServerSideVerificationOptions.h"
+#import "GDTAdProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -139,10 +140,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GDTUnifiedInterstitialAd : NSObject
+@interface GDTUnifiedInterstitialAd : NSObject <GDTAdProtocol>
 
 /**
- *  插屏2.0广告预加载是否完成
+ *  广告是否有效，以下情况会返回NO，建议在展示广告之前判断，否则会影响计费或展示失败
+ *  a.广告未拉取成功
+ *  b.广告已经曝光过
+ *  c.广告过期
+ *
  */
 @property (nonatomic, readonly) BOOL isAdValid;
 
@@ -166,13 +171,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param token  通过 Server Bidding 请求回来的 token
  */
 - (instancetype)initWithPlacementId:(NSString *)placementId token:(NSString *)token;
-
-/**
- *  构造方法
- *  详解：appId - 媒体 ID
- *       placementId - 广告位 ID
- */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:");
 
 /**
  *  S2S bidding 竞胜之后调用, 需要在调用广告 show 之前调用

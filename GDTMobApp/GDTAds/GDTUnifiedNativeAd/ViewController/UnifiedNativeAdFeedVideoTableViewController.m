@@ -84,11 +84,13 @@
         UnifiedNativeAdThreeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdThreeImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.leftImageView, cell.adView.midImageView, cell.adView.rightImageView] placeholder:nil];
+        
         return cell;
     } else {
         UnifiedNativeAdImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.imageView] placeholder:nil];
+        
         return cell;
     }
 }
@@ -119,6 +121,9 @@
 {
     if (!error && unifiedNativeAdDataObjects.count > 0) {
         NSLog(@"成功请求到广告数据");
+        for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
+            NSLog(@"extraInfo: %@", obj.extraInfo);
+        }
         self.adDataArray = unifiedNativeAdDataObjects;
         [self.tableView reloadData];
         

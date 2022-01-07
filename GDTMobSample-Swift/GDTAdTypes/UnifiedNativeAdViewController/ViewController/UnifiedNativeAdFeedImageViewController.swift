@@ -17,7 +17,7 @@ class UnifiedNativeAdFeedImageViewController: UnifiedNativeAdBaseViewController 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.placementId = "2000566593234845"
-        self.unifiedNativeAd = GDTUnifiedNativeAd.init(appId: self.appId, placementId: self.placementId)
+        self.unifiedNativeAd = GDTUnifiedNativeAd.init(placementId: self.placementId)
         self.unifiedNativeAd?.delegate = self
         self.unifiedNativeAd?.loadAd(withAdCount: 10)
         self.tableView = UITableView()

@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  需要在 loadAd 前设置此属性。
  */
-@property (nonatomic, assign) GDTVideoPlayPolicy videoPlayPolicy;
+@property (nonatomic, assign) GDTVideoPlayPolicy videoPlayPolicy GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃");
 
 /**
  可选属性，设置本次拉取的视频广告封面是由SDK渲染还是开发者自行渲染。
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  开发者自行渲染，指开发者获取到广告对象后，先用封面图字段在 feed 流中先渲染出一个封面图入口，用户点击封面图，再进入一个有 conainterView 的详细页，播放视频。Demo 工程中的 "竖版 Feed 视频" 就是开发者渲染的场景。
  */
-@property (nonatomic, assign) GDTVideoRenderType videoRenderType;
+@property (nonatomic, assign) GDTVideoRenderType videoRenderType GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃");
 
 /**
  构造方法
@@ -73,15 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param token  通过 Server Bidding 请求回来的 token
  */
 - (instancetype)initWithPlacementId:(NSString *)placementId token:(NSString *)token;
-
-/**
- 构造方法
-
- @param appId 媒体ID
- @param placementId 广告位ID
- @return GDTUnifiedNativeAd 实例
- */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:");
 
 /**
  *  S2S bidding 竞胜之后调用, 需要在调用广告 show 之前调用

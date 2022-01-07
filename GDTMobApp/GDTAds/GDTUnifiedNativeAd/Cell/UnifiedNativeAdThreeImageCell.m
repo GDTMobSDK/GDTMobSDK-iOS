@@ -42,10 +42,12 @@
         .origin.y = 8,
         .size = self.adView.clickButton.frame.size
     };
-    [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
-                                                                self.adView.leftImageView,
-                                                                self.adView.midImageView,
-                                                                self.adView.rightImageView]];
+    if ([dataObject isAdValid]) {
+        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
+                                                                    self.adView.leftImageView,
+                                                                    self.adView.midImageView,
+                                                                    self.adView.rightImageView]];
+    }
 }
 
 + (CGFloat)cellHeightWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject

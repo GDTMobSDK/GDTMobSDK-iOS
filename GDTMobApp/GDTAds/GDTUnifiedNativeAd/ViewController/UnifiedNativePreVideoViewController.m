@@ -108,7 +108,10 @@
 {
     self.dataObject.videoConfig = self.videoConfig;
     self.nativeAdCustomView.viewController = self;
-    [self.nativeAdCustomView registerDataObject:self.dataObject clickableViews:@[self.nativeAdCustomView.clickButton]];
+    if ([self.dataObject isAdValid]) {
+        [self.nativeAdCustomView registerDataObject:self.dataObject clickableViews:@[self.nativeAdCustomView.clickButton]];
+    }
+    
     if (self.dataObject.isAppAd) {
         [self.nativeAdCustomView.clickButton setTitle:@"点击下载" forState:UIControlStateNormal];
     } else {
@@ -161,6 +164,9 @@
 {
     if (!error && unifiedNativeAdDataObjects.count > 0) {
         NSLog(@"成功请求到广告数据");
+        for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
+            NSLog(@"extraInfo: %@", obj.extraInfo);
+        }
         self.dataObject = unifiedNativeAdDataObjects[0];
         NSLog(@"eCPM:%ld eCPMLevel:%@", [self.dataObject eCPM], [self.dataObject eCPMLevel]);
         // 在 bidding 结束之后, 调用对应的竞胜/竞败接口

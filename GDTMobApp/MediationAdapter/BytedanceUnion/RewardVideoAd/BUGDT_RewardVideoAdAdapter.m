@@ -82,6 +82,20 @@
     return self.delegateObject.loadedTime + 1800;
 }
 
+- (NSInteger)eCPM {
+    if ([self.rewardVideoAd.mediaExt objectForKey:@"price"]) {
+        return [[self.rewardVideoAd.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
+    return -1;
+}
 
+- (NSDictionary *)extraInfo {
+    NSMutableDictionary *res = [NSMutableDictionary dictionary];
+    if ([self.rewardVideoAd.mediaExt objectForKey:@"request_id"]) {
+        [res setObject:[self.rewardVideoAd.mediaExt objectForKey:@"request_id"] forKey:GDT_REQ_ID_KEY];
+    }
+    return [res copy];
+}
 
 @end

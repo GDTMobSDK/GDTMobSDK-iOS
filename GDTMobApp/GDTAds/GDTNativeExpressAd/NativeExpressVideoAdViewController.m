@@ -76,22 +76,12 @@ static NSString *Mediator_STR = @"100015";
 
 - (IBAction)selectADVStyle:(id)sender {
     self.advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    NSArray *advTypeTextArray = @[@"上图下文(图片尺寸1280×720)",
-                                   @"上文下图(图片尺寸1280×720)",
-                                   @"双图双文(大图尺寸1280×720)",
-                                   @"纯图片(图片尺寸1280×720)",
-                                  @"流量分配"
-    ];
-    NSArray *advTypePosIDArray = @[ABOVEPH_BLOWTEXT_STR,
-                                   ABOVETEXT_BLOW_PH_STR,
-                                   TWOPH_AND_TEXT_STR,
-                                   ONE_PHOTO_STR,
-                                   Mediator_STR];
+    NSArray *advTypeTextArray = [self getAdvTypeTextArray];
     for (NSInteger i = 0; i < advTypeTextArray.count; i++) {
-        UIAlertAction *advTypeAction = [UIAlertAction actionWithTitle:advTypeTextArray[i]
+        UIAlertAction *advTypeAction = [UIAlertAction actionWithTitle:advTypeTextArray[i][0]
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * _Nonnull action) {
-            self.placementIdTextField.placeholder = advTypePosIDArray[i];
+            self.placementIdTextField.placeholder = advTypeTextArray[i][1];
             [self refreshViewWithNewPosID];
         }];
         [self.advStyleAlertController addAction:advTypeAction];
@@ -101,6 +91,15 @@ static NSString *Mediator_STR = @"100015";
                      completion:^{
         [self clickBackToMainView];
     }];
+}
+
+- (NSArray *)getAdvTypeTextArray
+{
+    return @[@[@"上图下文(图片尺寸1280×720)",@"1020922903364636"],
+             @[@"上文下图(图片尺寸1280×720)",@"1070493363284797"],
+             @[@"双图双文(大图尺寸1280×720)",@"8070996313484739"],
+             @[@"纯图片(图片尺寸1280×720)",@"1010197333187887"],
+             @[@"流量分配",@"100015"]];
 }
 
 - (void)clickBackToMainView {
@@ -242,10 +241,13 @@ static NSString *Mediator_STR = @"100015";
     NSLog(@"%s",__FUNCTION__);
     self.expressAdViews = [NSMutableArray arrayWithArray:views];
     if (self.expressAdViews.count) {
-        [self.expressAdViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.expressAdViews enumerateObjectsUsingBlock:^(GDTNativeExpressAdView *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
             expressView.controller = self;
-            [expressView render];
+            if ([expressView isAdValid]) {
+                [expressView render];
+            }
+            NSLog(@"extraInfo: %@", obj.extraInfo);
             NSLog(@"eCPM:%ld eCPMLevel:%@ videoDuration:%lf", [expressView eCPM], [expressView eCPMLevel], [expressView videoDuration]);
         }];
     }
@@ -263,20 +265,20 @@ static NSString *Mediator_STR = @"100015";
 }
 
 /**
- * 拉取广告失败的回调
- */
-- (void)nativeExpressAdRenderFail:(GDTNativeExpressAdView *)nativeExpressAdView
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-/**
  * 拉取原生模板广告失败
  */
 - (void)nativeExpressAdFailToLoad:(GDTNativeExpressAd *)nativeExpressAd error:(NSError *)error
 {
     NSLog(@"%s",__FUNCTION__);
     NSLog(@"Express Ad Load Fail : %@",error);
+}
+
+/**
+ * 模板渲染失败的回调
+ */
+- (void)nativeExpressAdViewRenderFail:(GDTNativeExpressAdView *)nativeExpressAdView
+{
+    NSLog(@"%s",__FUNCTION__);
 }
 
 - (void)nativeExpressAdViewRenderSuccess:(GDTNativeExpressAdView *)nativeExpressAdView

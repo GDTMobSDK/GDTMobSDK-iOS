@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GDTAdProtocol.h"
 
 
-@interface GDTNativeExpressAdView : UIView
+@interface GDTNativeExpressAdView : UIView <GDTAdProtocol>
 
 /**
  * 是否渲染完毕
@@ -21,11 +22,17 @@
  */
 @property (nonatomic, assign, readonly) BOOL isVideoAd;
 
-/*
+/**
  *  viewControllerForPresentingModalView
  *  详解：[必选]开发者需传入用来弹出目标页的ViewController，一般为当前ViewController
  */
 @property (nonatomic, weak) UIViewController *controller;
+
+/**
+ *  广告是否有效，以下情况会返回NO，建议在调用render之前判断，当为NO时render失败
+ *  a.广告过期
+ */
+@property (nonatomic, readonly) BOOL isAdValid;
 
 /**
  *[必选]

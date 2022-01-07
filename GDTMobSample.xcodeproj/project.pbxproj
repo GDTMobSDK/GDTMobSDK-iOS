@@ -131,7 +131,6 @@
 		0A033A7622A3F25700183210 /* UnifiedNativeAdPortraitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitDetailViewController.h; sourceTree = "<group>"; };
 		0A033A7822A3F27600183210 /* UnifiedNativePortraitCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativePortraitCollectionViewCell.h; sourceTree = "<group>"; };
 		0A033A7922A3F27600183210 /* UnifiedNativePortraitCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativePortraitCollectionViewCell.m; sourceTree = "<group>"; };
-		0A053B40248A4812006E6138 /* GDTNativeExpressProAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressProAdManager.h; sourceTree = "<group>"; };
 		0A053B41248A4812006E6138 /* GDTNativeExpressProAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressProAdView.h; sourceTree = "<group>"; };
 		0A053B44248A487E006E6138 /* GDTAdParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdParams.h; sourceTree = "<group>"; };
 		0A0AD2FA205978B10045701B /* GDTMobSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GDTMobSample-Prefix.pch"; sourceTree = "<group>"; };
@@ -196,8 +195,6 @@
 		C0A9A93625CAD348009DAD5C /* UnifiedNativeAdVideoConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdVideoConfigView.m; sourceTree = "<group>"; };
 		C0FBA89326B149F100EE2FB9 /* S2SBiddingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S2SBiddingManager.h; sourceTree = "<group>"; };
 		C0FBA89426B149F100EE2FB9 /* S2SBiddingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S2SBiddingManager.m; sourceTree = "<group>"; };
-		CB18456A25496595005191A0 /* GDTNativeExpressRewardVideoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressRewardVideoAd.h; sourceTree = "<group>"; };
-		CB2FE55125F9C89E0068AD82 /* GDTExpressInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTExpressInterstitialAd.h; sourceTree = "<group>"; };
 		CB5526E325BAEDA2008057BC /* GDTSplashAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		CB5526E425BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		CB5526E525BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
@@ -419,7 +416,6 @@
 			children = (
 				66B1833726B1490C00F28C54 /* GDTUnifiedBannerAdNetworkAdapterProtocol.h */,
 				66B1833626B1490C00F28C54 /* GDTUnifiedBannerAdNetworkConnectorProtocol.h */,
-				CB2FE55125F9C89E0068AD82 /* GDTExpressInterstitialAd.h */,
 				CB5526E725BAEDA2008057BC /* GDTServerSideVerificationOptions.h */,
 				CB5526E925BAEDA3008057BC /* GDTSplashAdNetworkAdapterProtocol.h */,
 				CB5526E325BAEDA2008057BC /* GDTSplashAdNetworkConnectorProtocol.h */,
@@ -428,11 +424,9 @@
 				CB5526E825BAEDA3008057BC /* GDTUnifiedNativeAdNetworkAdapterProtocol.h */,
 				CB5526E625BAEDA2008057BC /* GDTUnifiedNativeAdNetworkConnectorProtocol.h */,
 				3BB7B6FC25667705005A2000 /* GDTSplashZoomOutView.h */,
-				CB18456A25496595005191A0 /* GDTNativeExpressRewardVideoAd.h */,
 				CB673B4D24EB87E5008AD066 /* GDTAdTestSetting.h */,
 				CB673B4E24EB87E5008AD066 /* GDTLoadAdParams.h */,
 				0A053B44248A487E006E6138 /* GDTAdParams.h */,
-				0A053B40248A4812006E6138 /* GDTNativeExpressProAdManager.h */,
 				0A053B41248A4812006E6138 /* GDTNativeExpressProAdView.h */,
 				0AF51F9C231FB1DD00245A69 /* GDTBaseAdNetworkAdapterProtocol.h */,
 				0AF51F9A231FB1DD00245A69 /* GDTRewardVideoAdNetworkAdapterProtocol.h */,

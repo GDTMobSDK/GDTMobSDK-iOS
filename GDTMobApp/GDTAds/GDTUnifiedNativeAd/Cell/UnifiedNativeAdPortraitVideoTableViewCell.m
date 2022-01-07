@@ -122,11 +122,14 @@
     self.adView.viewController = vc; // 跳转 VC
     self.adView.mediaView.delegate = self;
     [self.adView setupWithUnifiedNativeAdObject:dataObject];
-    [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
-                                                                self.adView.iconImageView,
-                                                                self.adView.imageView,
-                                                                self.adView.titleLabel,
-                                                                self.adView.descLabel]];
+    if ([dataObject isAdValid]) {
+        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
+                                                                    self.adView.iconImageView,
+                                                                    self.adView.imageView,
+                                                                    self.adView.titleLabel,
+                                                                    self.adView.descLabel]];
+    }
+    
     NSString *imageName = dataObject.isAppAd ? @"feed_download" : @"feed_link";
     UIImage *image = [UIImage imageNamed:imageName];
     [self.adView.clickButton setImage:image forState:UIControlStateNormal];

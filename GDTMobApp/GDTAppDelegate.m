@@ -28,6 +28,8 @@
     self.window.rootViewController = self.nav;
     [self.window makeKeyAndVisible];
     BOOL result = [GDTSDKConfig registerAppId:kGDTMobSDKAppId];
+    //设置地理位置信息
+    //[GDTSDKConfig setExtraUserData:@{@"lng":@"116.3899", @"lat":@"39.8766", @"loc_time":@"1639450944"}];
     if (result) {
         NSLog(@"注册成功");
     }

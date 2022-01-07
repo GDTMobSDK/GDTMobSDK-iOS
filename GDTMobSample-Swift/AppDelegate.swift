@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDTSplashAdDelegate {
     var splash: GDTSplashAd!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        GDTSDKConfig.registerAppId(Constant.appID)
         window = UIWindow(frame: UIScreen.main.bounds)
         viewController = ViewController()
         let navigationController = GDTNavigationController(rootViewController: viewController!)

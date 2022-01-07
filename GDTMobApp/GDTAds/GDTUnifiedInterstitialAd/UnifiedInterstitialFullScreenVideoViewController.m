@@ -29,6 +29,7 @@
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (nonatomic, assign) BOOL useToken;
+@property (nonatomic, weak) IBOutlet UILabel *adValidLabel;
 
 @end
 
@@ -62,6 +63,7 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 }
 
 - (IBAction)loadAd:(id)sender {
+    self.adValidLabel.text = @"";
     if (self.interstitial) {
         self.interstitial.delegate = nil;
     }
@@ -88,7 +90,12 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 }
 
 - (IBAction)showAd:(id)sender {
-    [self.interstitial presentFullScreenAdFromRootViewController:self];
+    if ([self.interstitial isAdValid]) {
+        [self.interstitial presentFullScreenAdFromRootViewController:self];
+    }
+    else {
+        self.interstitialStateLabel.text = @"广告数据无效";
+    }
 }
 
 - (IBAction)changePid:(id)sender {
@@ -163,6 +170,10 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
     }
 }
 
+- (IBAction)checkAdValidation:(id)sender {
+    self.adValidLabel.text = [self.interstitial isAdValid] ? @"广告有效" : @"广告无效";
+}
+
 #pragma mark - GDTUnifiedInterstitialAdDelegate
 
 /**
@@ -172,6 +183,7 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 - (void)unifiedInterstitialSuccessToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
     NSLog(@"%s",__FUNCTION__);
+    NSLog(@"extraInfo: %@", unifiedInterstitial.extraInfo);
     self.interstitialStateLabel.text = [NSString stringWithFormat:@"%@:%@ %@",INTERSTITIAL_STATE_TEXT,unifiedInterstitial.adNetworkName, @"Load Success." ];
     NSLog(@"eCPM:%ld eCPMLevel:%@", [unifiedInterstitial eCPM], [unifiedInterstitial eCPMLevel]);
     NSLog(@"videoDuration:%lf isVideo: %@", unifiedInterstitial.videoDuration, @(unifiedInterstitial.isVideoAd));

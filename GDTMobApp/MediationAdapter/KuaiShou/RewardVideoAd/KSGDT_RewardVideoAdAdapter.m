@@ -83,7 +83,6 @@
 }
 
 - (NSInteger)eCPM {
-    NSLog(@"kuaishou 价格 --> %@", @(self.rewardVideoAd.ecpm));
     return self.rewardVideoAd.ecpm;
 }
 

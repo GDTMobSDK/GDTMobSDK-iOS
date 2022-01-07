@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (nonatomic, assign) BOOL useToken;
-
+@property (nonatomic, weak) IBOutlet UILabel *adValidLabel;
 @end
 
 @implementation UnifiedInterstitialViewController
@@ -85,6 +85,7 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
 }
 
 - (IBAction)loadAd:(id)sender {
+    self.adValidLabel.text = @"";
     if (self.interstitial) {
         self.interstitial.delegate = nil;
     }
@@ -106,7 +107,12 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
 }
 
 - (IBAction)showAd:(id)sender {
-    [self.interstitial presentAdFromRootViewController:self];
+    if ([self.interstitial isAdValid]) {
+        [self.interstitial presentAdFromRootViewController:self];
+    }
+    else {
+        self.interstitialStateLabel.text = @"广告数据无效";
+    }
 }
 
 - (void)sliderMaxVideoDurationChanged {
@@ -181,6 +187,10 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
     }
 }
 
+- (IBAction)checkAdValidation:(id)sender {
+    self.adValidLabel.text = [self.interstitial isAdValid] ? @"广告有效" : @"广告无效";
+}
+
 #pragma mark - GDTUnifiedInterstitialAdDelegate
 
 /**
@@ -190,6 +200,7 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
 - (void)unifiedInterstitialSuccessToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
     NSLog(@"%s",__FUNCTION__);
+    NSLog(@"extraInfo: %@", unifiedInterstitial.extraInfo);
     self.interstitialStateLabel.text = [NSString stringWithFormat:@"%@:%@ %@",INTERSTITIAL_STATE_TEXT,unifiedInterstitial.adNetworkName, @"Load Success." ];
     NSLog(@"eCPM:%ld eCPMLevel:%@", [unifiedInterstitial eCPM], [unifiedInterstitial eCPMLevel]);
     NSLog(@"videoDuration:%lf isVideo: %@", unifiedInterstitial.videoDuration, @(unifiedInterstitial.isVideoAd));

@@ -7,6 +7,7 @@
 //
 
 #import "GDTBaseAdNetworkAdapterProtocol.h"
+#import "GDTAdProtocol.h"
 
 @class GDTUnifiedNativeAdDataObject;
 @protocol GDTUnifiedNativeAdNetworkConnectorProtocol;
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class GDTVideoConfig;
 @protocol GDTUnifiedNativeAdDataObjectConnectorProtocol;
 
-@protocol GDTUnifiedNativeAdDataObjectAdapterProtocol <NSObject>
+@protocol GDTUnifiedNativeAdDataObjectAdapterProtocol <GDTAdProtocol>
 
 @property (nonatomic, copy, readonly) NSString *title;
 

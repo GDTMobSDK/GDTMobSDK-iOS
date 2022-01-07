@@ -30,7 +30,6 @@ class UnifiedBannerViewController: UIViewController, GDTUnifiedBannerViewDelegat
     
     func initMobBannerView() {
         if bannerView == nil {
-            GDTSDKConfig.registerAppId(Constant.appID)
             let rect = CGRect.init(origin: .zero, size:CGSize.init(width: 375, height: 60))
             bannerView = GDTUnifiedBannerView.init(frame: rect, placementId: placementTextField.text!, viewController: self)
             

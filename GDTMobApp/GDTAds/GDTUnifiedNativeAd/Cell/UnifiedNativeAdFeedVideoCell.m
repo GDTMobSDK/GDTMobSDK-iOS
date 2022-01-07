@@ -77,12 +77,16 @@
         .size = self.adView.CTAButton.frame.size
     };
     if ([dataObject isVideoAd]) {
-        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.iconImageView,
-        self.adView.imageView] customClickableViews:@[self.adView.clickButton]];
+        if ([dataObject isAdValid]) {
+            [self.adView registerDataObject:dataObject clickableViews:@[self.adView.iconImageView,
+            self.adView.imageView] customClickableViews:@[self.adView.clickButton]];
+        }
     }
     else {
-        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton, self.adView.iconImageView,
-                                                                self.adView.imageView]];
+        if ([dataObject isAdValid]) {
+            [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton, self.adView.iconImageView,
+                                                                    self.adView.imageView]];
+        }
     }
     [self.adView registerClickableCallToActionView:self.adView.CTAButton];
     [self.adView.mediaView setPlayButtonImage:[UIImage imageNamed:@"play"] size:CGSizeMake(60, 60)]; // register方法后调用

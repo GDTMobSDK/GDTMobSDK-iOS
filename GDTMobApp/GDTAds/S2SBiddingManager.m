@@ -14,7 +14,7 @@ static NSString * const kS2SUrl = @"https://mi.gdt.qq.com/server_bidding";
 @implementation S2SBiddingManager
 
 + (void)getTokenWithPlacementId:(NSString *)placementId completion:(void (^)(NSString *token))completion {
-    NSString *buyerId = [GDTSDKConfig getBuyerId];
+    NSString *buyerId = [GDTSDKConfig getBuyerIdWithContext:nil];
     if (!placementId || !buyerId) {
         if (completion) completion(nil);
         return;

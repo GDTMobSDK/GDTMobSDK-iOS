@@ -86,6 +86,9 @@
         NSLog(@"error %@", error);
         return;
     }
+    for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
+        NSLog(@"extraInfo: %@", obj.extraInfo);
+    }
     self.dataArray = unifiedNativeAdDataObjects;
     [self.tableView reloadData];
     
@@ -121,6 +124,7 @@
     nativeAdDataObject.videoConfig = self.videoConfig;
     UnifiedNativeAdPortraitVideoTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdPortraitVideoTableViewCell"];
     [cell setupWithUnifiedNativeAdDataObject:nativeAdDataObject delegate:self vc:self];
+    
     return cell;
 }
 

@@ -36,6 +36,7 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (nonatomic, assign) BOOL useToken;
+@property (nonatomic, weak) IBOutlet UILabel *adValidLabel;
 
 @end
 
@@ -117,6 +118,7 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
 }
 
 - (IBAction)loadAd:(id)sender {
+    self.adValidLabel.text = @"";
     NSString *placementId = self.placementIdTextField.text.length > 0 ?self.placementIdTextField.text: self.placementIdTextField.placeholder;
     //placementId = @"1040149434136928";
     if (!self.useToken) {
@@ -192,6 +194,10 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
     self.useToken = sender.isOn;
 }
 
+- (IBAction)checkAdValidation:(id)sender {
+    BOOL adValid = [self.rewardVideoAd isAdValid];
+    self.adValidLabel.text = adValid ? @"广告有效" : @"广告无效";
+}
 /**
  * 上报给优量汇服务端在开发者客户端竞价中优量汇的竞价结果，以便于优量汇服务端调整策略提供给开发者更合理的报价
  *
@@ -217,6 +223,7 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
 - (void)gdt_rewardVideoAdDidLoad:(GDTRewardVideoAd *)rewardedVideoAd
 {
     NSLog(@"%s",__FUNCTION__);
+    NSLog(@"extraInfo: %@", rewardedVideoAd.extraInfo);
     self.statusLabel.text = [NSString stringWithFormat:@"%@ 广告数据加载成功", rewardedVideoAd.adNetworkName];
     NSLog(@"eCPM:%ld eCPMLevel:%@", [rewardedVideoAd eCPM], [rewardedVideoAd eCPMLevel]);
     NSLog(@"videoDuration :%lf rewardAdType:%ld", rewardedVideoAd.videoDuration, rewardedVideoAd.rewardAdType);

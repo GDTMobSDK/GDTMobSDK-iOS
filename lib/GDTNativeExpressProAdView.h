@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GDTAdParams.h"
 #import "GDTSDKDefines.h"
+#import "GDTAdProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -96,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GDTNativeExpressProAdView : UIView
+@interface GDTNativeExpressProAdView : UIView <GDTAdProtocol>
 
 @property (nonatomic, weak) id <GDTNativeExpressProAdViewDelegate> delegate;
 

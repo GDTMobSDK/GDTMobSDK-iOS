@@ -69,11 +69,13 @@
         UnifiedNativeAdThreeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdThreeImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.leftImageView, cell.adView.midImageView, cell.adView.rightImageView] placeholder:nil];
+        
         return cell;
     } else {
         UnifiedNativeAdImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.imageView] placeholder:nil];
+        
         return cell;
     }
 }
@@ -106,7 +108,9 @@
         NSLog(@"成功请求到广告数据");
         self.adDataArray = unifiedNativeAdDataObjects;
         [self.tableView reloadData];
-        
+        for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
+            NSLog(@"extraInfo: %@", obj.extraInfo);
+        }
         // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
         if (self.useToken) {
             // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费

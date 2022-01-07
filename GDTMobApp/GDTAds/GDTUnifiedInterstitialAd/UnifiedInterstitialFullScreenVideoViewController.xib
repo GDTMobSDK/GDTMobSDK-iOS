@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UnifiedInterstitialFullScreenVideoViewController">
             <connections>
+                <outlet property="adValidLabel" destination="edx-sC-CYk" id="5Rl-vI-fAr"/>
                 <outlet property="interstitialStateLabel" destination="6tk-kL-pAd" id="vbL-Iw-Aal"/>
                 <outlet property="maxVideoDurationLabel" destination="2WQ-JN-MbZ" id="BFa-xK-uNW"/>
                 <outlet property="maxVideoDurationSlider" destination="PmQ-TM-ef1" id="ihh-RF-5O4"/>
@@ -174,11 +175,34 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj1-zv-CLU">
+                    <rect key="frame" x="16" y="410" width="123" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ffs-WT-3jT"/>
+                        <constraint firstAttribute="width" constant="123" id="gzS-ao-8lk"/>
+                    </constraints>
+                    <state key="normal" title="检查广告是否有效"/>
+                    <connections>
+                        <action selector="checkAdValidation:" destination="-1" eventType="touchUpInside" id="naR-Jp-pY3"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edx-sC-CYk">
+                    <rect key="frame" x="166" y="415" width="130" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="3p7-d0-RIO"/>
+                        <constraint firstAttribute="height" constant="21" id="JmL-AN-ODW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="MEd-ZD-cWJ"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="edx-sC-CYk" firstAttribute="leading" secondItem="vj1-zv-CLU" secondAttribute="trailing" constant="27" id="16C-gp-s8H"/>
                 <constraint firstItem="3TM-V1-L5f" firstAttribute="leading" secondItem="HyU-jo-e4F" secondAttribute="trailing" constant="20" id="2C6-ZJ-sCX"/>
+                <constraint firstItem="edx-sC-CYk" firstAttribute="top" secondItem="3TM-V1-L5f" secondAttribute="bottom" constant="44" id="2XG-wp-Yxo"/>
                 <constraint firstItem="MEd-ZD-cWJ" firstAttribute="trailing" secondItem="B1I-WU-HIu" secondAttribute="trailing" constant="49" id="3oy-PX-3Gl"/>
                 <constraint firstAttribute="bottom" secondItem="oiS-n2-kts" secondAttribute="bottom" constant="29" id="4WK-Kn-0S1"/>
                 <constraint firstItem="Eck-aE-UjY" firstAttribute="top" secondItem="PmQ-TM-ef1" secondAttribute="bottom" constant="18.5" id="6sM-an-3Vf"/>
@@ -191,6 +215,7 @@
                 <constraint firstItem="MID-qQ-Kyc" firstAttribute="top" secondItem="2WQ-JN-MbZ" secondAttribute="bottom" constant="85" id="Ecy-Gl-oee"/>
                 <constraint firstAttribute="trailing" secondItem="6tk-kL-pAd" secondAttribute="trailing" constant="15" id="FZL-eB-ke8"/>
                 <constraint firstItem="jkj-TS-6pI" firstAttribute="leading" secondItem="MEd-ZD-cWJ" secondAttribute="leading" constant="15" id="Hks-WP-M71"/>
+                <constraint firstItem="vj1-zv-CLU" firstAttribute="leading" secondItem="MEd-ZD-cWJ" secondAttribute="leading" constant="16" id="Idj-TX-8Ly"/>
                 <constraint firstItem="MID-qQ-Kyc" firstAttribute="leading" secondItem="2WQ-JN-MbZ" secondAttribute="leading" id="L0s-78-dsp"/>
                 <constraint firstItem="6tk-kL-pAd" firstAttribute="leading" secondItem="34b-2H-m7g" secondAttribute="leading" constant="15" id="M7y-CE-o2L"/>
                 <constraint firstItem="B1I-WU-HIu" firstAttribute="leading" secondItem="Eck-aE-UjY" secondAttribute="trailing" constant="5" id="MPc-PA-zQQ"/>
@@ -209,6 +234,7 @@
                 <constraint firstItem="PmQ-TM-ef1" firstAttribute="top" secondItem="ngW-ao-riZ" secondAttribute="bottom" constant="6" id="pS5-jF-gT3"/>
                 <constraint firstItem="9pP-Rg-oU2" firstAttribute="leading" secondItem="wk3-5y-hmo" secondAttribute="trailing" constant="14" id="q4b-oO-0XC"/>
                 <constraint firstItem="MEd-ZD-cWJ" firstAttribute="trailing" secondItem="PmQ-TM-ef1" secondAttribute="trailing" constant="37" id="rId-35-Egw"/>
+                <constraint firstItem="vj1-zv-CLU" firstAttribute="top" secondItem="HyU-jo-e4F" secondAttribute="bottom" constant="24" id="rKN-2Z-gk0"/>
                 <constraint firstItem="jkj-TS-6pI" firstAttribute="top" secondItem="wk3-5y-hmo" secondAttribute="bottom" constant="8" symbolic="YES" id="rtW-t5-eNC"/>
                 <constraint firstItem="zsR-M8-wgx" firstAttribute="leading" secondItem="34b-2H-m7g" secondAttribute="leading" constant="30" id="ssN-X7-0JH"/>
                 <constraint firstItem="B1I-WU-HIu" firstAttribute="top" secondItem="PmQ-TM-ef1" secondAttribute="bottom" constant="11.5" id="sy0-aa-X8P"/>
@@ -218,7 +244,7 @@
                 <constraint firstItem="em5-AO-oyk" firstAttribute="top" secondItem="6tk-kL-pAd" secondAttribute="bottom" constant="9.5" id="z4p-nx-dk5"/>
                 <constraint firstItem="MEd-ZD-cWJ" firstAttribute="trailing" secondItem="9pP-Rg-oU2" secondAttribute="trailing" constant="21" id="zfb-iv-kZ5"/>
             </constraints>
-            <point key="canvasLocation" x="139.13043478260872" y="124.55357142857142"/>
+            <point key="canvasLocation" x="138.40000000000001" y="124.13793103448276"/>
         </view>
     </objects>
 </document>

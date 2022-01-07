@@ -89,6 +89,7 @@
             [self.adArray addObject:@"test"];
             [self.adArray addObject:dataObject];
         }
+        NSLog(@"extraInfo: %@", dataObject.extraInfo);
         NSLog(@"eCPM:%ld eCPMLevel:%@", [dataObject eCPM], [dataObject eCPMLevel]);
     }
     [self.collectionView reloadData];

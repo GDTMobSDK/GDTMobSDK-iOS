@@ -66,6 +66,14 @@
     [self.gdtBannerView addSubview:self.buBannerView];
 }
 
+- (NSInteger)eCPM {
+    if ([self.buBannerView.mediaExt objectForKey:@"price"]) {
+        return [[self.buBannerView.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
+    return -1;
+}
+
 #pragma mark - BUNativeExpressBannerViewDelegate
 
 - (void)nativeExpressBannerAdViewDidLoad:(BUNativeExpressBannerView *)bannerAdView {
@@ -115,6 +123,14 @@
         [self.connector adapter_unifiedBannerViewWillClose:self];
     }
     [self.gdtBannerView removeFromSuperview];
+}
+
+- (NSDictionary *)extraInfo {
+    NSMutableDictionary *res = [NSMutableDictionary dictionary];
+    if ([self.buBannerView.mediaExt objectForKey:@"request_id"]) {
+        [res setObject:[self.buBannerView.mediaExt objectForKey:@"request_id"] forKey:GDT_REQ_ID_KEY];
+    }
+    return [res copy];
 }
 
 

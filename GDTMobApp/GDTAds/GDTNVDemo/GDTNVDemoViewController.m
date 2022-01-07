@@ -51,14 +51,14 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.templateView stopAnimationIfNeccessary];
+    [self.templateView dlViewDidDisappear];
 }
 
-- (void)gdt_dlRootViewTouchesBegan:(GDTDLTouchInfo *)info {
+- (void)gdt_dlRootViewEventsBegan:(GDTDLTouchInfo *)info {
     NSLog(@"touch began");
 }
 
-- (void)gdt_dlRootViewTouchesEnded:(GDTDLTouchInfo *)info {
+- (void)gdt_dlRootViewEventsEnded:(GDTDLTouchInfo *)info {
     NSLog(@"touch end");
 }
 
@@ -150,7 +150,7 @@
     [view bindData:@{}];
     self.templateView = view;
     [self.view addSubview:self.templateView];
-    [self.templateView doAnimationIfNeccessary];
+    [self.templateView dlViewDidAppear];
 }
 
 - (NSString *)convertToJsonData:(NSDictionary *)dict {

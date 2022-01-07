@@ -32,7 +32,7 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100008";
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, assign) BOOL useToken;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
-
+@property (nonatomic, weak) IBOutlet UILabel *adValidLabel;
 @end
 
 @implementation SplashViewController
@@ -300,6 +300,10 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100008";
     }
 }
 
+- (IBAction)checkAdValidation:(id)sender {
+    self.adValidLabel.text = [self.splashAd isAdValid] ? @"广告有效" : @"广告无效";
+}
+
 #pragma mark - GDTSplashAdDelegate
 
 - (void)splashAdDidLoad:(GDTSplashAd *)splashAd {
@@ -309,6 +313,7 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100008";
         // 支持拖拽
         [splashAd.splashZoomOutView supportDrag];
     }
+    NSLog(@"extraInfo: %@", splashAd.extraInfo);
     NSLog(@"%s", __func__);
     self.tipsLabel.text = [NSString stringWithFormat:@"%@ 广告拉取成功", splashAd.adNetworkName];
     NSLog(@"ecpm:%ld ecpmLevel:%@", splashAd.eCPM, splashAd.eCPMLevel);

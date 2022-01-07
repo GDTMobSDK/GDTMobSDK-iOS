@@ -101,6 +101,8 @@ extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
 /**
  自渲染2.0视图注册方法
  
+ 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ 
  @param dataObject 数据对象，必传字段
  @param clickableViews 可点击的视图数组，此数组内的广告元素才可以响应广告对应的点击事件
  */
@@ -110,6 +112,9 @@ extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
 
 /**
  自渲染2.0视图注册方法
+ 
+ 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ 
  @param dataObject 数据对象，必传字段
  @param clickableViews 可点击的视图数组，此数组内的广告元素才可以响应广告对应的点击事件
  @param customClickableViews 可点击的视图数组，与clickableViews的区别是：在视频广告中当dataObject中的videoConfig的detailPageEnable为YES时，点击后直接进落地页而非视频详情页，除此条件外点击行为与clickableViews保持一致

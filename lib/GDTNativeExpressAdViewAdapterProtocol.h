@@ -9,7 +9,9 @@
 #ifndef GDTNativeExpressAdViewAdapterProtocol_h
 #define GDTNativeExpressAdViewAdapterProtocol_h
 @class GDTNativeExpressAdView;
-@protocol GDTNativeExpressAdViewAdapterProtocol <NSObject>
+@protocol GDTAdProtocol;
+
+@protocol GDTNativeExpressAdViewAdapterProtocol <GDTAdProtocol>
 
 @property (nonatomic, weak) GDTNativeExpressAdView *gdtExpressAdView;
 
@@ -17,6 +19,7 @@
 @property (nonatomic, assign, readonly) BOOL isVideoAd;
 @property (nonatomic, weak) UIViewController *controller;
 
+- (BOOL)isAdValid;
 - (UIView *)adView;
 
 - (void)render;

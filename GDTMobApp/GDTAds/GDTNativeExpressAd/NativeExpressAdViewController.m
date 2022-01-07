@@ -79,41 +79,13 @@ static NSString *Mediator_STR = @"100014";
 
 - (IBAction)selectADVStyle:(id)sender {
     self.advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    NSArray *advTypeTextArray = @[@"上图下文(图片尺寸1280×720)",
-                                  @"上文下图(图片尺寸1280×720)",
-                                  @"左图右文(图片尺寸1200×800)",
-                                  @"左文右图(图片尺寸1200×800)",
-                                  @"双图双文(大图尺寸1280×720)",
-                                  @"纯图片(图片尺寸1280×720)",
-                                  @"纯图片(图片尺寸800×1200)",
-                                  @"三小图(图片尺寸228×150)",
-                                  @"文字浮层(上文下图1280×720)",
-                                  @"文字浮层(上图下文1280×720)",
-                                  @"文字浮层(单图1280×720)",
-                                  @"纯图片(图片尺寸1080×1920或800×1200)",
-                                  @"流量分配"
-    ];
-    
-    NSArray *advTypePosIDArray = @[ABOVEPH_BLOWTEXT_STR,
-                                    ABOVETEXT_BLOW_PH_STR,
-                                    LEFTPH_RIHGTTEXT_STR,
-                                    LEFTTEXT_RIGHTPH_STR,
-                                    TWOPH_AND_TEXT_STR,
-                                    WIDTHPHOTO_STR,
-                                    HEIGHTPHOTO_STR,
-                                    THREE_SMALLPH_STR,
-                                    ABOVETEXT_SURFACE_BLOWPH_STR,
-                                    ABOVEPH_BLOWTEXT_SURFACE_STR,
-                                    TEXTSURFACE_ONEPHOTO_STR,
-                                    HEIGHTERPHOTO_STR,
-                                   Mediator_STR
-    ];
+    NSArray *advTypeTextArray = [self getAdvTypeTextArray];
     
     for (NSInteger i = 0; i < advTypeTextArray.count; i++) {
-        UIAlertAction *advTypeAction = [UIAlertAction actionWithTitle:advTypeTextArray[i]
+        UIAlertAction *advTypeAction = [UIAlertAction actionWithTitle:advTypeTextArray[i][0]
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * _Nonnull action) {
-            self.placementIdTextField.placeholder = advTypePosIDArray[i];
+            self.placementIdTextField.placeholder = advTypeTextArray[i][1];
             [self refreshViewWithNewPosID];
         }];
         [self.advStyleAlertController addAction:advTypeAction];
@@ -139,6 +111,24 @@ static NSString *Mediator_STR = @"100014";
     backToMainView.userInteractionEnabled = YES;
     UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTap)];
     [backToMainView addGestureRecognizer:backTap];
+}
+
+- (NSArray *)getAdvTypeTextArray
+{
+    return @[@[@"上图下文(图片尺寸1280×720)",ABOVEPH_BLOWTEXT_STR],
+             @[@"上文下图(图片尺寸1280×720)",ABOVETEXT_BLOW_PH_STR],
+             @[@"左图右文(图片尺寸1200×800)",LEFTPH_RIHGTTEXT_STR],
+             @[@"左文右图(图片尺寸1200×800)",LEFTTEXT_RIGHTPH_STR],
+             @[@"双图双文(大图尺寸1280×720)",TWOPH_AND_TEXT_STR],
+             @[@"纯图片(图片尺寸1280×720)",WIDTHPHOTO_STR],
+             @[@"纯图片(图片尺寸800×1200)",HEIGHTPHOTO_STR],
+             @[@"三小图(图片尺寸228×150)",THREE_SMALLPH_STR],
+             @[@"文字浮层(上文下图1280×720)",ABOVETEXT_SURFACE_BLOWPH_STR],
+             @[@"文字浮层(上图下文1280×720)",ABOVEPH_BLOWTEXT_SURFACE_STR],
+             @[@"文字浮层(单图1280×720)",TEXTSURFACE_ONEPHOTO_STR],
+             @[@"纯图片(图片尺寸1080×1920或800×1200)",HEIGHTERPHOTO_STR],
+             @[@"流量分配",Mediator_STR]
+];
 }
 
 - (void)backTap {
@@ -239,10 +229,13 @@ static NSString *Mediator_STR = @"100014";
     NSLog(@"%s",__FUNCTION__);
     self.expressAdViews = [NSMutableArray arrayWithArray:views];
     if (self.expressAdViews.count) {
-        [self.expressAdViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.expressAdViews enumerateObjectsUsingBlock:^(GDTNativeExpressAdView *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
             expressView.controller = self;
-            [expressView render];
+            if ([expressView isAdValid]) {
+                [expressView render];
+            }
+            NSLog(@"extraInfo: %@", obj.extraInfo);
             NSLog(@"eCPM:%ld eCPMLevel:%@", [expressView eCPM], [expressView eCPMLevel]);
         }];
     }
@@ -359,9 +352,10 @@ static NSString *Mediator_STR = @"100014";
         if ([subView superview]) {
             [subView removeFromSuperview];
         }
-        UIView *view = [self.expressAdViews objectAtIndex:indexPath.row / 2];
+        GDTNativeExpressAdView *view = [self.expressAdViews objectAtIndex:indexPath.row / 2];
         view.tag = 1000;
         [cell.contentView addSubview:view];
+        
         cell.accessibilityIdentifier = @"nativeTemp_even_ad";
     } else {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"splitnativeexpresscell" forIndexPath:indexPath];

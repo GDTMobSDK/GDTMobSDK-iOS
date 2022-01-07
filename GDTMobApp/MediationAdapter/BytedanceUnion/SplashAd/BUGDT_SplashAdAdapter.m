@@ -99,8 +99,11 @@
     self.splashAdView.rootViewController = self.window.rootViewController;
 }
 
-- (NSInteger)eCPM
-{
+- (NSInteger)eCPM {
+    if ([self.splashAdView.mediaExt objectForKey:@"price"]) {
+        return [[self.splashAdView.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
     return -1;
 }
 
@@ -110,6 +113,14 @@
 
 - (GDTSplashZoomOutView *)splashZoomOutView {
     return nil;
+}
+
+- (NSDictionary *)extraInfo {
+    NSMutableDictionary *res = [NSMutableDictionary dictionary];
+    if ([self.splashAdView.mediaExt objectForKey:@"request_id"]) {
+        [res setObject:[self.splashAdView.mediaExt objectForKey:@"request_id"] forKey:GDT_REQ_ID_KEY];
+    }
+    return [res copy];
 }
 
 #pragma mark - private

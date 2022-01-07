@@ -15,7 +15,7 @@ class UnifiedNativeAdFeedVideoTableViewController: UnifiedNativeAdBaseViewContro
     private var tableView:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.unifiedNativeAd = GDTUnifiedNativeAd.init(appId: self.appId, placementId: self.placementId)
+        self.unifiedNativeAd = GDTUnifiedNativeAd.init(placementId: self.placementId)
         self.unifiedNativeAd?.delegate = self
         self.tableView = UITableView()
         self.tableView!.frame = self.view.bounds

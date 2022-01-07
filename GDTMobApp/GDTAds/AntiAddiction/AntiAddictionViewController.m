@@ -57,6 +57,16 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (IBAction)uploadDebugInfo:(id)sender {
+    [self.antiAddictionManager uploadDebugInfo];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"上传成功" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        });
+    }];
+}
+
 #pragma mark - GDTAntiAddictionManagerDelegate
 - (void)manager:(GDTAntiAddictionManager *)manager didReceiveDeviceAntiAddictionState:(NSString *)state {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"设备防沉迷状态" message:state preferredStyle:UIAlertControllerStyleAlert];

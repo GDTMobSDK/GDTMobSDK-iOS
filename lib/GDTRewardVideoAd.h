@@ -11,14 +11,20 @@
 #import "GDTSDKDefines.h"
 #import "GDTLoadAdParams.h"
 #import "GDTServerSideVerificationOptions.h"
+#import "GDTAdProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @protocol GDTRewardedVideoAdDelegate;
 
-@interface GDTRewardVideoAd : NSObject
-
+@interface GDTRewardVideoAd : NSObject <GDTAdProtocol>
+/**
+ *  广告是否有效，以下情况会返回NO，建议在展示广告之前判断，否则会影响计费或展示失败
+ *  a.广告未拉取成功
+ *  b.广告已经曝光过
+ *  c.广告过期
+ */
 @property (nonatomic, getter=isAdValid, readonly) BOOL adValid;
 @property (nonatomic) BOOL videoMuted;
 @property (nonatomic, assign, readonly) NSInteger expiredTimestamp;
@@ -41,15 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param token  通过 Server Bidding 请求回来的 token
  */
 - (instancetype)initWithPlacementId:(NSString *)placementId token:(NSString *)token;
-
-/**
- 构造方法
-
- @param appId - 媒体 ID
- @param placementId - 广告位 ID
- @return GDTRewardVideoAd 实例
- */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:");
 
 /**
  *  S2S bidding 竞胜之后调用, 需要在调用广告 show 之前调用

@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "GDTSDKDefines.h"
 #import "GDTSplashZoomOutView.h"
+#import "GDTAdProtocol.h"
 
 @class GDTSplashAd;
 
@@ -85,7 +86,7 @@
 
 @end
 
-@interface GDTSplashAd : NSObject
+@interface GDTSplashAd : NSObject <GDTAdProtocol>
 
 /**
  *  委托对象
@@ -180,7 +181,7 @@
 /**
  * 返回广告是否可展示
  * 对于并行请求，在调用showAdInWindow前时需判断下
- * @return 当广告已经加载完成且未曝光时，为YES，否则为NO
+ * @return 当广告已经加载完成&&未曝光&&未过期时，为YES，否则为NO
  */
 - (BOOL)isAdValid;
 
@@ -221,13 +222,6 @@
  *  @param adnID - adnID
  */
 - (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;
-
-/**
- *  构造方法
- *  详解：appId - 媒体 ID
- *       placementId - 广告位 ID
- */
-- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId  GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用 initWithPlacementId:");
 
 /**
  *  广告发起请求并展示在Window中

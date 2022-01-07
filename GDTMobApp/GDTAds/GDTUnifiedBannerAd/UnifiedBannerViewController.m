@@ -139,7 +139,7 @@
     NSLog(@"%s",__FUNCTION__);
     NSLog(@"unified banner did load");
     NSLog(@"ecpm %ld ecpmLevel:%@", unifiedBannerView.eCPM, unifiedBannerView.eCPMLevel);
-    
+    NSLog(@"extraInfo: %@", unifiedBannerView.extraInfo);
     // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
     if (self.useToken) {
         // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费

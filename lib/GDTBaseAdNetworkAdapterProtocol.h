@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDTAdProtocol.h"
 
-@protocol GDTBaseAdNetworkAdapterProtocol <NSObject>
+@protocol GDTBaseAdNetworkAdapterProtocol <GDTAdProtocol>
 
 + (void)updateAppId:(NSString *)appId extStr:(NSString *)extStr;
 

@@ -77,7 +77,7 @@
 
 - (NSInteger)eCPM
 {
-    return -1;
+    return self.splashAdView.ecpm;
 }
 
 - (BOOL)isAdValid {

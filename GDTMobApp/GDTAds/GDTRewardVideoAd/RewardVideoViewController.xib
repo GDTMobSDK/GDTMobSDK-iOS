@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RewardVideoViewController">
             <connections>
+                <outlet property="adValidLabel" destination="MW4-Tv-po7" id="uL9-yf-8Df"/>
                 <outlet property="audioSessionSwitch" destination="SPY-wS-dbe" id="ybi-I4-cfS"/>
                 <outlet property="changePlacementId" destination="Ce1-sk-Btg" id="zms-dt-Brz"/>
                 <outlet property="placementIdTextField" destination="XHi-qf-16x" id="hDH-ZM-sYm"/>
@@ -143,14 +144,38 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIJ-er-KfZ">
+                            <rect key="frame" x="20" y="482" width="123" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="123" id="3pV-8a-l3l"/>
+                                <constraint firstAttribute="height" constant="30" id="gJe-8e-hab"/>
+                            </constraints>
+                            <state key="normal" title="检查广告是否有效"/>
+                            <connections>
+                                <action selector="checkAdValidation:" destination="-1" eventType="touchUpInside" id="cjE-fC-Jnp"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW4-Tv-po7">
+                            <rect key="frame" x="166" y="487" width="90" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="JIH-De-l1N"/>
+                                <constraint firstAttribute="width" constant="90" id="T0B-0z-lmp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="onz-Q7-6rn" firstAttribute="top" secondItem="oh5-bO-KZG" secondAttribute="top" constant="33" id="0UH-GT-jhc"/>
+                        <constraint firstItem="PIJ-er-KfZ" firstAttribute="top" secondItem="yLg-P5-C55" secondAttribute="bottom" constant="23" id="24H-Xf-37v"/>
+                        <constraint firstItem="MW4-Tv-po7" firstAttribute="leading" secondItem="PIJ-er-KfZ" secondAttribute="trailing" constant="23" id="2rA-Dt-6zA"/>
                         <constraint firstItem="kvI-Tg-aK5" firstAttribute="top" secondItem="dRc-db-Bel" secondAttribute="bottom" constant="19.5" id="4UX-KO-zfe"/>
                         <constraint firstAttribute="trailing" secondItem="SPY-wS-dbe" secondAttribute="trailing" constant="21" id="4fc-Xz-dhz"/>
                         <constraint firstItem="wtO-6F-Otl" firstAttribute="top" secondItem="dRc-db-Bel" secondAttribute="bottom" constant="19.5" id="5GN-2z-2cK"/>
                         <constraint firstItem="dRc-db-Bel" firstAttribute="centerX" secondItem="oh5-bO-KZG" secondAttribute="centerX" constant="-49.5" id="8dT-Wd-xpm"/>
                         <constraint firstItem="dRc-db-Bel" firstAttribute="leading" secondItem="oh5-bO-KZG" secondAttribute="leading" constant="20" id="8hN-OE-LoF"/>
+                        <constraint firstItem="MW4-Tv-po7" firstAttribute="top" secondItem="Fx2-UZ-FDA" secondAttribute="bottom" constant="43" id="AzN-KT-Nd5"/>
                         <constraint firstItem="YEH-79-kUV" firstAttribute="leading" secondItem="oh5-bO-KZG" secondAttribute="leading" constant="20" id="C31-fk-BGc"/>
                         <constraint firstItem="lFF-Rl-m2T" firstAttribute="leading" secondItem="oh5-bO-KZG" secondAttribute="leading" constant="20" id="E67-GF-NZE"/>
                         <constraint firstItem="wzx-hV-Aei" firstAttribute="top" secondItem="YEH-79-kUV" secondAttribute="bottom" constant="60" id="ESC-MY-jEe"/>
@@ -168,6 +193,7 @@
                         <constraint firstItem="Fx2-UZ-FDA" firstAttribute="leading" secondItem="yLg-P5-C55" secondAttribute="trailing" constant="20" id="XIp-A3-0Ti"/>
                         <constraint firstItem="SPY-wS-dbe" firstAttribute="top" secondItem="xFK-2x-ck3" secondAttribute="bottom" constant="10.5" id="ZeF-wd-N0U"/>
                         <constraint firstItem="lFF-Rl-m2T" firstAttribute="top" secondItem="yQb-aO-yI8" secondAttribute="bottom" constant="-7" id="aFB-4c-6Of"/>
+                        <constraint firstItem="PIJ-er-KfZ" firstAttribute="leading" secondItem="oh5-bO-KZG" secondAttribute="leading" constant="20" symbolic="YES" id="aUo-z0-kGf"/>
                         <constraint firstAttribute="trailing" secondItem="wtO-6F-Otl" secondAttribute="trailing" constant="20" id="cpe-0I-Yes"/>
                         <constraint firstItem="Ce1-sk-Btg" firstAttribute="leading" secondItem="XHi-qf-16x" secondAttribute="trailing" constant="7" id="daH-zX-aWk"/>
                         <constraint firstItem="XHi-qf-16x" firstAttribute="leading" secondItem="oh5-bO-KZG" secondAttribute="leading" constant="20" id="grA-t5-1kN"/>

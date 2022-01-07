@@ -114,8 +114,11 @@
     }
 }
 
-- (NSInteger)eCPM
-{
+- (NSInteger)eCPM {
+    if ([self.nativeAd.data.mediaExt objectForKey:@"price"]) {
+        return [[self.nativeAd.data.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
     return -1;
 }
 

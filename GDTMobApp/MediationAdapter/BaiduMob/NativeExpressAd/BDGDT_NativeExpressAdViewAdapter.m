@@ -70,5 +70,8 @@
     return self.bdAdObject.videoURLString.length > 0;
 }
 
+- (BOOL)isAdValid {
+    return !self.bdAdObject.isExpired;
+}
 
 @end

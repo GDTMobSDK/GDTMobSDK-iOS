@@ -65,6 +65,10 @@
     return -1;
 }
 
+- (BOOL)isAdValid {
+    return YES;
+}
+
 #pragma mark - KSFeedAdDelegate
 
 - (void)feedAdViewWillShow:(KSFeedAd *)feedAd {

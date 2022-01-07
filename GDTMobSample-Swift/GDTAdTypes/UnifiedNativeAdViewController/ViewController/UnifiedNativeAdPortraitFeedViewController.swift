@@ -28,7 +28,7 @@ class UnifiedNativeAdPortraitFeedViewController: UnifiedNativeAdBaseViewControll
         self.videoConfig!.autoResumeEnable = false;
         self.videoConfig!.detailPageEnable = false;
         //-----
-        self.nativeAd = GDTUnifiedNativeAd.init(appId: self.appId, placementId: self.placementId)
+        self.nativeAd = GDTUnifiedNativeAd.init(placementId: self.placementId)
         self.nativeAd?.delegate = self
         self.nativeAd?.maxVideoDuration = self.maxVideoDuration
         self.nativeAd?.loadAd(withAdCount: 10)

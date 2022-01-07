@@ -95,6 +95,14 @@
     return adapter;
 }
 
+- (NSDictionary *)extraInfo {
+    BUGDT_NativeExpressAdViewAdapter *adapter = [self.viewAdapters firstObject];
+    if (adapter) {
+        return adapter.extraInfo;
+    }
+    return @{};
+}
+
 #pragma mark - GDTNativeExpressAdNetworkAdapterProtocol
 
 - (void)loadAdWithCount:(NSInteger)count {

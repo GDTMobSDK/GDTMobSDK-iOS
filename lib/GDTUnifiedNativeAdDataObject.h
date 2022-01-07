@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "GDTVideoConfig.h"
 #import "GDTSDKDefines.h"
+#import "GDTAdProtocol.h"
 
 typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
     GDTVastAdEventTypeUnknow,
@@ -25,7 +26,7 @@ typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
 };
 
 
-@interface GDTUnifiedNativeAdDataObject : NSObject 
+@interface GDTUnifiedNativeAdDataObject : NSObject <GDTAdProtocol>
 
 /**
  广告标题
@@ -151,6 +152,12 @@ typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
  * 是否为 VAST 广告
  */
 @property (nonatomic, assign, readonly) BOOL isVastAd;
+
+/**
+ *  广告是否有效，以下情况会返回NO，建议在展示广告之前判断，否则会影响计费或展示失败
+ *  a.广告过期
+ */
+@property (nonatomic, readonly) BOOL isAdValid;
 
 /**
  判断两个自渲染2.0广告数据是否相等

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GDTLoadAdParams.h"
+#import "GDTAdProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -71,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GDTUnifiedBannerView : UIView
+@interface GDTUnifiedBannerView : UIView <GDTAdProtocol>
 /**
  *  委托 [可选]
  */
@@ -91,6 +92,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  QQ小游戏SDK字段透传
 */
 @property (nonatomic, strong) GDTLoadAdParams *loadAdParams;
+
+/**
+ *  广告是否有效，以下情况会返回NO，建议在展示广告之前判断，否则会影响计费或展示失败
+ *  a.广告未拉取成功
+ *  b.广告过期
+ */
+@property (nonatomic, readonly) BOOL isAdValid;
 
 /**
  *  构造方法

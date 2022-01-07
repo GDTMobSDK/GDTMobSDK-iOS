@@ -81,4 +81,20 @@
     }
 }
 
+- (NSInteger)eCPM {
+    if ([self.rewardAd.mediaExt objectForKey:@"price"]) {
+        return [[self.rewardAd.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
+    return -1;
+}
+
+- (NSDictionary *)extraInfo {
+    NSMutableDictionary *res = [NSMutableDictionary dictionary];
+    if ([self.rewardAd.mediaExt objectForKey:@"request_id"]) {
+        [res setObject:[self.rewardAd.mediaExt objectForKey:@"request_id"] forKey:GDT_REQ_ID_KEY];
+    }
+    return [res copy];
+}
+
 @end

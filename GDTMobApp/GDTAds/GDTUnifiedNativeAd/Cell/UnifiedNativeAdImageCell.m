@@ -39,10 +39,13 @@
         .size = self.adView.clickButton.frame.size
     };
     
-    [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
-                                                                self.adView.iconImageView,
-                                                                self.adView.imageView]];
-    if ([[dataObject callToAction] length] > 0) {
+    if ([dataObject isAdValid]) {
+        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
+                                                                    self.adView.iconImageView,
+                                                                    self.adView.imageView]];
+    }
+    
+    if ([[dataObject callToAction] length] > 0 && [dataObject isAdValid]) {
         [self.adView registerClickableCallToActionView:self.adView.CTAButton];
     }
     

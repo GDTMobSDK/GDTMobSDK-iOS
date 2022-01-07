@@ -31,7 +31,7 @@ class UnifiedNativePreVideoViewController: UnifiedNativeAdBaseViewController,GDT
         self.videoConfig!.progressViewEnable = false
 //-----
             
-        self.unifiedNativeAd = GDTUnifiedNativeAd.init(appId: self.appId, placementId: self.placementId)
+        self.unifiedNativeAd = GDTUnifiedNativeAd.init(placementId: self.placementId)
         self.unifiedNativeAd!.delegate = self;
         self.unifiedNativeAd!.maxVideoDuration = self.maxVideoDuration;
         self.unifiedNativeAd?.loadAd(withAdCount: 1 )

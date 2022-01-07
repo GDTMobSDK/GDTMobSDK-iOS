@@ -60,15 +60,28 @@
 
 - (void)loadAd {
     [self.mutableArray removeAllObjects];
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 4; i++) {
         GDTRewardVideoAd *rewardAd = [[GDTRewardVideoAd alloc] initWithPlacementId:@"8020744212936426"];
         rewardAd.delegate = self;
         [self.mutableArray addObject:rewardAd];
     }
-    for (int i = 0 ; i < 6; i++) {
+    for (int i = 0 ; i < 4; i++) {
         GDTRewardVideoAd *rewardAd = [self.mutableArray objectAtIndex:i];
-        [rewardAd loadAd];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [rewardAd loadAd];
+        });
     }
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        for (int i = 0; i < 4; i++) {
+//            GDTRewardVideoAd *rewardAd = [[GDTRewardVideoAd alloc] initWithPlacementId:@"8020744212936426"];
+//            rewardAd.delegate = self;
+//            [self.mutableArray addObject:rewardAd];
+//        }
+//        for (int i = 0 ; i < 4; i++) {
+//            GDTRewardVideoAd *rewardAd = [self.mutableArray objectAtIndex:i];
+//            [rewardAd loadAd];
+//        }
+//    });
 }
 
 - (void)showAd {

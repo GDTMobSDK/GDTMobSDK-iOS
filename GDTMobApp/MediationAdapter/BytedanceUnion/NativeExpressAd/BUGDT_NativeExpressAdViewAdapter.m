@@ -7,6 +7,7 @@
 //
 
 #import "BUGDT_NativeExpressAdViewAdapter.h"
+#import "GDTAdProtocol.h"
 
 @interface BUGDT_NativeExpressAdViewAdapter()
 
@@ -34,10 +35,6 @@
     return self.buAdView;
 }
 
-- (NSInteger)eCPM {
-    return -1;
-}
-
 - (nonnull NSString *)eCPMLevel {
     return @"";
 }
@@ -61,6 +58,26 @@
 - (void)setController:(UIViewController *)controller {
     _controller = controller;
     self.buAdView.rootViewController = controller;
+}
+
+- (BOOL)isAdValid {
+    return YES;
+}
+
+- (NSInteger)eCPM {
+    if ([self.buAdView.mediaExt objectForKey:@"price"]) {
+        return [[self.buAdView.mediaExt objectForKey:@"price"] integerValue];
+    }
+    
+    return -1;
+}
+
+- (NSDictionary *)extraInfo {
+    NSMutableDictionary *res = [NSMutableDictionary dictionary];
+    if ([self.buAdView.mediaExt objectForKey:@"request_id"]) {
+        [res setObject:[self.buAdView.mediaExt objectForKey:@"request_id"] forKey:GDT_REQ_ID_KEY];
+    }
+    return [res copy];
 }
 
 @end
