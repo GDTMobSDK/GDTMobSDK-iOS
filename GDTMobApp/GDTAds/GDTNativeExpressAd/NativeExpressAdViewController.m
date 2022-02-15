@@ -324,6 +324,14 @@ static NSString *Mediator_STR = @"100014";
     NSLog(@"--------%s-------",__FUNCTION__);
 }
 
+/**
+ *  投诉成功回调
+ */
+- (void)gdtAdComplainSuccess:(id)ad {
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告投诉成功");
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

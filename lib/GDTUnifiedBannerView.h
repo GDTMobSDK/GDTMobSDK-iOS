@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GDTUnifiedBannerView;
 
-@protocol GDTUnifiedBannerViewDelegate <NSObject>
+@protocol GDTUnifiedBannerViewDelegate <GDTAdDelegate>
 @optional
 /**
  *  请求广告条数据成功后调用

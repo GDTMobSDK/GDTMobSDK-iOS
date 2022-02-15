@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "GDTAdProtocol.h"
+#import "GDTBaseAdNetworkAdapterProtocol.h"
 
 @protocol GDTSplashAdNetworkAdapterProtocol;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GDTSplashAdNetworkConnectorProtocol <NSObject>
+@protocol GDTSplashAdNetworkConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 @optional
 /**

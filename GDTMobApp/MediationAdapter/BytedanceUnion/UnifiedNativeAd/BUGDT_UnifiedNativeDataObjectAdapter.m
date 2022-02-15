@@ -175,6 +175,14 @@
     return self.nativeAd.rootViewController;
 }
 
+- (void)sendWinNotification:(NSInteger)price {
+    [self.nativeAd win:@(price)];
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.nativeAd loss:@(price) lossReason:[NSString stringWithFormat:@"%ld", reason] winBidder:adnId];
+}
+
 #pragma mark - GDTMediaViewAdapterProtocol
 /**
  * 视频广告时长，单位 ms

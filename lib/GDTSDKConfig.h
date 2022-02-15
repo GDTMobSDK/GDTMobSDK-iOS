@@ -103,5 +103,16 @@
  */
 + (void)setExtraUserData:(NSDictionary <NSString *, NSString *> *)extraUserDictionary;
 
+/**
+ 设置用户信息
+ @param mediaExtDictionary, 必须为有效的字符串格式的键值对
+
+ 已支持的key有：
+ @"user_id"，用户的id，比如QQ号
+ 
+ @param overrideOld, 新的mediaExtDictionary是否覆盖之前设置的mediaExtDictionary
+ */
++ (void)setMediaExtData:(NSDictionary <NSString *, NSString *> *)mediaExtDictionary  overrideOldData:(BOOL)overrideOld;
+
 @end
 

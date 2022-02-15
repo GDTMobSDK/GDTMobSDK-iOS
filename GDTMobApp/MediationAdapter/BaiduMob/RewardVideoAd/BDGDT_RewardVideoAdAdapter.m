@@ -79,5 +79,12 @@ static NSString *s_appId = nil;
     return -1;
 }
 
+- (void)sendWinNotification:(NSInteger)price {
+    [self.rewardVideoAd biddingSuccess:[NSString stringWithFormat:@"%ld", price]];
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.rewardVideoAd biddingFail:[NSString stringWithFormat:@"%ld", reason]];
+}
 
 @end

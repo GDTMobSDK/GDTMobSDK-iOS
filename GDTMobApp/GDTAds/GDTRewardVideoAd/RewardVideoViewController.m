@@ -142,10 +142,6 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
 - (void)setupRewardVideoAd:(GDTRewardVideoAd *)rewardVideoAd {}
 
 - (IBAction)playVideo:(UIButton *)sender {
-    if (self.rewardVideoAd.expiredTimestamp <= [[NSDate date] timeIntervalSince1970]) {
-        self.statusLabel.text = @"广告已过期，请重新拉取";
-        return;
-    }
     if (!self.rewardVideoAd.isAdValid) {
         self.statusLabel.text = @"广告失效，请重新拉取";
         return;
@@ -328,5 +324,9 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
     }
 }
 
+- (void)gdtAdComplainSuccess:(id)ad {
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告投诉成功");
+}
 
 @end

@@ -87,4 +87,20 @@ static NSString *s_appId = nil;
     }
 }
 
+- (void)sendWinNotification:(NSInteger)price {
+    if (self.shouldShowFullscreenAd) {
+        [self.fullVideo biddingSuccess:[NSString stringWithFormat:@"%ld", price]];
+    }
+    else {
+    }
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    if (self.shouldShowFullscreenAd) {
+        [self.fullVideo biddingFail:[NSString stringWithFormat:@"%ld", reason]];
+    }
+    else {
+    }
+}
+
 @end

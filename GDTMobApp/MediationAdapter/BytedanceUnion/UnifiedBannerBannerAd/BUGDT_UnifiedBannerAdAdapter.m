@@ -74,6 +74,21 @@
     return -1;
 }
 
+//发送竞胜结果
+- (void)sendWinNotification:(NSInteger)price {
+    [self.buBannerView win:@(price)];
+}
+
+//发送竞败结果
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.buBannerView loss:@(price) lossReason:[NSString stringWithFormat:@"%ld", (long)reason] winBidder:adnId];
+}
+
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.buBannerView setPrice:@(price)];
+}
+
 #pragma mark - BUNativeExpressBannerViewDelegate
 
 - (void)nativeExpressBannerAdViewDidLoad:(BUNativeExpressBannerView *)bannerAdView {

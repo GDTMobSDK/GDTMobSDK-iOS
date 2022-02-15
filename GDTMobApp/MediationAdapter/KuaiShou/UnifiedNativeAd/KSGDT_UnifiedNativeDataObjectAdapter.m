@@ -167,6 +167,15 @@
     return self.nativeAd.rootViewController;
 }
 
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.nativeAd setBidEcpm:price];
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.nativeAd reportAdExposureFailed:0 reportParam:nil];
+}
+
 #pragma mark - GDTMediaViewAdapterProtocol
 /**
  * 视频广告时长，单位 ms

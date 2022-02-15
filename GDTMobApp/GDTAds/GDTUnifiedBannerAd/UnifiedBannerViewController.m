@@ -227,6 +227,14 @@
     NSLog(@"%s",__FUNCTION__);
 }
 
+/**
+ *   投诉成功回调
+ */
+- (void)gdtAdComplainSuccess:(id)ad {
+    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"广告投诉成功");
+}
+
 @end
 
 

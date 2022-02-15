@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDTBaseAdNetworkAdapterProtocol.h"
 
 @protocol GDTRewardVideoAdNetworkAdapterProtocol;
 
 
-@protocol GDTRewardVideoAdNetworkConnectorProtocol <NSObject>
+@protocol GDTRewardVideoAdNetworkConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 - (void)adapter_rewardVideoAdDidLoad:(id<GDTRewardVideoAdNetworkAdapterProtocol>)adapter;
 

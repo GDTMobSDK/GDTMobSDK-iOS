@@ -98,4 +98,19 @@
     return [res copy];
 }
 
+//发送竞胜结果
+- (void)sendWinNotification:(NSInteger)price {
+    [self.rewardVideoAd win:@(price)];
+}
+
+//发送竞败结果
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.rewardVideoAd loss:@(price) lossReason:[NSString stringWithFormat:@"%ld", (long)reason] winBidder:adnId];
+}
+
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.rewardVideoAd setPrice:@(price)];
+}
+
 @end

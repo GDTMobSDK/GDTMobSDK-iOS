@@ -237,6 +237,7 @@ static NSString *kIpKey = @"kIpKey";
         [[NSUserDefaults standardUserDefaults] setObject:ip forKey:kIpKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self.navigationController popViewControllerAnimated:YES];
+        if (self.backBlock) self.backBlock();
     }
     
     

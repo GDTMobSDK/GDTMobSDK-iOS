@@ -331,4 +331,9 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
     NSLog(@"%s info:%@", __FUNCTION__, info);
 }
 
+- (void)gdtAdComplainSuccess:(id)ad {
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告投诉成功");
+}
+
 @end

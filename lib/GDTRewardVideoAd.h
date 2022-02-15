@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@protocol GDTRewardedVideoAdDelegate <NSObject>
+@protocol GDTRewardedVideoAdDelegate <GDTAdDelegate>
 
 @optional
 

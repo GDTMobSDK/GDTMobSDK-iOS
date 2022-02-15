@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GDTSDKDefines.h"
+#import "GDTAdProtocol.h"
+
 
 @class GDTNativeExpressAdView;
 @class GDTNativeExpressAd;
 
-@protocol GDTNativeExpressAdDelegete <NSObject>
+@protocol GDTNativeExpressAdDelegete <GDTAdDelegate>
 
 @optional
 /**
@@ -100,6 +102,7 @@
  * 原生视频模板详情页 DidDismiss 回调
  */
 - (void)nativeExpressAdViewDidDismissVideoVC:(GDTNativeExpressAdView *)nativeExpressAdView;
+
 
 @end
 

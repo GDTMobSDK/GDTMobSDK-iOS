@@ -11,7 +11,7 @@
 
 @protocol GDTUnifiedBannerAdNetworkAdapterProtocol;
 
-@protocol GDTUnifiedBannerAdNetworkConnectorProtocol <NSObject>
+@protocol GDTUnifiedBannerAdNetworkConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 @optional
 

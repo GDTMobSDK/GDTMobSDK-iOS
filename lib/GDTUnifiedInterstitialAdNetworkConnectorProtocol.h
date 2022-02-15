@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "GDTSDKDefines.h"
+#import "GDTBaseAdNetworkAdapterProtocol.h"
 
 @protocol GDTUnifiedinterstitialAdNetworkAdapterProtocol;
 
 
-@protocol GDTUnifiedInterstitialAdNetworkConnectorProtocol <NSObject>
+@protocol GDTUnifiedInterstitialAdNetworkConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 /**
  *  插屏2.0广告预加载成功回调

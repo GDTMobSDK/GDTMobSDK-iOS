@@ -18,4 +18,14 @@
 
 @end
 
+@protocol GDTAdDelegate <NSObject>
+
+@optional
+/**
+  投诉成功回调
+  @params ad 广告对象实例
+ */
+- (void)gdtAdComplainSuccess:(id)ad;
+
+@end
 #endif /* GDTAdProtocol_h */

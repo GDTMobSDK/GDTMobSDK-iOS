@@ -125,10 +125,6 @@ class RewardVideoViewController: UIViewController, GDTRewardedVideoAdDelegate {
     @IBAction func playVideo(_ sender: Any) {
         if self.rewardVideoAd != nil{
         
-        if (self.rewardVideoAd.expiredTimestamp <= Int(Date.init().timeIntervalSince1970)) {
-            self.statusLabel.text = "广告已过期，请重新拉取"
-            return
-        }
         if (!self.rewardVideoAd.isAdValid) {
             self.statusLabel.text = "广告失效，请重新拉取"
             return

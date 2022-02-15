@@ -123,6 +123,21 @@
     return [res copy];
 }
 
+//发送竞胜结果
+- (void)sendWinNotification:(NSInteger)price {
+    [self.splashAdView win:@(price)];
+}
+
+//发送竞败结果
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.splashAdView loss:@(price) lossReason:[NSString stringWithFormat:@"%ld", (long)reason] winBidder:adnId];
+}
+
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.splashAdView setPrice:@(price)];
+}
+
 #pragma mark - private
 - (void)clickSkip
 {

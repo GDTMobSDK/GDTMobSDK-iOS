@@ -69,6 +69,15 @@
     return YES;
 }
 
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.feedAd setBidEcpm:price];
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.feedAd reportAdExposureFailed:0 reportParam:nil];
+}
+
 #pragma mark - KSFeedAdDelegate
 
 - (void)feedAdViewWillShow:(KSFeedAd *)feedAd {

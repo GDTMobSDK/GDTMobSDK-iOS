@@ -154,6 +154,15 @@ NS_ASSUME_NONNULL_BEGIN
 //检测到曝光后调用
 - (void)didRecordImpression;
 
+//发送竞胜结果
+- (void)sendWinNotification:(NSInteger)price;
+
+//发送竞败结果
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *__nullable)adnId;
+
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price;
+
 @end
 
 

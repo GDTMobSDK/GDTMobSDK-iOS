@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "GDTSDKDefines.h"
+#import "GDTBaseAdNetworkAdapterProtocol.h"
 
 @protocol GDTNativeExpressAdNetworkAdapterProtocol;
 @protocol GDTNativeExpressAdViewAdapterProtocol;
 
-@protocol GDTNativeExpressAdNetworkConnectorProtocol <NSObject>
+@protocol GDTNativeExpressAdNetworkConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 /**
  * 拉取原生模板广告成功

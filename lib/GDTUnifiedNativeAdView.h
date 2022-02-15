@@ -17,7 +17,8 @@
 //视频广告时长Key
 extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
 
-@protocol GDTUnifiedNativeAdViewDelegate <NSObject>
+@protocol GDTUnifiedNativeAdViewDelegate <GDTAdDelegate
+>
 
 @optional
 /**
@@ -68,6 +69,7 @@ extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
  @param userInfo 视频广告信息
  */
 - (void)gdt_unifiedNativeAdView:(GDTUnifiedNativeAdView *)unifiedNativeAdView playerStatusChanged:(GDTMediaPlayerStatus)status userInfo:(NSDictionary *)userInfo;
+
 @end
 
 @interface GDTUnifiedNativeAdView:UIView

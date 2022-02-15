@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GDTUnifiedNativeAdView.h"
+#import "GDTAdProtocol.h"
+#import "GDTBaseAdNetworkAdapterProtocol.h"
 
 @protocol GDTUnifiedNativeAdDataObjectAdapterProtocol;
 @protocol GDTUnifiedNativeAdNetworkAdapterProtocol;
@@ -30,7 +32,7 @@ unifiedNativeAdLoaded:(NSArray<id <GDTUnifiedNativeAdDataObjectAdapterProtocol>>
 
 @end
 
-@protocol GDTUnifiedNativeAdDataObjectConnectorProtocol <NSObject>
+@protocol GDTUnifiedNativeAdDataObjectConnectorProtocol <GDTBaseAdNetworkConnectorProtocol>
 
 @property (nonatomic, strong, readonly) GDTUnifiedNativeAdView *unifiedNativeAdView;
 @property (nonatomic, strong, readonly) UIView <GDTMediaViewConnectorProtocol> *mediaView;

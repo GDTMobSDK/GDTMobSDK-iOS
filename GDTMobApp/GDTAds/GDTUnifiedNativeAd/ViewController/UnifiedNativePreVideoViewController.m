@@ -276,6 +276,11 @@
     }
 }
 
+- (void)gdtAdComplainSuccess:(id)ad {
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告投诉成功");
+}
+
 #pragma mark - private
 - (void)clickSkip
 {

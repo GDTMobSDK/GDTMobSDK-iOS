@@ -10,13 +10,15 @@
 #import "GDTDLTemplateFactory.h"
 #import "GDTDLViewFactory.h"
 #import "GDTDLRootView.h"
-#import "GDTScanViewController.h"
 #import "GDTDLUtils.h"
+#import "GDTNVDemoManager.h"
+#import "UIView+GDTToast.h"
 
 @interface GDTNVDemoViewController ()<GDTDLRootViewDelegate>
 
 @property (nonatomic, copy) NSString *selectedTemplate;
 @property (nonatomic, strong) GDTDLRootView *templateView;
+@property (nonatomic, strong) GDTAdBaseModel *adModel;
 
 @end
 
@@ -24,11 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.selectedTemplate = @"animations.json";
-    [self handleReload];
     
-    UIBarButtonItem *setting = [[UIBarButtonItem alloc] initWithTitle:@"配置" style:UIBarButtonItemStylePlain target:self action:@selector(handleSetting)];
-    self.navigationItem.rightBarButtonItems = @[setting];
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    [self reload];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -48,9 +48,16 @@
 //    [view doAnimationIfNeccessary];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
     [self.templateView dlViewDidDisappear];
 }
 
@@ -60,84 +67,16 @@
 
 - (void)gdt_dlRootViewEventsEnded:(GDTDLTouchInfo *)info {
     NSLog(@"touch end");
+    GDT_SHOW_TOAST(info.interactionEvent.eventAction);
 }
 
-- (void)handleSetting {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
-    __weak __typeof(self) ws = self;
-    UIAlertAction *qr = [UIAlertAction actionWithTitle:@"扫描" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ws handleScan];
-    }];
-    UIAlertAction *menu = [UIAlertAction actionWithTitle:@"模板" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ws handleMenu];
-    }];
-    UIAlertAction *reload = [UIAlertAction actionWithTitle:@"刷新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ws handleReload];
-    }];
-    [alert addAction:qr];
-    [alert addAction:menu];
-    [alert addAction:reload];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)handleScan {
-    GDTScanViewController *vc = [[GDTScanViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)handleMenu {
-    [self loadLocalFile:[self fileUrl] completion:^(NSDictionary *data) {
-        if ([data[@"data"] isKindOfClass:[NSArray class]]) {
-            [self selectTemplate:data[@"data"]];
-        }
-    }];
-}
-
-- (void)handleReload {
-    [self loadLocalFile:[[self fileUrl] stringByAppendingPathComponent:self.selectedTemplate] completion:^(NSDictionary *data) {
-        [self reloadTemplate:[GDTDLUtils condensedDsl:data]];
-    }];
-}
-
-- (void)selectTemplate:(NSArray *)files {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
-    __weak __typeof(self) ws = self;
-    for (NSString *file in files) {
-        UIAlertAction *action = [UIAlertAction actionWithTitle:file style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if ([file isEqualToString:ws.selectedTemplate]) return;
-            ws.selectedTemplate = file;
-            [ws handleReload];
+- (void)reload {
+    [GDTNVDemoManager getAdModel:^(GDTAdBaseModel * _Nonnull adModel) {
+        self.adModel = adModel;
+        [GDTNVDemoManager getTemplate:^(NSString * _Nonnull template) {
+            [self reloadTemplate:template];
         }];
-        [alert addAction:action];
-    }
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)loadLocalFile:(NSString *)path completion:(void (^)(NSDictionary *data))completion {
-    if (!completion) return;
-    
-    NSURL *url = [NSURL URLWithString:path];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSURLSession *session = [NSURLSession sharedSession];
-    request.HTTPMethod = @"POST";
-    
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                              completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!data.length) {
-                GDTLog(@"No data");
-                completion(nil);
-                return;
-            }
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            if ([dict isKindOfClass:[NSDictionary class]]) {
-                completion(dict);
-            } else {
-                completion(nil);
-            }
-        });
     }];
-    [dataTask resume];
 }
 
 - (void)reloadTemplate:(NSString *)template {
@@ -146,47 +85,22 @@
     GDTDLTemplateNode *node = [GDTDLTemplateFactory createTemplate:resource];
     GDTDLRootView *view = [GDTDLViewFactory getRootViewWithTemplateNode:node];
     view.delegate = self;
+    view.tag = 10032;
     view.frame = self.view.bounds;
-    [view bindData:@{}];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if (self.adModel) {
+        [dict addEntriesFromDictionary:@{@"callback": self, @"adModel": self.adModel}];
+    }
+    [dict addEntriesFromDictionary:@{@"safeArea": @(UIRectEdgeAll)}];
+    [dict addEntriesFromDictionary:@{@"a":[UIColor redColor], @"b": @"100", @"c": @"的是覅is登记方式冬季福利胜多负少的离开飞机", @"d": @(0)}];
+    [view bindData:@{@"dlInfo": dict}];
     self.templateView = view;
-    [self.view addSubview:self.templateView];
+    [self.view insertSubview:self.templateView atIndex:0];
     [self.templateView dlViewDidAppear];
 }
 
-- (NSString *)convertToJsonData:(NSDictionary *)dict {
-    if (!dict) {
-        GDTLog(@"File error");
-        return nil;
-    }
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
-    NSString *jsonString;
-
-    if (!jsonData) {
-        GDTLog(@"%@", error);
-        return nil;
-    } else {
-        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-
-    NSMutableString *mutStr = [NSMutableString stringWithString:jsonString];
-    NSRange range = {0,jsonString.length};
-    [mutStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:range];
-    NSRange range2 = {0,mutStr.length};
-    [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
-
-    return mutStr;
-}
-
-- (NSString *)fileUrl {
-    NSString *host = nil;
-#if TARGET_IPHONE_SIMULATOR//模拟器
-    host = @"127.0.0.1:8000";
-#elif TARGET_OS_IPHONE//真机
-    host = [GDTScanViewController currentIp];
-#endif
-    NSString *url = [NSString stringWithFormat:@"http://%@/file", host];
-    return url;
+- (IBAction)handleReload:(id)sender {
+    [self reload];
 }
 
 @end

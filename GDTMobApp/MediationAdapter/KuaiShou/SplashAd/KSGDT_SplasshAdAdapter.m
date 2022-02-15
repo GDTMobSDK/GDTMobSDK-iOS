@@ -84,6 +84,13 @@
     return self.delegateObject.splashAdContentLoaded;
 }
 
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.splashAdView setBidEcpm:price];
+}
 
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.splashAdView reportAdExposureFailed:0 reportParam:nil];
+}
 
 @end

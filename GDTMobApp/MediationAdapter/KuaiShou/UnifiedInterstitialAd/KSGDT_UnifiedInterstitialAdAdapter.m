@@ -91,6 +91,13 @@
     return self.fullscreenAd.ecpm;
 }
 
+//设置实际结算价
+- (void)setBidECPM:(NSInteger)price {
+    [self.fullscreenAd setBidEcpm:price];
+}
 
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.fullscreenAd reportAdExposureFailed:0 reportParam:nil];
+}
 
 @end

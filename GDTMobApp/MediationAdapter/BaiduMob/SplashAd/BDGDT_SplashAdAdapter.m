@@ -89,4 +89,12 @@ static NSString *s_appId = nil;
     [self.splashView removeFromSuperview];
 }
 
+- (void)sendWinNotification:(NSInteger)price {
+    [self.splashAd biddingSuccess:[NSString stringWithFormat:@"%ld", price]];
+}
+
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    [self.splashAd biddingFail:[NSString stringWithFormat:@"%ld", reason]];
+}
+
 @end

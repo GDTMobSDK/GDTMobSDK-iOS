@@ -23,6 +23,15 @@
 
 #define GDTScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define GDTScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+
+#define GDTPerformSelector(target,selector,type,defualtValue) \
+({\
+    type result = defualtValue;\
+    if ([target respondsToSelector:selector]) {\
+        result = (type)[target performSelector:selector];\
+    }\
+    (result);\
+})
 /**
  *  视频播放器状态
  *

@@ -30,8 +30,7 @@
  
  @param rewardedVideoAd 当前激励视频对象
  */
-- (void)rewardedVideoAdWillVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd
-{
+- (void)nativeExpressRewardedVideoAdWillVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
     [self.connector adapter_rewardVideoAdWillVisible:self.adapter];
 }
 
@@ -40,12 +39,8 @@
  
  @param rewardedVideoAd 当前激励视频对象
  */
-- (void)nativeExpressRewardedVideoAdWillVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd
+- (void)nativeExpressRewardedVideoAdDidVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd
 {
-    [self.connector adapter_rewardVideoAdWillVisible:self.adapter];
-}
-
-- (void)nativeExpressRewardedVideoAdDidVisible:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
     [self.connector adapter_rewardVideoAdDidExposed:self.adapter];
 }
 
@@ -77,7 +72,6 @@
  */
 - (void)nativeExpressRewardedVideoAd:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error
 {
-    // TODO  头条 error -> GDT error
     [self.connector adapter_rewardVideoAd:self.adapter didFailWithError:error];
 }
 
@@ -87,10 +81,8 @@
  @param rewardedVideoAd 当前激励视频对象
  @param error 错误对象
  */
-- (void)rewardedVideoAdDidPlayFinish:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error
-{
+- (void)nativeExpressRewardedVideoAdDidPlayFinish:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd didFailWithError:(NSError *_Nullable)error {
     if (error) {
-        // TODO  头条 error -> GDT error
         [self.connector adapter_rewardVideoAd:self.adapter didFailWithError:error];
     } else {
         [self.connector adapter_rewardVideoAdDidPlayFinish:self.adapter];
@@ -98,22 +90,22 @@
 }
 
 /**
- Server verification which is requested asynchronously is succeeded.
+ Server verification which is requested asynchronously is succeeded. now include two v erify methods:
+      1. C2C need  server verify  2. S2S don't need server verify
  @param verify :return YES when return value is 2000.
  */
-- (void)rewardedVideoAdServerRewardDidSucceed:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd verify:(BOOL)verify {
+- (void)nativeExpressRewardedVideoAdServerRewardDidSucceed:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd verify:(BOOL)verify {
     [self.connector adapter_rewardVideoAdDidRewardEffective:self.adapter];
 }
 
 /**
   Server verification which is requested asynchronously is failed.
-  @param rewardedVideoAd rewarded Video ad
+  @param rewardedVideoAd express rewardVideo Ad
   @param error request error info
  */
-- (void)rewardedVideoAdServerRewardDidFail:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd error:(NSError *)error {
-    // TODO  头条 error -> GDT error
+- (void)nativeExpressRewardedVideoAdServerRewardDidFail:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd error:(NSError *_Nullable)error;
+{
     [self.connector adapter_rewardVideoAd:self.adapter didFailWithError:nil];
 }
-
 
 @end

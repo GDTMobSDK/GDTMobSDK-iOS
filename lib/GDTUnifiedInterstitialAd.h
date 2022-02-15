@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GDTUnifiedInterstitialAd;
 
-@protocol GDTUnifiedInterstitialAdDelegate <NSObject>
+@protocol GDTUnifiedInterstitialAdDelegate <GDTAdDelegate>
 @optional
 
 /**

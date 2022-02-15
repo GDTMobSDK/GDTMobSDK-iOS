@@ -15,7 +15,7 @@
 
 @class GDTSplashAd;
 
-@protocol GDTSplashAdDelegate <NSObject>
+@protocol GDTSplashAdDelegate <GDTAdDelegate>
 
 @optional
 /**
