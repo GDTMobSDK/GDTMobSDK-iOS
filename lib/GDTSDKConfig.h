@@ -100,6 +100,7 @@
   @"lng"，实时的地理位置经度，值为字符串格式的经度值，比如@“116.67765”
   @"lat", 实时的地理位置纬度，值为字符串格式的纬度值，比如@"39.365678"
   @"loc_time"，实时的地理位置获取时间，值为字符串格式的unix时间戳，单位秒，比如@"1639450944"
+  @"shakable"，是否关闭摇一摇，值为字符串格式，”0“：关闭摇一摇；”1“：开启摇一摇
  */
 + (void)setExtraUserData:(NSDictionary <NSString *, NSString *> *)extraUserDictionary;
 
