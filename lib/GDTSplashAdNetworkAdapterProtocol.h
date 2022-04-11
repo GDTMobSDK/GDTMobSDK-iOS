@@ -26,12 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL needZoomOut;
 
-@property (nonatomic, strong, readonly) GDTSplashZoomOutView *splashZoomOutView;
+@property (nonatomic, strong, readonly, nullable) GDTSplashZoomOutView *splashZoomOutView;
 @property (nonatomic, assign) BOOL shouldLoadFullscreenAd;
 
 - (BOOL)isAdValid;
 - (void)loadAd;
-- (void)showAdInWindow:(UIWindow *)window withBottomView:(UIView *)bottomView skipView:(UIView *)skipView;
+- (void)showAdInWindow:(UIWindow *)window withBottomView:(UIView *_Nullable)bottomView skipView:(UIView *)skipView;
 
 @end
 

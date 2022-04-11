@@ -78,11 +78,16 @@
         self.placementIdText.text = nil;
     }];
     UIAlertAction *flowDistributionAction = [UIAlertAction actionWithTitle:@"流量分配" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.placementIdText.text = @"100013";
+        self.placementIdText.text = [self mediationId];
     }];
     [alert addAction:defaultAction];
     [alert addAction:flowDistributionAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (NSString *)mediationId {
+    return @"101370";
 }
 
 #pragma mark - property getter

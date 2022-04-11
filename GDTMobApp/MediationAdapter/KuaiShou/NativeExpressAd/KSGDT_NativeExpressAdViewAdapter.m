@@ -78,6 +78,11 @@
     [self.feedAd reportAdExposureFailed:0 reportParam:nil];
 }
 
+- (void)sendWinNotification:(NSInteger)price {
+    //快手无
+}
+
+
 #pragma mark - KSFeedAdDelegate
 
 - (void)feedAdViewWillShow:(KSFeedAd *)feedAd {

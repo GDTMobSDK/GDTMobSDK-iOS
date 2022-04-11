@@ -38,7 +38,7 @@
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
         {
-            BOOL needAnimation;
+            BOOL needAnimation = NO;
             // 处理拖动到边界的情况
             if (targetX < widthLimitation / 2) {
                 targetX = widthLimitation / 2;

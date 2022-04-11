@@ -74,4 +74,17 @@
     return !self.bdAdObject.isExpired;
 }
 
+- (void)sendLossNotification:(NSInteger)price reason:(NSInteger)reason adnId:(NSString *)adnId {
+    
+}
+
+- (void)sendWinNotification:(NSInteger)price {
+    
+}
+
+- (void)setBidECPM:(NSInteger)price {
+    
+}
+
+
 @end

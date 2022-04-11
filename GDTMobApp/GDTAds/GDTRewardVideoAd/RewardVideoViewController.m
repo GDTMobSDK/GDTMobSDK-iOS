@@ -15,7 +15,7 @@
 
 static NSString *PORTRAIT_AD_PLACEMENTID = @"8020744212936426";
 static NSString *PORTRAIT_LANDSCAPE_AD_PLACEMENTID = @"9070098640008762";
-static NSString *MEDIATION_AD_PLACEMENTID = @"100009";
+static NSString *MEDIATION_AD_PLACEMENTID = @"101366";
 
 
 @interface RewardVideoViewController () <GDTRewardedVideoAdDelegate, UIScrollViewDelegate, UITextFieldDelegate>

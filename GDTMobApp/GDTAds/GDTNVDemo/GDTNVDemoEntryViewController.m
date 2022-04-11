@@ -51,8 +51,8 @@
 }
 
 - (void)reload {
-    [GDTNVDemoManager loadLocalFile:[GDTNVDemoManager fileUrl] completion:^(NSDictionary * _Nonnull data) {
-        self.templates = data[@"data"];
+    [GDTNVDemoManager loadLocalFile:[GDTNVDemoManager fileUrl] completion:^(NSArray * _Nonnull data) {
+        self.templates = data;
         [self.templateTableView reloadData];
     }];
     [GDTNVDemoManager loadLocalFile:[GDTNVDemoManager dataUrl] completion:^(NSArray * _Nonnull data) {

@@ -255,7 +255,7 @@
 - (void)nativeAdDidBecomeVisible:(BUNativeAd *)nativeAd
 {
     NSLog(@"%s",__FUNCTION__);
-    if (!self.didExposed || [self isVideoAd]) {
+    if (!self.didExposed) {
         self.didExposed = YES;
         [self.connector adapter_unifiedNativeAdViewWillExpose:self];
     }

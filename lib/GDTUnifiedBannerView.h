@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  QQ小游戏SDK字段透传
 */
-@property (nonatomic, strong) GDTLoadAdParams *loadAdParams;
+@property (nonatomic, strong, nullable) GDTLoadAdParams *loadAdParams;
 
 /**
  *  广告是否有效，以下情况会返回NO，建议在展示广告之前判断，否则会影响计费或展示失败

@@ -88,4 +88,67 @@
     
 }
 
+#pragma mark - 半屏
+/**
+ * interstitial ad data loaded
+ */
+- (void)ksad_interstitialAdDidLoad:(KSInterstitialAd *)interstitialAd {
+    [self.connector adapter_unifiedInterstitialSuccessToLoadAd:self.adapter];
+}
+/**
+ * interstitial ad render success
+ */
+- (void)ksad_interstitialAdRenderSuccess:(KSInterstitialAd *)interstitialAd {
+    
+}
+/**
+ * interstitial ad load or render failed
+ */
+- (void)ksad_interstitialAdRenderFail:(KSInterstitialAd *)interstitialAd error:(NSError * _Nullable)error {
+    [self.connector adapter_unifiedInterstitialFailToLoadAd:self.adapter error:error];
+}
+/**
+ * interstitial ad will visible
+ */
+- (void)ksad_interstitialAdWillVisible:(KSInterstitialAd *)interstitialAd {
+    [self.connector adapter_unifiedInterstitialWillExposure:self.adapter];
+}
+/**
+ * interstitial ad did visible
+ */
+- (void)ksad_interstitialAdDidVisible:(KSInterstitialAd *)interstitialAd {
+    
+}
+/**
+ * interstitial ad did skip (for video only)
+ * @param playDuration played duration
+ */
+- (void)ksad_interstitialAd:(KSInterstitialAd *)interstitialAd didSkip:(NSTimeInterval)playDuration {
+    
+}
+/**
+ * interstitial ad did click
+ */
+- (void)ksad_interstitialAdDidClick:(KSInterstitialAd *)interstitialAd {
+    [self.connector adapter_unifiedInterstitialClicked:self.adapter];
+}
+/**
+ * interstitial ad will close
+ */
+- (void)ksad_interstitialAdWillClose:(KSInterstitialAd *)interstitialAd {
+    
+}
+/**
+ * interstitial ad did close
+ */
+- (void)ksad_interstitialAdDidClose:(KSInterstitialAd *)interstitialAd {
+    [self.connector adapter_unifiedInterstitialDidDismissScreen:self.adapter];
+}
+/**
+ * interstitial ad did close other controller
+ */
+- (void)ksad_interstitialAdDidCloseOtherController:(KSInterstitialAd *)interstitialAd interactionType:(KSAdInteractionType)interactionType {
+    
+}
+
 @end

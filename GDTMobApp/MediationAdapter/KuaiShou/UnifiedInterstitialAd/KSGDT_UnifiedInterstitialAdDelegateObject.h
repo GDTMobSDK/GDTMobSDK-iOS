@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface KSGDT_UnifiedInterstitialAdDelegateObject : NSObject <KSFullscreenVideoAdDelegate>
+@interface KSGDT_UnifiedInterstitialAdDelegateObject : NSObject <KSFullscreenVideoAdDelegate, KSInterstitialAdDelegate>
 @property (nonatomic, weak) id <GDTUnifiedInterstitialAdNetworkConnectorProtocol> connector;
 @property (nonatomic, weak) id <GDTUnifiedinterstitialAdNetworkAdapterProtocol> adapter;
 @end

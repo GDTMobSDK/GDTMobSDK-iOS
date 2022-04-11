@@ -12,9 +12,10 @@
 #import <KSAdSDK/KSAdSDK.h>
 #import "MediationAdapterUtil.h"
 
-@interface KSGDT_UnifiedInterstitialAdAdapter ()
+@interface KSGDT_UnifiedInterstitialAdAdapter () <KSInterstitialAdDelegate>
 @property (nonatomic, weak) id <GDTUnifiedInterstitialAdNetworkConnectorProtocol> connector;
 @property (nonatomic, strong) KSFullscreenVideoAd *fullscreenAd;
+@property (nonatomic, strong) KSInterstitialAd *interstitialAd;
 @property (nonatomic, copy) NSString *posId;
 @property (nonatomic, assign) BOOL fullscreenAdDidLoad;
 @property (nonatomic, strong) KSGDT_UnifiedInterstitialAdDelegateObject *delegateObject;
@@ -23,6 +24,7 @@
 @implementation KSGDT_UnifiedInterstitialAdAdapter
 @synthesize shouldLoadFullscreenAd;
 @synthesize shouldShowFullscreenAd;
+@synthesize videoMuted = _videoMuted;
 
 + (void)updateAppId:(NSString *)appId extStr:(NSString *)extStr {
     if (KSAdSDKManager.appId.length == 0) {
@@ -51,40 +53,46 @@
 }
 
 - (void)loadAd {
+    self.delegateObject = [[KSGDT_UnifiedInterstitialAdDelegateObject alloc] init];
+    self.delegateObject.adapter = self;
+    self.delegateObject.connector = self.connector;
     if (self.shouldLoadFullscreenAd) {
-        self.delegateObject = [[KSGDT_UnifiedInterstitialAdDelegateObject alloc] init];
-        self.delegateObject.adapter = self;
-        self.delegateObject.connector = self.connector;
-        
         self.fullscreenAd = [[KSFullscreenVideoAd alloc] initWithPosId:self.posId];
         self.fullscreenAd.delegate = self.delegateObject;
+        self.fullscreenAd.shouldMuted = self.videoMuted;
         [self.fullscreenAd loadAdData];
-    }
-    else {
-        NSLog(@"快手SDK不支持插屏半屏");
+    } else {
+        self.interstitialAd = [[KSInterstitialAd alloc] initWithPosId:self.posId];
+        self.interstitialAd.delegate = self.delegateObject;
+        self.interstitialAd.videoSoundEnabled = !self.videoMuted;
+        [self.interstitialAd loadAdData];
     }
 }
 
 - (void)presentAdFromRootViewController:(UIViewController *)rootViewController
 {
-    if ([self.fullscreenAd isValid]) {
+    if (self.shouldShowFullscreenAd) {
         [self.fullscreenAd showAdFromRootViewController:rootViewController];
-    }
-    else {
-        NSLog(@"资源未准备好，请稍后再试");
+    } else {
+        UIViewController *vc = rootViewController;
+        if (vc.navigationController) {
+            vc = vc.navigationController;
+        } else if (vc.parentViewController) {
+            vc = vc.parentViewController;
+        }
+        [self.interstitialAd showFromViewController:vc];
     }
 }
 
 - (BOOL)isAdValid {
-    return self.fullscreenAd.isValid;
+    if (self.shouldLoadFullscreenAd) {
+        return self.fullscreenAd.isValid;
+    }
+    return self.interstitialAd.isValid;
 }
 
 - (BOOL)isVideoAd {
     return YES;
-}
-
-- (BOOL)videoMuted {
-    return self.fullscreenAd.shouldMuted;
 }
 
 - (NSInteger)eCPM {

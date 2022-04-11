@@ -174,12 +174,12 @@ class RewardVideoViewController: UIViewController, GDTRewardedVideoAdDelegate {
     }
     
     func gdt_rewardVideoAdDidClicked(_ rewardedVideoAd: GDTRewardVideoAd) {
-        self.statusLabel.text = "广告已关闭"
+        self.statusLabel.text = "广告已点击"
         print("广告已关闭")
     }
     
     func gdt_rewardVideoAdDidClose(_ rewardedVideoAd: GDTRewardVideoAd) {
-        print("广告已点击")
+        print("广告已关闭")
     }
     
     func gdt_rewardVideoAd(_ rewardedVideoAd: GDTRewardVideoAd, didFailWithError error: Error) {

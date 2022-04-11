@@ -72,7 +72,7 @@
 #elif TARGET_OS_IPHONE//真机
     host = [GDTScanViewController currentIp];
 #endif
-    NSString *url = [NSString stringWithFormat:@"http://%@/file", host];
+    NSString *url = [NSString stringWithFormat:@"http://%@/template", host];
     return url;
 }
 

@@ -13,11 +13,15 @@
 #import "GDTDLUtils.h"
 #import "GDTNVDemoManager.h"
 #import "UIView+GDTToast.h"
+#import "GDTBizFeedVideoPlayerView.h"
+#import "GDTDLVideoView.h"
+#import "GDTSDKServerService.h"
+#import "GDTDLBusinessManager.h"
 
 @interface GDTNVDemoViewController ()<GDTDLRootViewDelegate>
 
 @property (nonatomic, copy) NSString *selectedTemplate;
-@property (nonatomic, strong) GDTDLRootView *templateView;
+@property (nonatomic, strong) GDTDLBusinessManager *manager;
 @property (nonatomic, strong) GDTAdBaseModel *adModel;
 
 @end
@@ -26,6 +30,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [NSClassFromString(@"GDTDLBusinessManager") performSelector:NSSelectorFromString(@"setupRegisterData")];
+#pragma clang diagnostic pop
     
     self.extendedLayoutIncludesOpaqueBars = YES;
     [self reload];
@@ -58,7 +67,7 @@
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    [self.templateView dlViewDidDisappear];
+    [self.manager.rootView dlViewDidDisappear];
 }
 
 - (void)gdt_dlRootViewEventsBegan:(GDTDLTouchInfo *)info {
@@ -81,22 +90,24 @@
 
 - (void)reloadTemplate:(NSString *)template {
     NSString *resource = template;
-    [self.templateView removeFromSuperview];
-    GDTDLTemplateNode *node = [GDTDLTemplateFactory createTemplate:resource];
-    GDTDLRootView *view = [GDTDLViewFactory getRootViewWithTemplateNode:node];
-    view.delegate = self;
-    view.tag = 10032;
-    view.frame = self.view.bounds;
+    NSData *data = [GDTSDKServerService packageRequestData:resource];
+    resource = [GDTSDKServerService base64StringWithData:data];
+    
+    [self.manager.rootView removeFromSuperview];
+    self.manager = [GDTDLBusinessManager managerWithLocalTemlateBase64:resource adModel:self.adModel];
+    
+    self.manager.delegate = self;
+    self.manager.rootView.tag = 10032;
+    self.manager.rootView.frame = self.view.bounds;
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if (self.adModel) {
         [dict addEntriesFromDictionary:@{@"callback": self, @"adModel": self.adModel}];
     }
     [dict addEntriesFromDictionary:@{@"safeArea": @(UIRectEdgeAll)}];
-    [dict addEntriesFromDictionary:@{@"a":[UIColor redColor], @"b": @"100", @"c": @"的是覅is登记方式冬季福利胜多负少的离开飞机", @"d": @(0)}];
-    [view bindData:@{@"dlInfo": dict}];
-    self.templateView = view;
-    [self.view insertSubview:self.templateView atIndex:0];
-    [self.templateView dlViewDidAppear];
+    [self.adModel.jsonDict addEntriesFromDictionary:@{@"dlInfo": dict ?: @""}];
+    [self.manager bindData:self.adModel.jsonDict adModel:self.adModel];
+    [self.view insertSubview:self.manager.rootView atIndex:0];
+    [self.manager.rootView dlViewDidAppear];
 }
 
 - (IBAction)handleReload:(id)sender {

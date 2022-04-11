@@ -50,7 +50,7 @@ static NSString *s_appId = nil;
     self.native = [[BaiduMobAdNative alloc] init];
     self.native.delegate = self;
     self.native.publisherId = s_appId;
-    self.native.adId = self.posId;
+    self.native.adUnitTag = self.posId;
     self.native.presentAdViewController = nil;
     [self.native requestNativeAds];
 }

@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  视频广告播放配置
  */
-@property (nonatomic, strong) GDTVideoConfig *videoConfig;
+@property (nonatomic, strong, nullable) GDTVideoConfig *videoConfig;
 
 @optional
 
@@ -116,12 +116,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  VAST Tag Url，可能为空。
  */
-@property (nonatomic, copy, readonly) NSString *vastTagUrl;
+@property (nonatomic, copy, readonly, nullable) NSString *vastTagUrl;
 
 /**
  * VAST Content，可能为空。
  */
-@property (nonatomic, copy, readonly) NSString *vastContent;
+@property (nonatomic, copy, readonly, nullable) NSString *vastContent;
 
 /**
  * 是否为 VAST 广告

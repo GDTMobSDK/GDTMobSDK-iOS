@@ -72,7 +72,7 @@
                                 <action selector="changeOrientation:" destination="-1" eventType="touchUpInside" id="qND-Ia-wAF"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频是否静音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZr-71-aN1">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频是否静音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZr-71-aN1">
                             <rect key="frame" x="20" y="265.5" width="104" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="XmR-Wn-gIc"/>

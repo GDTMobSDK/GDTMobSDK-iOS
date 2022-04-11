@@ -28,7 +28,6 @@
 @property (nonatomic, strong) UISwitch *changADVStyleSwitch;
 @property (nonatomic, copy) NSString *placeHolderString;
 @property (nonatomic, strong) UILabel * changeADVStyleLabel;
-@property (nonatomic, strong) UIAlertController *changePidAlertController;
 
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
@@ -43,7 +42,6 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 static NSString *CHANGE_ADVSTYLE_TEXT = @"切换插屏视频";
 
 static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,11 +122,11 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
 }
 
 - (IBAction)changePid:(id)sender {
-    self.changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *posIDArray = @[
                                   @[@"插屏图文", @"1050652855580392"],
                                   @[@"插屏视频", VIDEO_PLACEMENT_ID_STR],
-                                  @[@"流量分配广告位", @"100010"],
+                                  @[@"流量分配广告位", @"101369"],
     ];
     
     for (NSInteger i = 0; i < [posIDArray count]; i++) {
@@ -137,14 +135,12 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
                                                               handler:^(UIAlertAction * _Nonnull action) {
             self.positionID.placeholder = posIDArray[i][1];
         }];
-        [self.changePidAlertController addAction:advTypeAction];
+        [changePidAlertController addAction:advTypeAction];
     }
     
-    [self presentViewController:self.changePidAlertController
+    [self presentViewController:changePidAlertController
                        animated:YES
-                     completion:^{
-        ;
-    }];
+                     completion:nil];
 }
 
 - (IBAction)handleGetToken:(id)sender {

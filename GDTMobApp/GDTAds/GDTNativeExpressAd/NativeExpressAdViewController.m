@@ -275,6 +275,14 @@ static NSString *Mediator_STR = @"100014";
     [self.tableView reloadData];
 }
 
+/**
+ * 模板渲染失败的回调
+ */
+- (void)nativeExpressAdViewRenderFail:(GDTNativeExpressAdView *)nativeExpressAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+}
+
 - (void)nativeExpressAdViewClicked:(GDTNativeExpressAdView *)nativeExpressAdView
 {
     NSLog(@"%s",__FUNCTION__);

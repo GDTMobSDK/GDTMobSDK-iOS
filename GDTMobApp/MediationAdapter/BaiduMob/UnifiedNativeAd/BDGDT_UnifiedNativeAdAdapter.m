@@ -54,7 +54,7 @@ static NSString *s_appId = nil;
     
     self.nativeAd = [[BaiduMobAdNative alloc] init];
     self.nativeAd.publisherId = s_appId;
-    self.nativeAd.adId = self.posId;
+    self.nativeAd.adUnitTag = self.posId;
     
     /*
     //type = normal

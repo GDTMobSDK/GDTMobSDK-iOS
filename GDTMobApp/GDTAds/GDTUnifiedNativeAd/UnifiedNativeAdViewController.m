@@ -56,7 +56,6 @@ static NSString *ONE_WIDER_VIDEO_STR = @"7000593393992138";
 
 static NSString *ONE_WIDER_OR_LONGER_VIDEO_STR = @"2040594303892119";
 
-static NSString *MEDIATION_PID = @"100012";
 
 static NSInteger ADVTYPE_COUNT = 6;
 
@@ -92,7 +91,7 @@ static NSInteger ADVTYPE_COUNT = 6;
                                   ONE_BIG_WIDER_PHOTO_STR,
                                   THREE_VIDEO_OR_ONE_VIDEO_STR,
                                   ONE_WIDER_VIDEO_STR,
-                                  MEDIATION_PID,
+                                  [self mediationId],
     ];
         for (NSInteger i = 0; i < ADVTYPE_COUNT; i++) {
             if (i == 10) {
@@ -111,6 +110,10 @@ static NSInteger ADVTYPE_COUNT = 6;
                          completion:^{
             [self clickBackToMainView];
         }];
+}
+
+- (NSString *)mediationId {
+    return @"101367";
 }
 
 - (void)clickBackToMainView {

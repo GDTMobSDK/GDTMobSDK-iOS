@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MediationAdapterUtil : NSObject
 
-+ (NSMutableDictionary *)getURLParams:(NSString *)url;
++ (NSMutableDictionary *_Nullable)getURLParams:(NSString *)url;
+
++ (void)imageView:(UIImageView *)imageView
+      setImageUrl:(NSString *)urlStr
+ placeholderImage:(UIImage *_Nullable)image;
 
 @end
 

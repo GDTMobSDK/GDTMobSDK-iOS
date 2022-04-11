@@ -167,7 +167,7 @@
 
 /**
  *  拉取广告
- *  @param count 请求广告数量，区间为[1，3]，若大于3默认设置为3
+ *  @param count 请求广告数量
  */
 - (void)loadAd:(NSInteger)count;
 

@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  开屏广告展示失败
  */
-- (void)adapter_splashAdFailToPresent:(id <GDTSplashAdNetworkAdapterProtocol>)adapter withError:(NSError *)error;
+- (void)adapter_splashAdFailToPresent:(id <GDTSplashAdNetworkAdapterProtocol>)adapter withError:(NSError * _Nullable)error;
 
 /**
  *  应用进入后台时回调

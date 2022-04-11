@@ -99,7 +99,7 @@ static NSString *Mediator_STR = @"100015";
              @[@"上文下图(图片尺寸1280×720)",@"1070493363284797"],
              @[@"双图双文(大图尺寸1280×720)",@"8070996313484739"],
              @[@"纯图片(图片尺寸1280×720)",@"1010197333187887"],
-             @[@"流量分配",@"100015"]];
+             @[@"流量分配",@"101372"]];
 }
 
 - (void)clickBackToMainView {
@@ -146,6 +146,9 @@ static NSString *Mediator_STR = @"100015";
 }
 
 - (IBAction)refreshButton:(id)sender {
+    [self.expressAdViews removeAllObjects];
+    [self.tableView reloadData];
+    
     NSString *placementId = self.placementIdTextField.text.length > 0? self.placementIdTextField.text: self.placementIdTextField.placeholder;
     if (self.useToken) {
         self.nativeExpressAd = [[GDTNativeExpressAd alloc] initWithPlacementId:placementId token:self.token

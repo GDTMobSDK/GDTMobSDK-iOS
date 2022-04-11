@@ -16,7 +16,6 @@
 static NSString *IMAGE_AD_PLACEMENTID = @"9040714184494018";
 static NSString *VIDEO_AD_PLACEMENTID = @"8071800142568576";
 static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
-static NSString *MEDIATION_AD_PLACEMENTID = @"100008";
 
 @interface SplashViewController () <GDTSplashAdDelegate,GDTSplashZoomOutViewDelegate>
 
@@ -93,13 +92,17 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"100008";
     
     
     UIAlertAction *mediationAdIdAction = [UIAlertAction actionWithTitle:@"流量分配广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.placementIdTextField.placeholder = MEDIATION_AD_PLACEMENTID;
+        self.placementIdTextField.placeholder = [self mediationId];
     }];
     
     [self.changePosIdController addAction:splashZoomoutAdIdAction];
     [self.changePosIdController addAction:mediationAdIdAction];
     
     [self presentViewController:self.changePosIdController animated:YES completion:^{ [self clickBackToMainView];}];
+}
+
+- (NSString *)mediationId {
+    return @"101371";
 }
 
 - (void)clickBackToMainView {

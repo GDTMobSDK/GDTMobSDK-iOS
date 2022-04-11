@@ -56,8 +56,13 @@
     self.contentView = contentView;
     [self initBaseControlFrame];
     
-    self.minVideoDurationSlider.maximumValue = self.maxVideoDurationSlider.maximumValue = 200;
-    self.minVideoDurationSlider.minimumValue = self.maxVideoDurationSlider.minimumValue = 0;
+    self.minVideoDurationSlider.maximumValue = 100.0;
+    self.minVideoDurationSlider.minimumValue = 0;
+    self.minVideoDurationSlider.value = 5.0;
+    
+    self.maxVideoDurationSlider.maximumValue = 100.0;
+    self.maxVideoDurationSlider.minimumValue = 0;
+    self.maxVideoDurationSlider.value = 30.0;
 }
 
 - (void)initBaseControlFrame {
