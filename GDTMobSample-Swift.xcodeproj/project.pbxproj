@@ -22,8 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0A1CAF0C22339C5E003D4D9A /* HybridAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1CAF0B22339C5E003D4D9A /* HybridAdViewController.swift */; };
-		0A1CAF0E22339C76003D4D9A /* HybridAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1CAF0D22339C76003D4D9A /* HybridAdViewController.xib */; };
 		0A6A32A32174D06E00CB6F34 /* RewardVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6A32A12174D06E00CB6F34 /* RewardVideoViewController.swift */; };
 		3B19B7C72126BC8F00E9EBC5 /* GDTNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B19B7C62126BC8F00E9EBC5 /* GDTNavigationController.swift */; };
 		3B19B7CF212D053100E9EBC5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B19B7CE212D053100E9EBC5 /* Constant.swift */; };
@@ -88,9 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A1CAEFF22336F9A003D4D9A /* GDTHybridAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTHybridAd.h; sourceTree = "<group>"; };
-		0A1CAF0B22339C5E003D4D9A /* HybridAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridAdViewController.swift; sourceTree = "<group>"; };
-		0A1CAF0D22339C76003D4D9A /* HybridAdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HybridAdViewController.xib; sourceTree = "<group>"; };
 		0A6A32A12174D06E00CB6F34 /* RewardVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardVideoViewController.swift; sourceTree = "<group>"; };
 		0A6A32B12174D24400CB6F34 /* GDTRewardVideoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTRewardVideoAd.h; sourceTree = "<group>"; };
 		0AF51FAF231FB23400245A69 /* GDTVideoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTVideoConfig.h; sourceTree = "<group>"; };
@@ -123,9 +118,7 @@
 		3BC2AD252122E3A1009BD5FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BC2AD272122E3A1009BD5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BD7B378212D88E100E1744B /* GDTNativeExpressAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdView.h; sourceTree = "<group>"; };
-		3BD7B379212D88E100E1744B /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
 		3BD7B37B212D88E100E1744B /* GDTSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKConfig.h; sourceTree = "<group>"; };
-		3BD7B37C212D88E100E1744B /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
 		3BD7B37D212D88E100E1744B /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
 		3BD7B37E212D88E100E1744B /* GDTNativeExpressAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAd.h; sourceTree = "<group>"; };
 		3BD7B37F212D88E100E1744B /* GDTSDKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKDefines.h; sourceTree = "<group>"; };
@@ -188,15 +181,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A1CAF0A22339C42003D4D9A /* HybridAdViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0A1CAF0B22339C5E003D4D9A /* HybridAdViewController.swift */,
-				0A1CAF0D22339C76003D4D9A /* HybridAdViewController.xib */,
-			);
-			path = HybridAdViewController;
-			sourceTree = "<group>";
-		};
 		0A6A32A02174CFBD00CB6F34 /* RewardVideoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +270,6 @@
 				0AF51FAF231FB23400245A69 /* GDTVideoConfig.h */,
 				3B895A4B223CE71B00B81BCC /* GDTUnifiedBannerView.h */,
 				3B895A4C223CE71B00B81BCC /* GDTUnifiedInterstitialAd.h */,
-				0A1CAEFF22336F9A003D4D9A /* GDTHybridAd.h */,
 				3BDAC70C21EC931D00BC0B34 /* GDTLogoView.h */,
 				3BDAC70A21EC931D00BC0B34 /* GDTMediaView.h */,
 				3BDAC70B21EC931D00BC0B34 /* GDTUnifiedNativeAd.h */,
@@ -294,9 +277,7 @@
 				3BDAC70E21EC931D00BC0B34 /* GDTUnifiedNativeAdView.h */,
 				0A6A32B12174D24400CB6F34 /* GDTRewardVideoAd.h */,
 				3BD7B378212D88E100E1744B /* GDTNativeExpressAdView.h */,
-				3BD7B379212D88E100E1744B /* GDTMobBannerView.h */,
 				3BD7B37B212D88E100E1744B /* GDTSDKConfig.h */,
-				3BD7B37C212D88E100E1744B /* GDTMobInterstitial.h */,
 				3BD7B37D212D88E100E1744B /* GDTSplashAd.h */,
 				3BD7B37E212D88E100E1744B /* GDTNativeExpressAd.h */,
 				3BD7B37F212D88E100E1744B /* GDTSDKDefines.h */,
@@ -324,7 +305,6 @@
 				E631A68924591C930007612A /* UnfiedInterstitialFullScreenVideoViewController */,
 				3B895A5822407AAF00B81BCC /* UnifiedBannerViewController */,
 				3B895A53224076D700B81BCC /* UnifiedInterstitialViewController */,
-				0A1CAF0A22339C42003D4D9A /* HybridAdViewController */,
 				3BDAC70F21EC933700BC0B34 /* UnifiedNativeAdViewController */,
 				0A6A32A02174CFBD00CB6F34 /* RewardVideoViewController */,
 				3BE4C0C12124327000D9F2D1 /* SplashViewController */,
@@ -463,7 +443,6 @@
 			files = (
 				E63855B1245C459300D7BAFC /* NativeExpressVideoAdViewController.xib in Resources */,
 				3BDAC71521EC933700BC0B34 /* UnifiedNativeAdViewController.xib in Resources */,
-				0A1CAF0E22339C76003D4D9A /* HybridAdViewController.xib in Resources */,
 				3BC2AD262122E3A1009BD5FD /* LaunchScreen.storyboard in Resources */,
 				3BE4C0C52124329100D9F2D1 /* SplashViewController.xib in Resources */,
 				3BC2AD232122E3A1009BD5FD /* Assets.xcassets in Resources */,
@@ -526,7 +505,6 @@
 				ACD62BF92366BED900D8CC51 /* UnifiedNativeAdPortraitFeedViewController.swift in Sources */,
 				ACD62BFB2366BEE300D8CC51 /* UnifiedNativePreVideoViewController.swift in Sources */,
 				E631A68B24591CA20007612A /* UnifiedInterstitialFullScreenVideoViewController.swift in Sources */,
-				0A1CAF0C22339C5E003D4D9A /* HybridAdViewController.swift in Sources */,
 				3B19B7C72126BC8F00E9EBC5 /* GDTNavigationController.swift in Sources */,
 				3BE4C0C42124329100D9F2D1 /* SplashViewController.swift in Sources */,
 			);
@@ -684,6 +662,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "GDTMobSample-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -695,6 +674,7 @@
 					"$(PROJECT_DIR)/GDTMobSample-Swift/lib",
 					"$(PROJECT_DIR)/lib",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.gdt.GDTMobSample.swift.db;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -715,6 +695,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "GDTMobSample-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -798,6 +779,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tencent Technology (Shenzhen) Co., Ltd";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = HKB8WPFBR9;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "GDTMobSample-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

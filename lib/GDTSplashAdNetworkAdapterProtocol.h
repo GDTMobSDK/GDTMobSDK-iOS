@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GDTBaseAdNetworkAdapterProtocol.h"
 #import "GDTSplashZoomOutView.h"
+#import "GDTServerSideVerificationOptions.h"
 
 @protocol GDTSplashAdNetworkConnectorProtocol;
 
@@ -28,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly, nullable) GDTSplashZoomOutView *splashZoomOutView;
 @property (nonatomic, assign) BOOL shouldLoadFullscreenAd;
+
+@property (nonatomic, strong) GDTServerSideVerificationOptions *serverSideVerificationOptions;
 
 - (BOOL)isAdValid;
 - (void)loadAd;

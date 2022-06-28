@@ -17,7 +17,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     "原生模板广告",
                                     "原生视频模板广告",
                                     "激励视频广告",
-                                    "HybridAd",
                                     "Banner2.0（横幅）",
                                     "插屏2.0",
                                     "插屏2.0全屏视频",
@@ -29,7 +28,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 "原生视频模板广告":"NativeExpressVideoAdViewController",
                                 "激励视频广告":"RewardVideoViewController",
                                 "自渲染2.0":"UnifiedNativeAdViewController",
-                                "HybridAd":"HybridAdViewController",
                                 "Banner2.0（横幅）":"UnifiedBannerViewController",
                                 "插屏2.0":"UnifiedInterstitialViewController",
                                 "插屏2.0全屏视频":"UnifiedInterstitialFullScreenVideoViewController",
@@ -104,8 +102,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             vc = RewardVideoViewController(nibName: demoDict[vcType], bundle: nil)
         case "自渲染2.0":
             vc = UnifiedNativeAdViewController(nibName: demoDict[vcType], bundle: nil)
-        case "HybridAd":
-            vc = HybridAdViewController(nibName: demoDict[vcType], bundle:nil)
         case "Banner2.0（横幅）":
             vc = UnifiedBannerViewController(nibName: demoDict[vcType], bundle:nil)
         case "插屏2.0":

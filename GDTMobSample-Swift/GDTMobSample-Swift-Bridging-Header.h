@@ -16,6 +16,5 @@
 #import "GDTUnifiedNativeAd.h"
 #import "GDTUnifiedNativeAdDataObject.h"
 #import "GDTUnifiedNativeAdView.h"
-#import "GDTHybridAd.h"
 #import "GDTUnifiedBannerView.h"
 #import "GDTUnifiedInterstitialAd.h"

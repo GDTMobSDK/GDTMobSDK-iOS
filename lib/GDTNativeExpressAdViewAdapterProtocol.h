@@ -19,6 +19,8 @@
 @property (nonatomic, assign, readonly) BOOL isVideoAd;
 @property (nonatomic, weak) UIViewController *controller;
 
+- (void)resize;
+
 - (BOOL)isAdValid;
 - (UIView *)adView;
 
