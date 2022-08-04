@@ -161,19 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)adNetworkName;
 
-/**
- *  竞胜之后调用, 需要在调用广告 show 之前调用
- *  @param price - 竞胜价格 (单位: 分)
- */
-- (void)sendWinNotificationWithPrice:(NSInteger)price;
-/**
- *  竞败之后调用
- *  @param price - 竞胜价格 (单位: 分)
- *  @param reason - 优量汇广告竞败原因
- *  @param adnID - adnID
- */
-- (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;
-
 @end
 
 NS_ASSUME_NONNULL_END

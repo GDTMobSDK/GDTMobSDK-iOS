@@ -154,20 +154,21 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
  * 上报给优量汇服务端在开发者客户端竞价中优量汇的竞价结果，以便于优量汇服务端调整策略提供给开发者更合理的报价
  *
  * 优量汇竞价失败调用 biddingLoss，并填入优量汇竞败原因（必填）、竞胜ADN ID（选填）、竞胜ADN报价（选填）
- * 优量汇竞价胜出调用 biddingWin，并填入开发者期望扣费价格（单位分）
+ * 优量汇竞价胜出调用 biddingWin，并填入开发者期望扣费价格（单位分）和最高竞败出价（单位分）
  * 请开发者如实上报相关参数，以保证优量汇服务端能根据相关参数调整策略，使开发者收益最大化
 */
 
 - (void)reportBiddingResult:(GDTUnifiedInterstitialAd *)ad {
-    NSInteger fakeWinPrice = 100;
+    NSInteger fakeWinPrice = 200;
+    NSInteger fakeHighestPrice = 100;
     GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
     NSString *fakeAdnId = @"WinAdnId";
     NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
     NSInteger reportFlag = flag ? [flag integerValue] : 1;
     if (reportFlag == 1) {
-        [ad sendWinNotificationWithPrice:fakeWinPrice];
+        [ad sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
     } else if (reportFlag == 2) {
-        [ad sendLossNotificationWithWinnerPrice:fakeWinPrice lossReason:fakeLossReason winnerAdnID:fakeAdnId];
+        [ad sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
     }
 }
 

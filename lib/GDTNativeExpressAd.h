@@ -173,17 +173,23 @@
 
 /**
  *  竞胜之后调用, 需要在调用广告 show 之前调用
- *  @param price - 竞胜价格 (单位: 分)
+ *
+ *  @param winInfo 字典类型，支持的key有
+ *  GDT_M_W_E_COST_PRICE：竞胜价格 (单位: 分)，值类型为NSNumber *
+ *  GDT_M_W_H_LOSS_PRICE：最高失败出价，值类型为NSNumber  *
+ *
  */
-- (void)sendWinNotificationWithPrice:(NSInteger)price;
+- (void)sendWinNotificationWithInfo:(NSDictionary *)winInfo;
 
 /**
  *  竞败之后调用
- *  @param price - 竞胜价格 (单位: 分)
- *  @param reason - 优量汇广告竞败原因
- *  @param adnID - adnID
+ *
+ *  @pararm lossInfo 竞败信息，字典类型，支持的key有
+ *  GDT_M_L_WIN_PRICE ：竞胜价格 (单位: 分)，值类型为NSNumber *
+ *  GDT_M_L_LOSS_REASON ：优量汇广告竞败原因，竞败原因参考枚举GDTAdBiddingLossReason中的定义，值类型为NSNumber *
+ *  GDT_M_ADNID  ：竞胜方渠道ID，值类型为NSString *
  */
-- (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;
+- (void)sendLossNotificationWithInfo:(NSDictionary *)lossInfo;
 
 /**
  返回广告平台名称

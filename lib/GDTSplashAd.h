@@ -223,20 +223,6 @@
 - (void)showFullScreenAdInWindow:(UIWindow *)window withLogoImage:(UIImage *)logoImage skipView:(UIView *)skipView;
 
 /**
- *  竞胜之后调用, 需要在调用广告 show 之前调用
- *  @param price - 竞胜价格 (单位: 分)
- */
-- (void)sendWinNotificationWithPrice:(NSInteger)price;
-
-/**
- *  竞败之后调用
- *  @param price - 竞胜价格 (单位: 分)
- *  @param reason - 优量汇广告竞败原因
- *  @param adnID - adnID
- */
-- (void)sendLossNotificationWithWinnerPrice:(NSInteger)price lossReason:(GDTAdBiddingLossReason)reason winnerAdnID:(NSString *)adnID;
-
-/**
  *  广告发起请求并展示在Window中
  *  详解：[可选]发起拉取广告请求,并将获取的广告以全屏形式展示在传入的Window参数中
  *  提示: Splash广告只支持竖屏
