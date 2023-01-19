@@ -160,6 +160,16 @@ typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
 @property (nonatomic, readonly) BOOL isAdValid;
 
 /**
+ * 视频URL，当allowCustomVideoPlayer为YES时才会返回非空的URL
+ */
+@property (nonatomic, readonly) NSString *videoUrl;
+
+/**
+ * 是否允许自定义播放器功能，若要开启请联系运营同学
+ */
+@property (nonatomic, readonly) BOOL allowCustomVideoPlayer;
+
+/**
  判断两个自渲染2.0广告数据是否相等
 
  @param dataObject 需要对比的自渲染2.0广告数据对象
@@ -174,5 +184,32 @@ typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
  * @param placeholder     图片加载过程中的占位图
  */
 - (void)bindImageViews:(NSArray<UIImageView *> *)imageViews placeholder:(UIImage *)placeholder;
+
+/**
+ *  竞胜之后调用, 需要在调用广告 show 之前调用
+ *
+ *  @param winInfo 字典类型，支持的key为以下，注：key是个宏定义，在GDTAdProtocol.h中有定义，可以参考demo中的使用方法
+ *  GDT_M_W_E_COST_PRICE：竞胜价格 (单位: 分)，值类型为NSNumber *
+ *  GDT_M_W_H_LOSS_PRICE：最高失败出价，值类型为NSNumber  *
+ *
+ */
+- (void)sendWinNotificationWithInfo:(NSDictionary *)winInfo;
+
+/**
+ *  竞败之后调用
+ *
+ *  @pararm lossInfo 竞败信息，字典类型，支持的key有
+ *  GDT_M_L_WIN_PRICE ：竞胜价格 (单位: 分)，值类型为NSNumber *
+ *  GDT_M_L_LOSS_REASON ：优量汇广告竞败原因，竞败原因参考枚举GDTAdBiddingLossReason中的定义，值类型为NSNumber *
+ *  GDT_M_ADNID  ：竞胜方渠道ID，值类型为NSString *
+ */
+- (void)sendLossNotificationWithInfo:(NSDictionary *)lossInfo;
+
+/**
+ *  S2S bidding 竞胜之后调用, 需要在调用广告 show 之前调用
+ *  @param eCPM - 曝光扣费, 单位分，若优量汇竞胜，在广告曝光时回传，必传
+ *  针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费，当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格.
+ */
+- (void)setBidECPM:(NSInteger)eCPM;
 
 @end

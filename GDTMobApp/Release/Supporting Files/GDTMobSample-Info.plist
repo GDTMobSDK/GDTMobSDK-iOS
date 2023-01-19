@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>GDTMobNoM5Sample</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
@@ -39,8 +39,6 @@
 			</array>
 		</dict>
 	</array>
-    <key>NSUserTrackingUsageDescription</key>
-    <string>该ID将用于向您推送个性化广告</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSApplicationCategoryType</key>
@@ -54,6 +52,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Can i Use GPS =.=?</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>该ID将用于向您推送个性化广告</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>

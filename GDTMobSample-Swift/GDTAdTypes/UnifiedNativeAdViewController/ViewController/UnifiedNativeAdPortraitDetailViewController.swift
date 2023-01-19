@@ -21,7 +21,7 @@ class UnifiedNativeAdPortraitDetailViewController:UIViewController,GDTUnifiedNat
         initViews()
         self.nativeAdView.viewController = self
         self.nativeAdView.delegate = self
-        self.nativeAdView.registerDataObject(self.dataObject, clickableViews: [self.nativeAdView.titleLabel,self.nativeAdView.iconImageView,self.nativeAdView.descLabel,self.nativeAdView.clickButton])
+        self.nativeAdView.registerDataObject(self.dataObject!, clickableViews: [self.nativeAdView.titleLabel,self.nativeAdView.iconImageView,self.nativeAdView.descLabel,self.nativeAdView.clickButton])
         self.nativeAdView.setupWithUnifiedNativeAdObject(unifiedNativeDataObject: dataObject!)
         // Do any additional setup after loading the view.
     }

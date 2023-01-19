@@ -24,7 +24,6 @@
 @property (nonatomic, strong) NSArray *demoArray;
 
 //自渲染增加广告位选择功能
-@property (nonatomic, strong) UIAlertController *advStyleAlertController;
 
 @property (nonatomic, strong) NSArray *advTypeTextArray;
 
@@ -75,7 +74,7 @@ static NSInteger ADVTYPE_COUNT = 6;
                         @[@"视频Feed", @"UnifiedNativeAdFeedVideoTableViewController"],
                         @[@"沉浸式视频流", @"UnifiedNativeAdPortraitVideoViewController"],
                         @[@"视频信息流", @"UnifiedNativeAdPortraitFeedViewController"],
-                        @[@"视频贴片广告", @"UnifiedNativePreVideoViewController"],
+                        @[@"视频贴片广告-自定义播放器", @"UnifiedNativeCustomVideoPlayerViewController"],
                         ];
     
     self.tableView.delegate = self;
@@ -84,7 +83,7 @@ static NSInteger ADVTYPE_COUNT = 6;
 }
 
 - (IBAction)selectADVStyle:(id)sender {
-    self.advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *advTypePosIDArray = @[
                                   ONE_BIGPHOTO_STR,
                                   THREE_PHOTO_OR_ONE_PHOTO_STR,
@@ -103,37 +102,21 @@ static NSInteger ADVTYPE_COUNT = 6;
                                                                   handler:^(UIAlertAction * _Nonnull action) {
                 self.placementTextField.placeholder = advTypePosIDArray[i];
             }];
-            [self.advStyleAlertController addAction:advTypeAction];
+            [advStyleAlertController addAction:advTypeAction];
         }
-        [self presentViewController:self.advStyleAlertController
+    [advStyleAlertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    if (advStyleAlertController.popoverPresentationController) {
+        [advStyleAlertController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        advStyleAlertController.popoverPresentationController.sourceView=self.view;
+        advStyleAlertController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    }
+        [self presentViewController:advStyleAlertController
                            animated:YES
-                         completion:^{
-            [self clickBackToMainView];
-        }];
+                         completion:nil];
 }
 
 - (NSString *)mediationId {
     return @"101367";
-}
-
-- (void)clickBackToMainView {
-    NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
-    UIView *backToMainView = [[UIView alloc] init];
-    for (int i = 1; i < arrayViews.count; i++) {
-        NSString *viewNameStr = [NSString stringWithFormat:@"%s",object_getClassName(arrayViews[i])];
-        if ([viewNameStr isEqualToString:@"UITransitionView"]) {
-            backToMainView = [arrayViews[i] subviews][0];
-            break;
-        }
-    }
-//    UIView *backToMainView = [arrayViews.lastObject subviews][0];
-    backToMainView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTap)];
-    [backToMainView addGestureRecognizer:backTap];
-}
-
-- (void)backTap {
-    [self.advStyleAlertController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

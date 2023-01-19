@@ -16,7 +16,7 @@
 {
     self.adView.delegate = delegate; // adView 广告回调
     self.adView.viewController = vc; // 跳转 VC
-    CGFloat imageRate = 16 / 9;
+    CGFloat imageRate = 16.0 / 9;
     if (dataObject.imageHeight > 0) {
         imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
     }
@@ -40,7 +40,8 @@
     };
     
     if ([dataObject isAdValid]) {
-        [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton,
+        UIButton *button = dataObject.callToAction.length > 0 ? self.adView.CTAButton : self.adView.clickButton;
+        [self.adView registerDataObject:dataObject clickableViews:@[button,
                                                                     self.adView.iconImageView,
                                                                     self.adView.imageView]];
     }

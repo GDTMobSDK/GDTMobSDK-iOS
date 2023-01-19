@@ -55,7 +55,7 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 16;
     self.adView.backgroundColor = [UIColor grayColor];
     self.adView.iconImageView.frame = CGRectMake(8, 8, 60, 60);
-    self.adView.titleLabel.frame = CGRectMake(76, 8, 250, 30);
+    self.adView.titleLabel.frame = CGRectMake(76, 8, 200, 30);
     self.adView.descLabel.frame = CGRectMake(8, 76, width, 30);
     CGFloat imageWidth = width;
     self.adView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122 + imageWidth / imageRate);
@@ -66,13 +66,13 @@
     [self.adView setupWithUnifiedNativeAdObject:dataObject];
     [self.adView.clickButton sizeToFit];
     self.adView.clickButton.frame = (CGRect) {
-        .origin.x = width - 8 - self.adView.clickButton.frame.size.width,
+        .origin.x = width + 8 - self.adView.clickButton.frame.size.width,
         .origin.y = 8,
         .size = self.adView.clickButton.frame.size
     };
     [self.adView.CTAButton sizeToFit];
     self.adView.CTAButton.frame = (CGRect) {
-        .origin.x = width - 8 - self.adView.CTAButton.frame.size.width,
+        .origin.x = width + 8 - self.adView.CTAButton.frame.size.width,
         .origin.y = 8,
         .size = self.adView.CTAButton.frame.size
     };

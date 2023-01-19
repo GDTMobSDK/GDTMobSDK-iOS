@@ -9,8 +9,6 @@
 #import "GDTAppDelegate.h"
 #import "GDTSDKConfig.h"
 #import "GDTAdViewController.h"
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-#import <AdSupport/AdSupport.h>
 
 @implementation GDTAppDelegate
 
@@ -33,15 +31,7 @@
     if (result) {
         NSLog(@"注册成功");
     }
-    
-    if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            //  授权完成回调
-            // [self loadGDTAd];
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
+
     return YES;
 }
 

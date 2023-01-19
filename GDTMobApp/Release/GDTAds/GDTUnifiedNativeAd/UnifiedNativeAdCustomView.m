@@ -44,11 +44,20 @@
         [self.clickButton setHidden:YES];
         [self.CTAButton setHidden:NO];
         [self.CTAButton setTitle:unifiedNativeDataObject.callToAction forState:UIControlStateNormal];
-    }
-    else {
+    } else {
         [self.clickButton setHidden:NO];
         [self.CTAButton setHidden:YES];
-        [self.clickButton setTitle:unifiedNativeDataObject.buttonText.length > 0 ? unifiedNativeDataObject.buttonText : @"查看详情" forState:UIControlStateNormal];
+        NSString *buttonText = unifiedNativeDataObject.buttonText;
+        if (buttonText.length <= 0) {
+            if (unifiedNativeDataObject.isAppAd) {
+                buttonText = @"立即下载";
+            } else if (unifiedNativeDataObject.isWechatCanvasAd) {
+                buttonText = @"去微信看看";
+            } else {
+                buttonText = @"查看详情";
+            }
+        }
+        [self.clickButton setTitle:buttonText forState:UIControlStateNormal];
     }
     
     
@@ -104,6 +113,7 @@
     if (!_clickButton) {
         _clickButton = [[UIButton alloc] init];
         _clickButton.accessibilityIdentifier = @"clickButton_id";
+        _clickButton.backgroundColor = [UIColor blueColor];
     }
     return _clickButton;
 }

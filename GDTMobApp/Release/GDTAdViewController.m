@@ -45,16 +45,6 @@
     if ([item isKindOfClass:[NSString class]]) {
         UIViewController *vc = [[NSClassFromString(item) alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-        NSString *idfaCopyedMsg = [NSString stringWithFormat:@"%@\n 已经复制到你的粘贴板",idfa];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:idfaCopyedMsg preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:action];
-        // sync idfa to pasteboard
-        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        pasteboard.string = idfa;
-        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 

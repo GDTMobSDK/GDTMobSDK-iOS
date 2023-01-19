@@ -27,7 +27,6 @@
 @property (assign, nonatomic)  float adCountSliderValue;
 
 //切换广告样式
-@property (nonatomic, strong) UIAlertController *advStyleAlertController;
 
 @property (nonatomic, strong) UIButton *changAdvStyleButton;
 
@@ -79,7 +78,7 @@ static NSString *Mediator_STR = @"100014";
 }
 
 - (IBAction)selectADVStyle:(id)sender {
-    self.advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *advTypeTextArray = [self getAdvTypeTextArray];
     
     for (NSInteger i = 0; i < advTypeTextArray.count; i++) {
@@ -89,29 +88,17 @@ static NSString *Mediator_STR = @"100014";
             self.placementIdTextField.placeholder = advTypeTextArray[i][1];
             [self refreshViewWithNewPosID];
         }];
-        [self.advStyleAlertController addAction:advTypeAction];
+        [advStyleAlertController addAction:advTypeAction];
     }
-    [self presentViewController:self.advStyleAlertController
+    [advStyleAlertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    if (advStyleAlertController.popoverPresentationController) {
+        [advStyleAlertController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        advStyleAlertController.popoverPresentationController.sourceView=self.view;
+        advStyleAlertController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    }
+    [self presentViewController:advStyleAlertController
                        animated:YES
-                     completion:^{
-        [self clickBackToMainView];
-    }];
-}
-
-- (void)clickBackToMainView {
-    NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
-    UIView *backToMainView = [[UIView alloc] init];
-    for (int i = 1; i < arrayViews.count; i++) {
-        NSString *viewNameStr = [NSString stringWithFormat:@"%s",object_getClassName(arrayViews[i])];
-        if ([viewNameStr isEqualToString:@"UITransitionView"]) {
-            backToMainView = [arrayViews[i] subviews][0];
-            break;
-        }
-    }
-//    UIView *backToMainView = [arrayViews.lastObject subviews][0];
-    backToMainView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTap)];
-    [backToMainView addGestureRecognizer:backTap];
+                     completion:nil];
 }
 
 - (NSArray *)getAdvTypeTextArray
@@ -130,10 +117,6 @@ static NSString *Mediator_STR = @"100014";
              @[@"纯图片(图片尺寸1080×1920或800×1200)",HEIGHTERPHOTO_STR],
              @[@"流量分配",Mediator_STR]
 ];
-}
-
-- (void)backTap {
-    [self.advStyleAlertController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)refreshViewWithNewPosID {
@@ -215,17 +198,30 @@ static NSString *Mediator_STR = @"100014";
  * 请开发者如实上报相关参数，以保证优量汇服务端能根据相关参数调整策略，使开发者收益最大化
 */
 
-- (void)reportBiddingResult:(GDTNativeExpressAd *)ad {
-    NSInteger fakeWinPrice = 200;
-    NSInteger fakeHighestPrice = 100;
-    GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
-    NSString *fakeAdnId = @"WinAdnId";
-    NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
-    NSInteger reportFlag = flag ? [flag integerValue] : 1;
-    if (reportFlag == 1) {
-        [ad sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
-    } else if (reportFlag == 2) {
-        [ad sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
+- (void)reportBiddingResult {
+    if (self.useToken) {
+        // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
+        // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；
+        // 自己根据实际情况设置
+        [[self.expressAdViews firstObject] setBidECPM:100];
+    }
+    else {
+        NSInteger fakeWinPrice = 200;
+        NSInteger fakeHighestPrice = 100;
+        GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
+        NSString *fakeAdnId = @"WinAdnId";
+        NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
+        NSInteger reportFlag = flag ? [flag integerValue] : 1;
+        if (reportFlag == 1) {
+            for (GDTNativeExpressAdView *iter in self.expressAdViews) {
+                [iter sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
+            }
+            
+        } else if (reportFlag == 2) {
+            for (GDTNativeExpressAdView *iter in self.expressAdViews) {
+                [iter sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
+            }
+        }
     }
 }
 
@@ -251,14 +247,7 @@ static NSString *Mediator_STR = @"100014";
     [self.tableView reloadData];
     
     // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
-    if (self.useToken) {
-        // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
-        // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；
-        // 自己根据实际情况设置
-        [nativeExpressAd setBidECPM:100];
-    } else {
-        [self reportBiddingResult:nativeExpressAd];
-    }
+    [self reportBiddingResult];
 }
 
 /**

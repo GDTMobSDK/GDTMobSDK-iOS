@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param eCPM - 曝光扣费, 单位分，若优量汇竞胜，在广告曝光时回传，必传
  *  针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费，当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格.
  */
-- (void)setBidECPM:(NSInteger)eCPM;
+- (void)setBidECPM:(NSInteger)eCPM GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用GDTUnifiedNativeAdDataObject类中对应的方法");
 
 /**
  加载广告
@@ -96,12 +96,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  竞胜之后调用, 需要在调用广告 show 之前调用
  *
- *  @param winInfo 字典类型，支持的key有
+ *  @param winInfo 字典类型，支持的key为以下，注：key是个宏定义，在GDTAdProtocol.h中有定义，可以参考demo中的使用方法
  *  GDT_M_W_E_COST_PRICE：竞胜价格 (单位: 分)，值类型为NSNumber *
  *  GDT_M_W_H_LOSS_PRICE：最高失败出价，值类型为NSNumber  *
  *
  */
-- (void)sendWinNotificationWithInfo:(NSDictionary *)winInfo;
+- (void)sendWinNotificationWithInfo:(NSDictionary *)winInfo GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用GDTUnifiedNativeAdDataObject类中对应的方法");
 
 /**
  *  竞败之后调用
@@ -111,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  GDT_M_L_LOSS_REASON ：优量汇广告竞败原因，竞败原因参考枚举GDTAdBiddingLossReason中的定义，值类型为NSNumber *
  *  GDT_M_ADNID  ：竞胜方渠道ID，值类型为NSString *
  */
-- (void)sendLossNotificationWithInfo:(NSDictionary *)lossInfo;
+- (void)sendLossNotificationWithInfo:(NSDictionary *)lossInfo GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用GDTUnifiedNativeAdDataObject类中对应的方法");
 
 
 /**

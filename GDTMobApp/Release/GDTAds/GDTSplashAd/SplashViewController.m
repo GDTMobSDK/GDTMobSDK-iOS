@@ -27,7 +27,6 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
 @property (weak, nonatomic) IBOutlet UILabel *logoDescLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (nonatomic, assign) BOOL isParallelLoad;
-@property (nonatomic, strong) UIAlertController *changePosIdController;
 @property (weak, nonatomic) IBOutlet UISwitch *supportZoomoutViewSwitch;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, assign) BOOL useToken;
@@ -41,8 +40,8 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.logoHeightTextField.text = [NSString stringWithFormat:@"%@", @([[UIScreen mainScreen] bounds].size.height * 0.25)] ;
-    self.logoDescLabel.text = [NSString stringWithFormat:@"底部logo高度上限：\n %@(屏幕高度) * 25%% = %@", @([[UIScreen mainScreen] bounds].size.height), @([[UIScreen mainScreen] bounds].size.height * 0.25)];
+    self.logoHeightTextField.text = [NSString stringWithFormat:@"%@", @([[UIScreen mainScreen] bounds].size.height * 0.12)] ;
+    self.logoDescLabel.text = [NSString stringWithFormat:@"底部logo高度上限：\n %@(屏幕高度) * 12%% = %@", @([[UIScreen mainScreen] bounds].size.height), @([[UIScreen mainScreen] bounds].size.height * 0.12)];
     [self.supportZoomoutViewSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -70,26 +69,26 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     [preloadSplashAd preloadSplashOrderWithPlacementId:placementId];
 }
 - (IBAction)changePlacementID:(id)sender {
-    self.changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    if (self.changePosIdController.popoverPresentationController) {
-        [self.changePosIdController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
-        self.changePosIdController.popoverPresentationController.sourceView=self.view;
-        self.changePosIdController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    UIAlertController *changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    if (changePosIdController.popoverPresentationController) {
+        [changePosIdController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        changePosIdController.popoverPresentationController.sourceView=self.view;
+        changePosIdController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
     }
     UIAlertAction *portraitLandscapeAdIdAction = [UIAlertAction actionWithTitle:@"图文广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.placementIdTextField.placeholder = IMAGE_AD_PLACEMENTID;
     }];
-    [self.changePosIdController addAction:portraitLandscapeAdIdAction];
+    [changePosIdController addAction:portraitLandscapeAdIdAction];
     
     UIAlertAction *videoAdIdAction = [UIAlertAction actionWithTitle:@"视频广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
            self.placementIdTextField.placeholder = VIDEO_AD_PLACEMENTID;
     }];
-    [self.changePosIdController addAction:videoAdIdAction];
+    [changePosIdController addAction:videoAdIdAction];
 
     UIAlertAction *rewardIDAction = [UIAlertAction actionWithTitle:@"奖励式开屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
            self.placementIdTextField.placeholder = REWARD_AD_PLACEMENTID;
     }];
-    [self.changePosIdController addAction:rewardIDAction];
+    [changePosIdController addAction:rewardIDAction];
     
     UIAlertAction *splashZoomoutAdIdAction = [UIAlertAction actionWithTitle:@"开屏视频V+广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.placementIdTextField.placeholder = VIDEO_ZOOMOUT_AD_PLACEMENTID;
@@ -100,34 +99,14 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
         self.placementIdTextField.placeholder = [self mediationId];
     }];
     
-    [self.changePosIdController addAction:splashZoomoutAdIdAction];
-    [self.changePosIdController addAction:mediationAdIdAction];
-    
-    [self presentViewController:self.changePosIdController animated:YES completion:^{ [self clickBackToMainView];}];
+    [changePosIdController addAction:splashZoomoutAdIdAction];
+    [changePosIdController addAction:mediationAdIdAction];
+    [changePosIdController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:changePosIdController animated:YES completion:nil];
 }
 
 - (NSString *)mediationId {
     return @"101371";
-}
-
-- (void)clickBackToMainView {
-    NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
-    UIView *backToMainView = [[UIView alloc] init];
-    for (int i = 1; i < arrayViews.count; i++) {
-        NSString *viewNameStr = [NSString stringWithFormat:@"%s",object_getClassName(arrayViews[i])];
-        if ([viewNameStr isEqualToString:@"UITransitionView"]) {
-            backToMainView = [arrayViews[i] subviews][0];
-            break;
-        }
-    }
-//    UIView *backToMainView = [arrayViews.lastObject subviews][0];
-    backToMainView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTap)];
-    [backToMainView addGestureRecognizer:backTap];
-}
-
-- (void)backTap {
-    [self.changePosIdController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)parallelLoadAd:(id)sender {

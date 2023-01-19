@@ -83,10 +83,9 @@ static inline BOOL isIPhoneXSeries() {
 }
 
 typedef NS_ENUM(NSInteger, GDTAdBiddingLossReason) {
-    GDTAdBiddingLossReasonLowPrice          = 1,        // 竞争力不足
-    GDTAdBiddingLossReasonLoadTimeout       = 2,        // 返回超时
-    GDTAdBiddingLossReasonNoAd              = 3,        // 无广告回包
-    GDTAdBiddingLossReasonAdDataError       = 4,        // 回包不合法
+    GDTAdBiddingLossReasonLowPrice          = 1,        // 有广告回包，竞败(竞争力不足)
+    GDTAdBiddingLossReasonNoAd              = 2,        // 无广告回包
+    GDTAdBiddingLossReasonAdSuccNoBid       = 101,      // 有回包但未竞价
     GDTAdBiddingLossReasonOther             = 10001     // 其他
 };
 

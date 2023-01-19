@@ -22,7 +22,6 @@
                         @[@"Banner2.0", @"UnifiedBannerViewController"],
                         @[@"插屏2.0", @"UnifiedInterstitialViewController"],
                         @[@"插屏2.0全屏", @"UnifiedInterstitialFullScreenVideoViewController"],
-                        @[@"获取IDFA", @(1)],
                         @[@"试玩广告调试", @"PlayableAdTestViewController"],
                         ] mutableCopy];
 }

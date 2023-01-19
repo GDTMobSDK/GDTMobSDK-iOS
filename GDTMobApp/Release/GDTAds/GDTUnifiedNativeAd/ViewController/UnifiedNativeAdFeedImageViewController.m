@@ -88,17 +88,30 @@
  * 请开发者如实上报相关参数，以保证优量汇服务端能根据相关参数调整策略，使开发者收益最大化
 */
 
-- (void)reportBiddingResult:(GDTUnifiedNativeAd *)ad {
-    NSInteger fakeWinPrice = 200;
-    NSInteger fakeHighestPrice = 100;
-    GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
-    NSString *fakeAdnId = @"WinAdnId";
-    NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
-    NSInteger reportFlag = flag ? [flag integerValue] : 1;
-    if (reportFlag == 1) {
-        [ad sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
-    } else if (reportFlag == 2) {
-        [ad sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
+- (void)reportBiddingResult {
+    //这里只是示例，请根据真实的比价结果来上报每个广告的竞胜竞败信息
+    if (self.useToken) {
+        // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
+        // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；
+        // 自己根据实际情况设置
+        [[self.adDataArray firstObject] setBidECPM:100];
+    }
+    else {
+        NSInteger fakeWinPrice = 200;
+        NSInteger fakeHighestPrice = 100;
+        GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
+        NSString *fakeAdnId = @"WinAdnId";
+        NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
+        NSInteger reportFlag = flag ? [flag integerValue] : 1;
+        if (reportFlag == 1) {
+            for (GDTUnifiedNativeAdDataObject *iter in self.adDataArray) {
+                [iter sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
+            }
+        } else if (reportFlag == 2) {
+            for (GDTUnifiedNativeAdDataObject *iter in self.adDataArray) {
+                [iter sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
+            }
+        }
     }
 }
 
@@ -112,16 +125,10 @@
         [self.tableView reloadData];
         for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
             NSLog(@"extraInfo: %@", obj.extraInfo);
+            NSLog(@"allowCustomVideoPlayer:%d videoUrl:%@", obj.allowCustomVideoPlayer, obj.videoUrl);
         }
         // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
-        if (self.useToken) {
-            // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
-            // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；
-            // 自己根据实际情况设置
-            [self.unifiedNativeAd setBidECPM:100];
-        } else {
-            [self reportBiddingResult:self.unifiedNativeAd];
-        }
+        [self reportBiddingResult];
         return;
     }
     

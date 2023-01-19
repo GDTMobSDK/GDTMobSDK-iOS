@@ -102,6 +102,12 @@
     }];
     [alert addAction:defaultAction];
     [alert addAction:flowDistributionAction];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    if (alert.popoverPresentationController) {
+        [alert.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        alert.popoverPresentationController.sourceView=self.view;
+        alert.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    }
     [self presentViewController:alert animated:YES completion:nil];
 }
 

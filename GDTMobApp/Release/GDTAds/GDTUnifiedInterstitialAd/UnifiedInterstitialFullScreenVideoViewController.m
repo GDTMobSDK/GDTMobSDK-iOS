@@ -25,7 +25,6 @@
 
 @property (nonatomic, copy) NSString *placeHolderString;
 @property (nonatomic, strong) UILabel * changeADVStyleLabel;
-@property (nonatomic, strong) UIAlertController *changePidAlertController;
 
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
@@ -100,7 +99,7 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 }
 
 - (IBAction)changePid:(id)sender {
-    self.changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *posIDArray = @[
                                   @[@"插屏全屏视频广告位", @"4031449988975443"],
                                   @[@"插屏激励广告位", @"1072203857043492"],
@@ -114,14 +113,17 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
                                                               handler:^(UIAlertAction * _Nonnull action) {
             self.positionID.placeholder = posIDArray[i][1];
         }];
-        [self.changePidAlertController addAction:advTypeAction];
+        [changePidAlertController addAction:advTypeAction];
     }
-    
-    [self presentViewController:self.changePidAlertController
+    [changePidAlertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    if (changePidAlertController.popoverPresentationController) {
+        [changePidAlertController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        changePidAlertController.popoverPresentationController.sourceView=self.view;
+        changePidAlertController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    }
+    [self presentViewController:changePidAlertController
                        animated:YES
-                     completion:^{
-        ;
-    }];
+                     completion:nil];
 }
 
 - (IBAction)handleGetToken:(id)sender {

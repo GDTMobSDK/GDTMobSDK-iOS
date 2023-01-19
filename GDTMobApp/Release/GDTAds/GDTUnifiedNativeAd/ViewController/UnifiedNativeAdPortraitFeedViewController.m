@@ -54,28 +54,6 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
 }
 
-/**
- * 上报给优量汇服务端在开发者客户端竞价中优量汇的竞价结果，以便于优量汇服务端调整策略提供给开发者更合理的报价
- *
- * 优量汇竞价失败调用 biddingLoss，并填入优量汇竞败原因（必填）、竞胜ADN ID（选填）、竞胜ADN报价（选填）
- * 优量汇竞价胜出调用 biddingWin，并填入开发者期望扣费价格（单位分）和最高竞败出价（单位分）
- * 请开发者如实上报相关参数，以保证优量汇服务端能根据相关参数调整策略，使开发者收益最大化
-*/
-
-- (void)reportBiddingResult:(GDTUnifiedNativeAd *)ad {
-    NSInteger fakeWinPrice = 200;
-    NSInteger fakeHighestPrice = 100;
-    GDTAdBiddingLossReason fakeLossReason = GDTAdBiddingLossReasonLowPrice;
-    NSString *fakeAdnId = @"WinAdnId";
-    NSNumber *flag = [[NSUserDefaults standardUserDefaults] objectForKey:@"debug_setting_bidding_report"];
-    NSInteger reportFlag = flag ? [flag integerValue] : 1;
-    if (reportFlag == 1) {
-        [ad sendWinNotificationWithInfo:@{GDT_M_W_E_COST_PRICE: @(fakeWinPrice), GDT_M_W_H_LOSS_PRICE: @(fakeHighestPrice)}];
-    } else if (reportFlag == 2) {
-        [ad sendLossNotificationWithInfo:@{GDT_M_L_WIN_PRICE: @(fakeWinPrice), GDT_M_L_LOSS_REASON:@(fakeLossReason), GDT_M_ADNID: fakeAdnId}];
-    }
-}
-
 #pragma mark - GDTUnifiedNativeAdDelegate
 - (void)gdt_unifiedNativeAdLoaded:(NSArray<GDTUnifiedNativeAdDataObject *> *)unifiedNativeAdDataObjects error:(NSError *)error
 {
@@ -94,16 +72,6 @@
         NSLog(@"eCPM:%ld eCPMLevel:%@", [dataObject eCPM], [dataObject eCPMLevel]);
     }
     [self.collectionView reloadData];
-    
-    // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
-    if (self.useToken) {
-        // 针对本次曝光的媒体期望扣费，常用扣费逻辑包括一价扣费与二价扣费
-        // 当采用一价扣费时，胜者出价即为本次扣费价格；当采用二价扣费时，第二名出价为本次扣费价格；
-        // 自己根据实际情况设置
-        [self.nativeAd setBidECPM:100];
-    } else {
-        [self reportBiddingResult:self.nativeAd];
-    }
 }
 
 #pragma mark - UICollectionViewDataSource

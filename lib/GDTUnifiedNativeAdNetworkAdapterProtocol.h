@@ -8,6 +8,7 @@
 
 #import "GDTBaseAdNetworkAdapterProtocol.h"
 #import "GDTAdProtocol.h"
+#import "GDTVideoAdReporter.h"
 
 @class GDTUnifiedNativeAdDataObject;
 @protocol GDTUnifiedNativeAdNetworkConnectorProtocol;
@@ -132,6 +133,18 @@ NS_ASSUME_NONNULL_BEGIN
  * 是否为微信原生页广告
  */
 @property (nonatomic, readonly) BOOL isWechatCanvasAd;
+
+/**
+ * 视频URL，当allowCustomVideoPlayer为YES时才会返回非空的URL
+ */
+@property (nonatomic, readonly) NSString *videoUrl;
+
+/**
+ * 是否允许自定义播放器功能，若要开启请联系运营同学
+ */
+@property (nonatomic, readonly) BOOL allowCustomVideoPlayer;
+
+@property (nonatomic, readonly) id <GDTVideoAdReporter>videoAdReporter;
 
 /**
  判断两个自渲染2.0广告数据是否相等

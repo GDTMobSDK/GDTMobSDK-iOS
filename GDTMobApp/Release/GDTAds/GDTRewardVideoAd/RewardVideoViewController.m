@@ -30,9 +30,6 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"101366";
 @property (weak, nonatomic) IBOutlet UISwitch *audioSessionSwitch;
 
 
-@property (nonatomic, strong) UIAlertController *changePosIdController;
-@property (nonatomic, strong) UIAlertAction *portraitAdIdAction;
-
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (nonatomic, assign) BOOL useToken;
@@ -57,63 +54,44 @@ static NSString *MEDIATION_AD_PLACEMENTID = @"101366";
     return YES;
 }
 
-- (void)clickBackToMainView {
-    NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
-    UIView *backToMainView = [[UIView alloc] init];
-    for (int i = 1; i < arrayViews.count; i++) {
-        NSString *viewNameStr = [NSString stringWithFormat:@"%s",object_getClassName(arrayViews[i])];
-        if ([viewNameStr isEqualToString:@"UITransitionView"]) {
-            backToMainView = [arrayViews[i] subviews][0];
-            break;
-        }
-    }
-//    UIView *backToMainView = [arrayViews.lastObject subviews][0];
-    backToMainView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backTap)];
-    [backToMainView addGestureRecognizer:backTap];
-}
-
-- (void)backTap {
-    [self.changePosIdController dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (IBAction)changePlacementId:(id)sender {
     [self.view endEditing:YES];
-    self.changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    if (self.changePosIdController.popoverPresentationController) {
-        [self.changePosIdController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
-        self.changePosIdController.popoverPresentationController.sourceView=self.view;
-        self.changePosIdController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    UIAlertController *changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    if (changePosIdController.popoverPresentationController) {
+        [changePosIdController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        changePosIdController.popoverPresentationController.sourceView=self.view;
+        changePosIdController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
     }
     
     UIDevice *device = [UIDevice currentDevice];
     __weak __typeof(self) ws = self;
+    UIAlertAction *portraitAdIdAction = nil;
     if (device.orientation == UIInterfaceOrientationPortrait) {
-        self.portraitAdIdAction = [UIAlertAction actionWithTitle:@"竖屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        portraitAdIdAction = [UIAlertAction actionWithTitle:@"竖屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             ws.placementIdTextField.placeholder = PORTRAIT_AD_PLACEMENTID;
         }];
     } else {
-        self.portraitAdIdAction = [UIAlertAction actionWithTitle:@"横屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        portraitAdIdAction = [UIAlertAction actionWithTitle:@"横屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             ws.placementIdTextField.placeholder = PORTRAIT_AD_PLACEMENTID;
         }];
     }
-    [self.changePosIdController addAction:self.portraitAdIdAction];
+    [changePosIdController addAction:portraitAdIdAction];
     
     UIAlertAction *portraitLandscapeAdIdAction = [UIAlertAction actionWithTitle:@"横竖屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ws.placementIdTextField.placeholder = PORTRAIT_LANDSCAPE_AD_PLACEMENTID;
     }];
-    [self.changePosIdController addAction:portraitLandscapeAdIdAction];
+    [changePosIdController addAction:portraitLandscapeAdIdAction];
     
     UIAlertAction *mediationAdIdAction = [UIAlertAction actionWithTitle:@"流量分配广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ws.placementIdTextField.placeholder = MEDIATION_AD_PLACEMENTID;
        }];
-    [self.changePosIdController addAction:mediationAdIdAction];
-    
-    [self presentViewController:self.changePosIdController animated:YES completion:^{ [self clickBackToMainView];}];
+    [changePosIdController addAction:mediationAdIdAction];
+    [changePosIdController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:changePosIdController animated:YES completion:nil];
     
 }
 

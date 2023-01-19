@@ -8,7 +8,6 @@
 
 import UIKit
 import AppTrackingTransparency
-import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GDTSplashAdDelegate {

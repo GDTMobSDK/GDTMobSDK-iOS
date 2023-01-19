@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     [self initViews];
     self.nativeAdView.viewController = self;
     self.nativeAdView.delegate = self;

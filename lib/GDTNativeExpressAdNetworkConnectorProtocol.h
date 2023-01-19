@@ -74,7 +74,7 @@
     (id<GDTNativeExpressAdViewAdapterProtocol>)viewAdapter;
 
 /**
- * 全屏广告页将要关闭
+ * 全屏广告页已经关闭
  */
 - (void)adapter_nativeExpressAdViewAdapterDidDissmissScreen:
     (id<GDTNativeExpressAdViewAdapterProtocol>)viewAdapter;

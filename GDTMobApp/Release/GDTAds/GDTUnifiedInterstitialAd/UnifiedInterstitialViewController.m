@@ -138,7 +138,12 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
         }];
         [changePidAlertController addAction:advTypeAction];
     }
-    
+    [changePidAlertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    if (changePidAlertController.popoverPresentationController) {
+        [changePidAlertController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
+        changePidAlertController.popoverPresentationController.sourceView=self.view;
+        changePidAlertController.popoverPresentationController.sourceRect=CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    }
     [self presentViewController:changePidAlertController
                        animated:YES
                      completion:nil];

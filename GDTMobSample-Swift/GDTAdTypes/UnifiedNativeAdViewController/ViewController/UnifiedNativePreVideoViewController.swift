@@ -1,5 +1,5 @@
 //
-//  UnifiedNativePreVideoViewController.swift
+//  UnifiedNativeCustomVideoPlayerViewController.swift
 //  GDTMobSample-Swift
 //
 //  Created by 胡城阳 on 2019/10/28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UnifiedNativePreVideoViewController: UnifiedNativeAdBaseViewController,GDTUnifiedNativeAdDelegate,GDTUnifiedNativeAdViewDelegate,GDTMediaViewDelegate {
+class UnifiedNativeCustomVideoPlayerViewController: UnifiedNativeAdBaseViewController,GDTUnifiedNativeAdDelegate,GDTUnifiedNativeAdViewDelegate,GDTMediaViewDelegate {
 
     private var videoContainerView:UIView?
     private var unifiedNativeAd:GDTUnifiedNativeAd?
@@ -108,7 +108,7 @@ class UnifiedNativePreVideoViewController: UnifiedNativeAdBaseViewController,GDT
     func reloadAd(){
         self.dataObject?.videoConfig = self.videoConfig
         self.nativeAdCustomView!.viewController = self
-        self.nativeAdCustomView!.registerDataObject(self.dataObject, clickableViews: [self.nativeAdCustomView!.clickButton])
+        self.nativeAdCustomView!.registerDataObject(self.dataObject!, clickableViews: [self.nativeAdCustomView!.clickButton])
         if self.dataObject!.isAppAd {
             self.nativeAdCustomView!.clickButton.setTitle("点击下载", for: .normal)
         }else{
@@ -140,7 +140,7 @@ class UnifiedNativePreVideoViewController: UnifiedNativeAdBaseViewController,GDT
 }
 
 
-extension UnifiedNativePreVideoViewController{
+extension UnifiedNativeCustomVideoPlayerViewController{
     func gdt_unifiedNativeAdLoaded(_ unifiedNativeAdDataObjects: [GDTUnifiedNativeAdDataObject]?, error: Error?) {
         
             if error == nil && unifiedNativeAdDataObjects != nil {

@@ -40,7 +40,6 @@
 		495D51AF2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D512F2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m */; };
 		495D51B02834CF4900A50DA3 /* UnifiedNativeAdCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51322834CF4900A50DA3 /* UnifiedNativeAdCustomView.m */; };
 		495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */; };
-		495D51B22834CF4900A50DA3 /* UnifiedNativePreVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D513D2834CF4900A50DA3 /* UnifiedNativePreVideoViewController.m */; };
 		495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */; };
 		495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */; };
 		495D51B52834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */; };
@@ -68,13 +67,14 @@
 		495D51CD2834CF4900A50DA3 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D516C2834CF4900A50DA3 /* SplashViewController.xib */; };
 		495D51CE2834CF4900A50DA3 /* gdtdetection.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 495D516F2834CF4900A50DA3 /* gdtdetection.aiff */; };
 		495D51CF2834CF4900A50DA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 495D51702834CF4900A50DA3 /* InfoPlist.strings */; };
-		495D51D02834CF4900A50DA3 /* GDTMobApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495D51722834CF4900A50DA3 /* GDTMobApp-Info.plist */; };
 		495D51D12834CF4900A50DA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51742834CF4900A50DA3 /* main.m */; };
 		495D51D22834CF4900A50DA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495D51752834CF4900A50DA3 /* Launch Screen.storyboard */; };
 		495D51D32834CF4900A50DA3 /* GDTMobSample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495D51762834CF4900A50DA3 /* GDTMobSample-Info.plist */; };
 		495D51D42834CF4900A50DA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495D51782834CF4900A50DA3 /* Images.xcassets */; };
 		495D51D52834CF4900A50DA3 /* GDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51792834CF4900A50DA3 /* GDTAppDelegate.m */; };
 		495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */; };
+		CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */; };
+		CBA2D0D42907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */; };
 		CC086A001B53B3F8002E0A51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0869FC1B53AD7E002E0A51 /* libz.tbd */; };
 		CCA4684C184C55AA00DE642A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684B184C55AA00DE642A /* Foundation.framework */; };
 		CCA4684E184C55AA00DE642A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684D184C55AA00DE642A /* CoreGraphics.framework */; };
@@ -150,14 +150,12 @@
 		495D51322834CF4900A50DA3 /* UnifiedNativeAdCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdCustomView.m; sourceTree = "<group>"; };
 		495D51332834CF4900A50DA3 /* UnifiedNativeAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdViewController.h; sourceTree = "<group>"; };
 		495D51352834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdFeedImageViewController.h; sourceTree = "<group>"; };
-		495D51362834CF4900A50DA3 /* UnifiedNativePreVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativePreVideoViewController.h; sourceTree = "<group>"; };
 		495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdPortraitDetailViewController.m; sourceTree = "<group>"; };
 		495D51382834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdFeedVideoTableViewController.h; sourceTree = "<group>"; };
 		495D51392834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitVideoViewController.h; sourceTree = "<group>"; };
 		495D513A2834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdBaseViewController.h; sourceTree = "<group>"; };
 		495D513B2834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitFeedViewController.h; sourceTree = "<group>"; };
 		495D513C2834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitDetailViewController.h; sourceTree = "<group>"; };
-		495D513D2834CF4900A50DA3 /* UnifiedNativePreVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativePreVideoViewController.m; sourceTree = "<group>"; };
 		495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdFeedImageViewController.m; sourceTree = "<group>"; };
 		495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdFeedVideoTableViewController.m; sourceTree = "<group>"; };
 		495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdBaseViewController.m; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		495D516D2834CF4900A50DA3 /* GDTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNavigationController.h; sourceTree = "<group>"; };
 		495D516F2834CF4900A50DA3 /* gdtdetection.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gdtdetection.aiff; sourceTree = "<group>"; };
 		495D51712834CF4900A50DA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		495D51722834CF4900A50DA3 /* GDTMobApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDTMobApp-Info.plist"; sourceTree = "<group>"; };
 		495D51732834CF4900A50DA3 /* GDTMobSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDTMobSample-Prefix.pch"; sourceTree = "<group>"; };
 		495D51742834CF4900A50DA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		495D51752834CF4900A50DA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -210,6 +207,13 @@
 		495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDTAdViewController+Sample.m"; sourceTree = "<group>"; };
 		66B1833626B1490C00F28C54 /* GDTUnifiedBannerAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedBannerAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		66B1833726B1490C00F28C54 /* GDTUnifiedBannerAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedBannerAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB4E06AB290B882000558012 /* GDTPrivacyConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTPrivacyConfiguration.h; sourceTree = "<group>"; };
+		CB4E06AC290B882000558012 /* GDTNativeExpressAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		CB4E06AD290B882000558012 /* GDTVideoAdReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTVideoAdReporter.h; sourceTree = "<group>"; };
+		CB4E06AE290B882000558012 /* GDTNativeExpressAdViewAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdViewAdapterProtocol.h; sourceTree = "<group>"; };
+		CB4E06AF290B882000558012 /* GDTServerBiddingResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTServerBiddingResult.h; sourceTree = "<group>"; };
+		CB4E06B0290B882000558012 /* GDTAdProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdProtocol.h; sourceTree = "<group>"; };
+		CB4E06B1290B882000558012 /* GDTNativeExpressAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
 		CB5526E325BAEDA2008057BC /* GDTSplashAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		CB5526E425BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		CB5526E525BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
@@ -219,6 +223,10 @@
 		CB5526E925BAEDA3008057BC /* GDTSplashAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
 		CB673B4D24EB87E5008AD066 /* GDTAdTestSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdTestSetting.h; sourceTree = "<group>"; };
 		CB673B4E24EB87E5008AD066 /* GDTLoadAdParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTLoadAdParams.h; sourceTree = "<group>"; };
+		CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlayerVideoView.m; sourceTree = "<group>"; };
+		CB9F95CA290F7B6000131487 /* CustomPlayerVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlayerVideoView.h; sourceTree = "<group>"; };
+		CBA2D0D22907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeCustomVideoPlayerViewController.h; sourceTree = "<group>"; };
+		CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeCustomVideoPlayerViewController.m; sourceTree = "<group>"; };
 		CC0869FC1B53AD7E002E0A51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CC6587FB186174DE00CC3B45 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CCA46848184C55AA00DE642A /* GDTMobSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDTMobSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +269,13 @@
 		0AC566D0201224350078BCBE /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				CB4E06B0290B882000558012 /* GDTAdProtocol.h */,
+				CB4E06B1290B882000558012 /* GDTNativeExpressAdNetworkAdapterProtocol.h */,
+				CB4E06AC290B882000558012 /* GDTNativeExpressAdNetworkConnectorProtocol.h */,
+				CB4E06AE290B882000558012 /* GDTNativeExpressAdViewAdapterProtocol.h */,
+				CB4E06AB290B882000558012 /* GDTPrivacyConfiguration.h */,
+				CB4E06AF290B882000558012 /* GDTServerBiddingResult.h */,
+				CB4E06AD290B882000558012 /* GDTVideoAdReporter.h */,
 				66B1833726B1490C00F28C54 /* GDTUnifiedBannerAdNetworkAdapterProtocol.h */,
 				66B1833626B1490C00F28C54 /* GDTUnifiedBannerAdNetworkConnectorProtocol.h */,
 				CB5526E725BAEDA2008057BC /* GDTServerSideVerificationOptions.h */,
@@ -337,6 +352,7 @@
 		495D511D2834CF4900A50DA3 /* GDTUnifiedNativeAd */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C91062906806100567380 /* View */,
 				495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */,
 				495D511F2834CF4900A50DA3 /* UnifiedNativeAdViewController.m */,
 				495D51202834CF4900A50DA3 /* UnifiedNativeAdCustomView.h */,
@@ -374,15 +390,15 @@
 		495D51342834CF4900A50DA3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CBA2D0D22907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.h */,
+				CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */,
 				495D51352834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.h */,
-				495D51362834CF4900A50DA3 /* UnifiedNativePreVideoViewController.h */,
 				495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */,
 				495D51382834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.h */,
 				495D51392834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.h */,
 				495D513A2834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.h */,
 				495D513B2834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.h */,
 				495D513C2834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.h */,
-				495D513D2834CF4900A50DA3 /* UnifiedNativePreVideoViewController.m */,
 				495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */,
 				495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */,
 				495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */,
@@ -467,7 +483,6 @@
 			children = (
 				495D516F2834CF4900A50DA3 /* gdtdetection.aiff */,
 				495D51702834CF4900A50DA3 /* InfoPlist.strings */,
-				495D51722834CF4900A50DA3 /* GDTMobApp-Info.plist */,
 				495D51732834CF4900A50DA3 /* GDTMobSample-Prefix.pch */,
 				495D51742834CF4900A50DA3 /* main.m */,
 				495D51752834CF4900A50DA3 /* Launch Screen.storyboard */,
@@ -483,6 +498,15 @@
 				495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */,
 			);
 			path = GDTSampleAdTypes;
+			sourceTree = "<group>";
+		};
+		CB0C91062906806100567380 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F95CA290F7B6000131487 /* CustomPlayerVideoView.h */,
+				CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CCA4683F184C55AA00DE642A = {
@@ -542,7 +566,6 @@
 				CCA46844184C55AA00DE642A /* Sources */,
 				CCA46845184C55AA00DE642A /* Frameworks */,
 				CCA46846184C55AA00DE642A /* Resources */,
-				0A645776209872ED004C21DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -602,7 +625,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495D51D02834CF4900A50DA3 /* GDTMobApp-Info.plist in Resources */,
 				495D51C12834CF4900A50DA3 /* UnifiedBannerViewController.xib in Resources */,
 				495D51D22834CF4900A50DA3 /* Launch Screen.storyboard in Resources */,
 				495D51C42834CF4900A50DA3 /* PlayableAdTestViewController.xib in Resources */,
@@ -623,19 +645,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A645776209872ED004C21DB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# LD_MAP_FILE_PATH\nif [ ${LD_GENERATE_MAP_FILE} = \"YES\" ] && [ -e script/linkmap.js ]\nthen node script/linkmap.js ${LD_MAP_FILE_PATH} -lh > linkMapSample.txt\nfi\n";
-		};
 		CCB663171BABBDC400290F1F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,14 +667,15 @@
 			files = (
 				495D51BE2834CF4900A50DA3 /* S2SBiddingManager.m in Sources */,
 				495D51AB2834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m in Sources */,
-				495D51B22834CF4900A50DA3 /* UnifiedNativePreVideoViewController.m in Sources */,
 				495D51B02834CF4900A50DA3 /* UnifiedNativeAdCustomView.m in Sources */,
 				495D517B2834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m in Sources */,
 				495D51A52834CF4900A50DA3 /* GDTAdViewController.m in Sources */,
 				495D51B92834CF4900A50DA3 /* NativeExpressVideoConfigView.m in Sources */,
 				495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */,
 				495D51B72834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m in Sources */,
+				CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */,
 				495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */,
+				CBA2D0D42907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m in Sources */,
 				495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */,
 				495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */,
 				495D51CB2834CF4900A50DA3 /* DemoUtil.m in Sources */,
@@ -773,12 +783,11 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GDTMobSDK/Util/MMA/MobileTracking/EncryptModule",
 					"$(PROJECT_DIR)/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -788,7 +797,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7s armv7 arm64 x86_64";
+				VALID_ARCHS = "arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = DailyBuild;
@@ -891,12 +900,11 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GDTMobSDK/Util/MMA/MobileTracking/EncryptModule",
 					"$(PROJECT_DIR)/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -907,7 +915,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7s armv7 arm64 x86_64";
+				VALID_ARCHS = "arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -932,12 +940,11 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GDTMobSDK/Util/MMA/MobileTracking/EncryptModule",
 					"$(PROJECT_DIR)/lib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -947,7 +954,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7s armv7 arm64 x86_64";
+				VALID_ARCHS = "arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -957,6 +964,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = HKB8WPFBR9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -965,6 +973,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = HKB8WPFBR9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Release;
 		};
@@ -975,6 +984,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "32d8f732-d114-494a-adda-1c2bdeec6d7e";
 				PROVISIONING_PROFILE_SPECIFIER = "071e9f06-a481-46d5-9792-8bf0152abd64";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = DailyBuild;
 		};

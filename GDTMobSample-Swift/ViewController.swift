@@ -19,8 +19,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     "激励视频广告",
                                     "Banner2.0（横幅）",
                                     "插屏2.0",
-                                    "插屏2.0全屏视频",
-                                    "获取IDFA"]
+                                    "插屏2.0全屏视频"]
     
     private var demoDict: Dictionary = [
                                 "开屏广告":"SplashViewController",
@@ -30,8 +29,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 "自渲染2.0":"UnifiedNativeAdViewController",
                                 "Banner2.0（横幅）":"UnifiedBannerViewController",
                                 "插屏2.0":"UnifiedInterstitialViewController",
-                                "插屏2.0全屏视频":"UnifiedInterstitialFullScreenVideoViewController",
-                                "获取IDFA":"1"]
+                                "插屏2.0全屏视频":"UnifiedInterstitialFullScreenVideoViewController"]
     
     private let reusableTableViewCellID = "SimpleTableIdentifier"
     
@@ -111,9 +109,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        case "直播流广告":
 //            vc = TangramViewController(nibName: demoDict[vcType], bundle:nil)
 
-        case "获取IDFA":
-            getIDFA()
-            vc = nil
         default:
             vc = nil
         }
@@ -123,15 +118,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         else {
             NSLog("log")
         }
-    }
-    
-    private func getIDFA() {
-        let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        let alertController = UIAlertController(title: nil,
-                                                message: "\(idfa) \n已经复制到你的粘贴板", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "好的", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
     }
 }
 
