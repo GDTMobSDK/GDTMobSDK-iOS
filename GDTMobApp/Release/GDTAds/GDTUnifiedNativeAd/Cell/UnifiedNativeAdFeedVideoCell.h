@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UnifiedNativeAdFeedVideoCell : UnifiedNativeAdBaseTableViewCell
-
+@property (nonatomic, assign, class) CGSize customSize;
 @end
 
 NS_ASSUME_NONNULL_END

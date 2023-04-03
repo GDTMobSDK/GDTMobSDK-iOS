@@ -39,6 +39,26 @@
     [self.tableView registerClass:[UnifiedNativeAdThreeImageCell class] forCellReuseIdentifier:@"UnifiedNativeAdThreeImageCell"];
     [self.tableView reloadData];
     [self.unifiedNativeAd loadAdWithAdCount:10];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"自定义播放器尺寸" style:UIBarButtonItemStylePlain target:self action:@selector(customMediaViewSize)];
+    self.navigationItem.rightBarButtonItem = item;
+    [UnifiedNativeAdFeedVideoCell setCustomSize:CGSizeZero];
+}
+
+- (void)customMediaViewSize {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"自定义播放器尺寸" message:@"只填写一项的话根据比例计算另一项" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Width";
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *imageW = alertController.textFields.firstObject;
+        [UnifiedNativeAdFeedVideoCell setCustomSize:CGSizeMake(imageW.text.integerValue, 0)];
+        [self.tableView reloadData];
+    }];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 //- (void)viewWillAppear:(BOOL)animated

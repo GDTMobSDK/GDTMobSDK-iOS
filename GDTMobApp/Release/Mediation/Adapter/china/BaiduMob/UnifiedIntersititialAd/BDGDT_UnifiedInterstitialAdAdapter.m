@@ -68,6 +68,7 @@ static NSString *s_appId = nil;
         self.interstitialAd = [[BaiduMobAdExpressInterstitial alloc] init];
         self.interstitialAd.delegate = self.delegateObject;
         self.interstitialAd.adUnitTag = self.posId;
+        self.interstitialAd.publisherId = s_appId;
         [self.interstitialAd load];
     }
 }

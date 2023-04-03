@@ -32,6 +32,36 @@
     }\
     (result);\
 })
+
+/**
+ * 如果 object 是非空的 NSString 或 NSNumber，则转换为 NSString；如果 object 是 nil，则返回 alter。
+ *
+ * @param object 要转换的对象
+ * @param alter 备选对象，可以是任意 NSObject 或 nil
+ */
+#define GDTAlterString(object, alter) ({\
+    id theObject = object;\
+    NSString *string = alter;\
+    if ([theObject isKindOfClass:[NSString class]]) {\
+        string = (NSString *)theObject;\
+    } else if ([theObject isKindOfClass:[NSNumber class]]) {\
+        string = [(NSNumber *)theObject stringValue];\
+    }\
+    string;\
+})\
+/*
+ * 确保object是NSString，如果是NSNumber，转换成NSString，如果是其他类，返回空字符串
+ */
+#define GDTString(object) GDTAlterString(object, @"")
+
+/**
+ * 判断对象是否是有效的NSString
+ *
+ * @param string 对象
+ * @return 对象不为空且是 NSString 类型且字符串长度大于 0 则返回 YES, 否则返回 NO
+ */
+#define NSStringIsNotEmpty(string) ([string isKindOfClass:[NSString class]] && string.length)
+
 /**
  *  视频播放器状态
  *

@@ -7,6 +7,7 @@
 //
 
 #import "UnifiedNativeAdFeedVideoCell.h"
+#import <objc/runtime.h>
 
 @interface UnifiedNativeAdFeedVideoCell()
 
@@ -16,9 +17,22 @@
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *stopButton;
 
+@property (nonatomic, assign) CGSize customSize;
+@property (nonatomic, assign) CGFloat imageRate;
+@property (nonatomic, strong) NSLayoutConstraint *consMediaViewW;
+@property (nonatomic, strong) NSLayoutConstraint *consMediaViewH;
+
 @end
 
 @implementation UnifiedNativeAdFeedVideoCell
+
++ (void)setCustomSize:(CGSize)customSize {
+    objc_setAssociatedObject(self, @selector(customSize), [NSValue valueWithCGSize:customSize], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++ (CGSize)customSize {
+    return [objc_getAssociatedObject(self, _cmd) CGSizeValue];
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,6 +43,30 @@
         [self addSubview:self.playButton];
         [self addSubview:self.pauseButton];
         [self addSubview:self.stopButton];
+        
+        self.adView.translatesAutoresizingMaskIntoConstraints = NO;
+        UIView *adView = self.adView;
+        NSArray<NSLayoutConstraint *> *consV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[adView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(adView)];
+        NSArray<NSLayoutConstraint *> *consH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[adView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(adView)];
+        [NSLayoutConstraint activateConstraints:consV];
+        [NSLayoutConstraint activateConstraints:consH];
+
+        self.adView.logoView.translatesAutoresizingMaskIntoConstraints = NO;
+        UIView *logoView = self.adView.logoView;
+        NSArray<NSLayoutConstraint *> *consLogoV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[logoView(logoH)]-0-|" options:0 metrics:@{@"logoH":@(kGDTLogoImageViewDefaultHeight)} views:NSDictionaryOfVariableBindings(logoView)];
+        NSArray<NSLayoutConstraint *> *consLogoH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[logoView(logoW)]-0-|" options:0 metrics:@{@"logoW":@(kGDTLogoImageViewDefaultWidth)} views:NSDictionaryOfVariableBindings(logoView)];
+        [NSLayoutConstraint activateConstraints:consLogoV];
+        [NSLayoutConstraint activateConstraints:consLogoH];
+        
+        self.adView.mediaView.translatesAutoresizingMaskIntoConstraints = NO;
+        UIView *mediaView = self.adView.mediaView;
+        NSLayoutConstraint *consMediaViewX = [NSLayoutConstraint constraintWithItem:mediaView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:adView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+        NSLayoutConstraint *consMediaViewB = [NSLayoutConstraint constraintWithItem:mediaView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:adView attribute:NSLayoutAttributeBottom multiplier:1 constant:-14];
+        NSLayoutConstraint *consMediaViewW = [NSLayoutConstraint constraintWithItem:mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:adView attribute:NSLayoutAttributeWidth multiplier:1 constant:-16];
+        NSLayoutConstraint *consMediaViewH = [NSLayoutConstraint constraintWithItem:mediaView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:adView attribute:NSLayoutAttributeHeight multiplier:1 constant:-134];
+        [NSLayoutConstraint activateConstraints:@[consMediaViewX,consMediaViewB,consMediaViewW,consMediaViewH]];
+        self.consMediaViewW = consMediaViewW;
+        self.consMediaViewH = consMediaViewH;
     }
     return self;
 }
@@ -46,23 +84,40 @@
 #pragma mark - public
 - (void)setupWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject delegate:(id<GDTUnifiedNativeAdViewDelegate>)delegate vc:(UIViewController *)vc
 {
-    self.adView.delegate = delegate; // adView 广告回调
-    self.adView.viewController = vc; // 跳转 VC
+    if (!CGSizeEqualToSize(self.customSize, [UnifiedNativeAdFeedVideoCell customSize])) {
+        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewW]];
+        if ([UnifiedNativeAdFeedVideoCell customSize].width > 0) {
+            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:0 constant:[UnifiedNativeAdFeedVideoCell customSize].width];
+        } else {
+            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.adView attribute:NSLayoutAttributeWidth multiplier:1 constant:-16];
+        }
+        [NSLayoutConstraint activateConstraints:@[self.consMediaViewW]];
+        self.customSize = [UnifiedNativeAdFeedVideoCell customSize];
+    }
+    
     CGFloat imageRate = 16 / 9.0;
     if (dataObject.imageHeight > 0) {
         imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
     }
+    
+    if (self.imageRate != imageRate) {
+        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewH]];
+        if (dataObject.imageWidth > 0 && dataObject.imageHeight > 0) {
+            self.consMediaViewH = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.adView.mediaView attribute:NSLayoutAttributeWidth multiplier:1/imageRate constant:0];
+        }
+        [NSLayoutConstraint activateConstraints:@[self.consMediaViewH]];
+        self.imageRate = imageRate;
+    }
+        
+    self.adView.delegate = delegate; // adView 广告回调
+    self.adView.viewController = vc; // 跳转 VC
+    
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 16;
     self.adView.backgroundColor = [UIColor grayColor];
     self.adView.iconImageView.frame = CGRectMake(8, 8, 60, 60);
     self.adView.titleLabel.frame = CGRectMake(76, 8, 200, 30);
     self.adView.descLabel.frame = CGRectMake(8, 76, width, 30);
-    CGFloat imageWidth = width;
-    self.adView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 122 + imageWidth / imageRate);
-    // mediaView logoView frame 更新在父view之后设置
-    self.adView.mediaView.frame = CGRectMake(8, 114, imageWidth, imageWidth / imageRate);
     
-    self.adView.logoView.frame = CGRectMake(CGRectGetWidth(self.adView.frame) - kGDTLogoImageViewDefaultWidth, CGRectGetHeight(self.adView.frame) - kGDTLogoImageViewDefaultHeight, kGDTLogoImageViewDefaultWidth, kGDTLogoImageViewDefaultHeight);
     [self.adView setupWithUnifiedNativeAdObject:dataObject];
     [self.adView.clickButton sizeToFit];
     self.adView.clickButton.frame = (CGRect) {
@@ -116,6 +171,15 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 16;
     CGFloat imageWidth = width;
     height = 130 + imageWidth / imageRate;
+    //
+    if (!CGSizeEqualToSize(CGSizeZero, self.customSize)) {
+        if ((self.customSize.height <= 0)) {
+            CGFloat imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
+            return 122 + self.customSize.width / imageRate;
+        } else {
+            return 122 + self.customSize.height;
+        }
+    }
     NSLog(@"cell height %@", @(height));
     return height;
 }

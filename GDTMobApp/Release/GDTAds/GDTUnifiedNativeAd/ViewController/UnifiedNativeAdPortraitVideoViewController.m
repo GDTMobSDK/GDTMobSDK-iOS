@@ -96,18 +96,97 @@
 #pragma mark - GDTUnifiedNativeAdDelegate
 - (void)gdt_unifiedNativeAdLoaded:(NSArray<GDTUnifiedNativeAdDataObject *> *)unifiedNativeAdDataObjects error:(NSError *)error
 {
-    if (error) {
-        NSLog(@"error %@", error);
+    if (!error && unifiedNativeAdDataObjects.count > 0) {
+        NSLog(@"%s",__FUNCTION__);
+        NSLog(@"成功请求到广告数据");
+        for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
+            NSLog(@"extraInfo: %@", obj.extraInfo);
+        }
+        self.dataArray = unifiedNativeAdDataObjects;
+        [self.tableView reloadData];
+        
+        // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
+        [self reportBiddingResult];
         return;
     }
-    for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
-        NSLog(@"extraInfo: %@", obj.extraInfo);
+    if (error.code == 5004) {
+        NSLog(@"没匹配的广告，禁止重试，否则影响流量变现效果");
+    } else if (error.code == 5005) {
+        NSLog(@"流量控制导致没有广告，超过日限额，请明天再尝试");
+    } else if (error.code == 5009) {
+        NSLog(@"流量控制导致没有广告，超过小时限额");
+    } else if (error.code == 5006) {
+        NSLog(@"包名错误");
+    } else if (error.code == 5010) {
+        NSLog(@"广告样式校验失败");
+    } else if (error.code == 3001) {
+        NSLog(@"网络错误");
+    } else if (error.code == 5013) {
+        NSLog(@"请求太频繁，请稍后再试");
+    } else if (error) {
+        NSLog(@"ERROR: %@", error);
     }
-    self.dataArray = unifiedNativeAdDataObjects;
-    [self.tableView reloadData];
-    
-    // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
-    [self reportBiddingResult];
+}
+
+- (void)gdt_unifiedNativeAdViewDidClick:(GDTUnifiedNativeAdView *)unifiedNativeAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"%@ 广告被点击", unifiedNativeAdView.dataObject);
+}
+
+- (void)gdt_unifiedNativeAdViewWillExpose:(GDTUnifiedNativeAdView *)unifiedNativeAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告被曝光");
+}
+
+- (void)gdt_unifiedNativeAdDetailViewClosed:(GDTUnifiedNativeAdView *)unifiedNativeAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告详情页已关闭");
+}
+
+- (void)gdt_unifiedNativeAdViewApplicationWillEnterBackground:(GDTUnifiedNativeAdView *)unifiedNativeAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告进入后台");
+}
+
+- (void)gdt_unifiedNativeAdDetailViewWillPresentScreen:(GDTUnifiedNativeAdView *)unifiedNativeAdView
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"广告详情页面即将打开");
+}
+
+- (void)gdt_unifiedNativeAdView:(GDTUnifiedNativeAdView *)unifiedNativeAdView playerStatusChanged:(GDTMediaPlayerStatus)status userInfo:(NSDictionary *)userInfo
+{
+    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"视频广告状态变更");
+    switch (status) {
+        case GDTMediaPlayerStatusInitial:
+            NSLog(@"视频初始化");
+            break;
+        case GDTMediaPlayerStatusLoading:
+            NSLog(@"视频加载中");
+            break;
+        case GDTMediaPlayerStatusStarted:
+            NSLog(@"视频开始播放");
+            break;
+        case GDTMediaPlayerStatusPaused:
+            NSLog(@"视频暂停");
+            break;
+        case GDTMediaPlayerStatusStoped:
+            NSLog(@"视频停止");
+            break;
+        case GDTMediaPlayerStatusError:
+            NSLog(@"视频播放出错");
+        default:
+            break;
+    }
+    if (userInfo) {
+        long videoDuration = [userInfo[kGDTUnifiedNativeAdKeyVideoDuration] longValue];
+        NSLog(@"视频广告长度为 %ld s", videoDuration);
+    }
 }
 
 - (void)gdtAdComplainSuccess:(id)ad {

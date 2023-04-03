@@ -401,6 +401,10 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     NSLog(@"满足激励条件 transid:%@",[info objectForKey:@"GDT_TRANS_ID"]);
 }
 
+- (void)splashAdLifeTime:(NSUInteger)time {
+    NSLog(@"%s, 剩余时间 %lds",__FUNCTION__, time);
+}
+
 #pragma mark - GDTSplashZoomOutViewDelegate
 - (void)splashZoomOutViewDidClick:(GDTSplashZoomOutView *)splashZoomOutView
 {

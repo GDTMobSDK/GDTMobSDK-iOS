@@ -101,7 +101,7 @@ static NSString *INTERSTITIAL_STATE_TEXT = @"插屏状态";
 - (IBAction)changePid:(id)sender {
     UIAlertController *changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *posIDArray = @[
-                                  @[@"插屏全屏视频广告位", @"4031449988975443"],
+                                  @[@"插屏全屏视频广告位", @"1065727815330357"],
                                   @[@"插屏激励广告位", @"1072203857043492"],
                                   @[@"插屏全屏图文广告位", @"2012637049088974"],
                                   @[@"流量分配广告位", @"101368"],
