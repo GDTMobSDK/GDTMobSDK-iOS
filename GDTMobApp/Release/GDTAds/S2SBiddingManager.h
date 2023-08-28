@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface S2SBiddingManager : NSObject
 
-+ (void)getTokenWithPlacementId:(NSString *)placementId completion:(void (^)(NSString *token))completion;
+extern NSString * const kS2SUrl;
 
++ (void)getTokenWithPlacementId:(NSString *)placementId completion:(void (^)(NSString *token))completion;
++ (NSURL *) getUrl;
 @end
 
 NS_ASSUME_NONNULL_END

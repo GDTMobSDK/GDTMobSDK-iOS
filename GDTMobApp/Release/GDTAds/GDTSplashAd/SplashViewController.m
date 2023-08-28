@@ -9,16 +9,12 @@
 #import "SplashViewController.h"
 #import "GDTSplashAd.h"
 #import "GDTAppDelegate.h"
-#import "GDTSplashZoomOutView.h"
-#import "GDTSplashZoomOutView+GDTDraggable.h"
 #import "S2SBiddingManager.h"
 
 static NSString *IMAGE_AD_PLACEMENTID = @"2023121674786777";
 static NSString *VIDEO_AD_PLACEMENTID = @"7003628706619303";
-static NSString *REWARD_AD_PLACEMENTID = @"4073444717897272";
-static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
 
-@interface SplashViewController () <GDTSplashAdDelegate,GDTSplashZoomOutViewDelegate>
+@interface SplashViewController () <GDTSplashAdDelegate>
 
 @property (nonatomic, strong) GDTSplashAd *splashAd;
 @property (nonatomic, strong) UIView *bottomView;
@@ -27,7 +23,6 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
 @property (weak, nonatomic) IBOutlet UILabel *logoDescLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (nonatomic, assign) BOOL isParallelLoad;
-@property (weak, nonatomic) IBOutlet UISwitch *supportZoomoutViewSwitch;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, assign) BOOL useToken;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
@@ -42,16 +37,6 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     [super viewDidLoad];
     self.logoHeightTextField.text = [NSString stringWithFormat:@"%@", @([[UIScreen mainScreen] bounds].size.height * 0.12)] ;
     self.logoDescLabel.text = [NSString stringWithFormat:@"底部logo高度上限：\n %@(屏幕高度) * 12%% = %@", @([[UIScreen mainScreen] bounds].size.height), @([[UIScreen mainScreen] bounds].size.height * 0.12)];
-    [self.supportZoomoutViewSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-}
-
-- (void)switchChanged:(id)sender
-{
-    if ([sender isOn]) {
-        [self.navigationController setNavigationBarHidden:YES];
-    } else {
-        [self.navigationController setNavigationBarHidden:NO];
-    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -65,7 +50,6 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.tipsLabel.text = nil;
     NSString *placementId = self.placementIdTextField.text.length > 0?self.placementIdTextField.text:self.placementIdTextField.placeholder;
     GDTSplashAd *preloadSplashAd = [[GDTSplashAd alloc] initWithPlacementId:placementId];
-    preloadSplashAd.needZoomOut = self.supportZoomoutViewSwitch.isOn;
     [preloadSplashAd preloadSplashOrderWithPlacementId:placementId];
 }
 - (IBAction)changePlacementID:(id)sender {
@@ -84,22 +68,11 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
            self.placementIdTextField.placeholder = VIDEO_AD_PLACEMENTID;
     }];
     [changePosIdController addAction:videoAdIdAction];
-
-    UIAlertAction *rewardIDAction = [UIAlertAction actionWithTitle:@"奖励式开屏广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-           self.placementIdTextField.placeholder = REWARD_AD_PLACEMENTID;
-    }];
-    [changePosIdController addAction:rewardIDAction];
-    
-    UIAlertAction *splashZoomoutAdIdAction = [UIAlertAction actionWithTitle:@"开屏视频V+广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.placementIdTextField.placeholder = VIDEO_ZOOMOUT_AD_PLACEMENTID;
-    }];
-    
     
     UIAlertAction *mediationAdIdAction = [UIAlertAction actionWithTitle:@"流量分配广告" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.placementIdTextField.placeholder = [self mediationId];
     }];
     
-    [changePosIdController addAction:splashZoomoutAdIdAction];
     [changePosIdController addAction:mediationAdIdAction];
     [changePosIdController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:changePosIdController animated:YES completion:nil];
@@ -117,21 +90,9 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.splashAd = [self createASplashAd];
     self.splashAd.delegate = self;
     self.splashAd.fetchDelay = 5;
-    UIImage *splashImage = [UIImage imageNamed:@"SplashNormal"];
-    if (isIPhoneXSeries()) {
-        splashImage = [UIImage imageNamed:@"SplashX"];
-    } else if ([UIScreen mainScreen].bounds.size.height == 480) {
-        splashImage = [UIImage imageNamed:@"SplashSmall"];
-    }
-    self.splashAd.needZoomOut = self.supportZoomoutViewSwitch.isOn;
-    self.splashAd.backgroundImage = splashImage;
+    self.splashAd.backgroundImage = [self getLaunchScreenImage];
     self.splashAd.backgroundImage.accessibilityIdentifier = @"splash_ad";
     [self setupSplashAd:self.splashAd];
-    //如果设置了服务端验证，可以设置serverSideVerificationOptions属性
-    GDTServerSideVerificationOptions *ssv = [[GDTServerSideVerificationOptions alloc] init];
-    ssv.userIdentifier = @"APP's user id for server verify";
-    ssv.customRewardString = @"APP's custom data";
-    self.splashAd.serverSideVerificationOptions = ssv;
     [self.splashAd loadAd];
 }
 
@@ -145,7 +106,7 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
             self.bottomView.backgroundColor = [UIColor whiteColor];
             UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
             logo.accessibilityIdentifier = @"splash_logo";
-            logo.frame = CGRectMake(0, 0, 311, 47);
+            logo.frame = CGRectMake(0, 0, 140, 34.65);
             logo.center = self.bottomView.center;
             [self.bottomView addSubview:logo];
         } else {
@@ -165,21 +126,9 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.splashAd = [self createASplashAd];
     self.splashAd.delegate = self;
     self.splashAd.fetchDelay = 5;
-    UIImage *splashImage = [UIImage imageNamed:@"SplashNormal"];
-    if (isIPhoneXSeries()) {
-        splashImage = [UIImage imageNamed:@"SplashX"];
-    } else if ([UIScreen mainScreen].bounds.size.height == 480) {
-        splashImage = [UIImage imageNamed:@"SplashSmall"];
-    }
-    self.splashAd.needZoomOut = self.supportZoomoutViewSwitch.isOn;
-    self.splashAd.backgroundImage = splashImage;
+    self.splashAd.backgroundImage = [self getLaunchScreenImage];;
     self.splashAd.backgroundImage.accessibilityIdentifier = @"splash_ad";
     [self setupSplashAd:self.splashAd];
-    //如果设置了服务端验证，可以设置serverSideVerificationOptions属性
-    GDTServerSideVerificationOptions *ssv = [[GDTServerSideVerificationOptions alloc] init];
-    ssv.userIdentifier = @"APP's user id for server verify";
-    ssv.customRewardString = @"APP's custom data";
-    self.splashAd.serverSideVerificationOptions = ssv;
     [self.splashAd loadFullScreenAd];
 }
 
@@ -198,14 +147,7 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.splashAd = [self createASplashAd];
     self.splashAd.delegate = self;
     self.splashAd.fetchDelay = 5;
-    UIImage *splashImage = [UIImage imageNamed:@"SplashNormal"];
-    if (isIPhoneXSeries()) {
-        splashImage = [UIImage imageNamed:@"SplashX"];
-    } else if ([UIScreen mainScreen].bounds.size.height == 480) {
-        splashImage = [UIImage imageNamed:@"SplashSmall"];
-    }
-    self.splashAd.needZoomOut = self.supportZoomoutViewSwitch.isOn;
-    self.splashAd.backgroundImage = splashImage;
+    self.splashAd.backgroundImage = [self getLaunchScreenImage];;
     self.splashAd.backgroundImage.accessibilityIdentifier = @"splash_ad";
     [self setupSplashAd:self.splashAd];
     
@@ -216,7 +158,7 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
         self.bottomView.backgroundColor = [UIColor whiteColor];
         UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
         logo.accessibilityIdentifier = @"splash_logo";
-        logo.frame = CGRectMake(0, 0, 311, 47);
+        logo.frame = CGRectMake(0, 0, 140, 34.65);
         logo.center = self.bottomView.center;
         [self.bottomView addSubview:logo];
     } else {
@@ -233,14 +175,7 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.splashAd = [self createASplashAd];
     self.splashAd.delegate = self;
     self.splashAd.fetchDelay = 5;
-    UIImage *splashImage = [UIImage imageNamed:@"SplashNormal"];
-    if (isIPhoneXSeries()) {
-        splashImage = [UIImage imageNamed:@"SplashX"];
-    } else if ([UIScreen mainScreen].bounds.size.height == 480) {
-        splashImage = [UIImage imageNamed:@"SplashSmall"];
-    }
-    self.splashAd.needZoomOut = self.supportZoomoutViewSwitch.isOn;
-    self.splashAd.backgroundImage = splashImage;
+    self.splashAd.backgroundImage = [self getLaunchScreenImage];;
     self.splashAd.backgroundImage.accessibilityIdentifier = @"splash_ad";
     [self setupSplashAd:self.splashAd];
     UIWindow *fK = [[UIApplication sharedApplication] keyWindow];
@@ -302,15 +237,19 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     self.adValidLabel.text = [self.splashAd isAdValid] ? @"广告有效" : @"广告无效";
 }
 
+- (UIImage *)getLaunchScreenImage {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Launch Screen" bundle:nil];
+    UIViewController *launchScreen = [storyBoard instantiateViewControllerWithIdentifier:@"launchscreen"];
+    UIGraphicsBeginImageContextWithOptions([UIScreen mainScreen].bounds.size, YES, [UIScreen mainScreen].scale);
+    [launchScreen.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 #pragma mark - GDTSplashAdDelegate
 
 - (void)splashAdDidLoad:(GDTSplashAd *)splashAd {
-    if (splashAd.splashZoomOutView) {
-        [self.view addSubview:splashAd.splashZoomOutView];
-        splashAd.splashZoomOutView.rootViewController = self;
-        // 支持拖拽
-        [splashAd.splashZoomOutView supportDrag];
-    }
     NSLog(@"extraInfo: %@", splashAd.extraInfo);
     NSLog(@"%s", __func__);
     self.tipsLabel.text = [NSString stringWithFormat:@"%@ 广告拉取成功", splashAd.adNetworkName];
@@ -352,9 +291,6 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
 
 - (void)splashAdClicked:(GDTSplashAd *)splashAd
 {
-    if (splashAd.splashZoomOutView) {
-        [splashAd.splashZoomOutView removeFromSuperview];
-    }
     NSLog(@"广告已点击");
     NSLog(@"%s",__FUNCTION__);
 }
@@ -396,39 +332,8 @@ static NSString *VIDEO_ZOOMOUT_AD_PLACEMENTID = @"9011003132560597";
     NSLog(@"%s",__FUNCTION__);
 }
 
-- (void)splashAdDidRewardEffective:(GDTSplashAd *)splashAd info:(NSDictionary *)info {
-    NSLog(@"%s",__FUNCTION__);
-    NSLog(@"满足激励条件 transid:%@",[info objectForKey:@"GDT_TRANS_ID"]);
-}
-
 - (void)splashAdLifeTime:(NSUInteger)time {
     NSLog(@"%s, 剩余时间 %lds",__FUNCTION__, time);
-}
-
-#pragma mark - GDTSplashZoomOutViewDelegate
-- (void)splashZoomOutViewDidClick:(GDTSplashZoomOutView *)splashZoomOutView
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)splashZoomOutViewAdDidClose:(GDTSplashZoomOutView *)splashZoomOutView
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)splashZoomOutViewAdVideoFinished:(GDTSplashZoomOutView *)splashZoomOutView
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)splashZoomOutViewAdDidPresentFullScreenModal:(GDTSplashZoomOutView *)splashZoomOutView
-{
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)splashZoomOutViewAdDidDismissFullScreenModal:(GDTSplashZoomOutView *)splashZoomOutView
-{
-    NSLog(@"%s",__FUNCTION__);
 }
 
 

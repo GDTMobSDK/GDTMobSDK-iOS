@@ -10,9 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GDTSDKDefines.h"
-#import "GDTSplashZoomOutView.h"
 #import "GDTAdProtocol.h"
-#import "GDTServerSideVerificationOptions.h"
 
 @class GDTSplashAd;
 
@@ -85,13 +83,6 @@
  */
 - (void)splashAdLifeTime:(NSUInteger)time;
 
-/**
- 开屏激励回调 (只有开屏激励广告位才会有此回调)
- @param splashAd  GDTSplashAd 实例
- @param info 包含此次广告行为的一些信息，例如 @{@"GDT_TRANS_ID":@"930f1fc8ac59983bbdf4548ee40ac353"}, 通过@“GDT_TRANS_ID”可获取此次广告行为的交易id
- */
-- (void)splashAdDidRewardEffective:(GDTSplashAd *)splashAd info:(NSDictionary *)info;
-
 @end
 
 @interface GDTSplashAd : NSObject <GDTAdProtocol>
@@ -124,22 +115,6 @@
  * 跳过按钮的位置
  */
 @property (nonatomic, assign) CGPoint skipButtonCenter;
-
-/**
- * 是否需要开屏视频V+功能
- */
-@property (nonatomic, assign) BOOL needZoomOut;
-
-/**
- * 当广告命中开屏视频V+时，splshZoomOutView有值
- * splashZoomOutView推荐尺寸为9:16，最小尺寸推荐为126*224
- */
-@property (nonatomic, strong, readonly) GDTSplashZoomOutView *splashZoomOutView;
-
-/**
- * 服务器验证
- */
-@property (nonatomic, strong) GDTServerSideVerificationOptions *serverSideVerificationOptions;
 
 /**
  返回广告平台名称

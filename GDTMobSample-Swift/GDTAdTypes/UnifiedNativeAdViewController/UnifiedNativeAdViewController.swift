@@ -27,8 +27,7 @@ class UnifiedNativeAdViewController: UIViewController{
         ["图片Feed",
         "视频Feed",
         "沉浸式视频流",
-        "视频信息流",
-        "视频贴片广告-自定义播放器"]
+        "视频信息流"]
     
     
     override func viewDidLoad() {
@@ -91,8 +90,6 @@ extension UnifiedNativeAdViewController:UITableViewDataSource,UITableViewDelegat
             vc = UnifiedNativeAdPortraitVideoViewController()
         case "视频信息流":
             vc = UnifiedNativeAdPortraitFeedViewController()
-        case "视频贴片广告-自定义播放器":
-            vc = UnifiedNativeCustomVideoPlayerViewController()
         default:
             vc = nil
         }

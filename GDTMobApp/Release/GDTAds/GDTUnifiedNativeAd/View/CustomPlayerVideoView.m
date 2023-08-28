@@ -136,11 +136,7 @@
     if (!_player || !_player.currentItem) {
         return;
     }
-    
     [_player pause];
-    [_player removeObserver:self forKeyPath:@"rate"];
-    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    
     self.status = GDTVideoPlayStatusStopped;
 }
 
@@ -176,6 +172,16 @@
     }
     else {
         return 0;
+    }
+}
+
+- (void)dealloc {
+    if (self.player) {
+        [self.player pause];
+        [self.player removeObserver:self forKeyPath:@"rate"];
+    }
+    if (self.playerItem) {
+        [self.playerItem removeObserver:self forKeyPath:@"status"];
     }
 }
 

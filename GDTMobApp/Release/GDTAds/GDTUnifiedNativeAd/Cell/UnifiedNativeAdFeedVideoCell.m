@@ -133,12 +133,14 @@
     };
     if ([dataObject isVideoAd]) {
         if ([dataObject isAdValid]) {
+            // 这里加上contentView，测试重叠情况
             [self.adView registerDataObject:dataObject clickableViews:@[self.adView.iconImageView,
-            self.adView.imageView] customClickableViews:@[self.adView.clickButton]];
+            self.adView.imageView] customClickableViews:@[self.adView.clickButton,self.contentView]];
         }
     }
     else {
         if ([dataObject isAdValid]) {
+            // 这里不加上contentView，测试不重叠情况
             [self.adView registerDataObject:dataObject clickableViews:@[self.adView.clickButton, self.adView.iconImageView,
                                                                     self.adView.imageView]];
         }

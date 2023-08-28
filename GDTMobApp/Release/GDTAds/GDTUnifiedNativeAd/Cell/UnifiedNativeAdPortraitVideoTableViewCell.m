@@ -10,6 +10,7 @@
 
 @interface UnifiedNativeAdPortraitVideoTableViewCell() <GDTMediaViewDelegate>
 @property (nonatomic, strong) UIButton *icon;
+@property (nonatomic, strong) NSLayoutConstraint *consH;
 @end
 
 @implementation UnifiedNativeAdPortraitVideoTableViewCell
@@ -29,6 +30,8 @@
         [gradientView.layer addSublayer:gradientLayer];
         [self.adView insertSubview:gradientView aboveSubview:self.adView.mediaView];
         
+        self.backgroundColor = [UIColor blackColor];
+        
         [self setupSubViews];
     }
     return self;
@@ -43,6 +46,14 @@
     [self.adView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor].active = YES;
     
     CGFloat elementWidth = GDTScreenWidth * 511.0 / 750;
+    
+    // mediaView
+    self.adView.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adView.imageView.widthAnchor constraintEqualToAnchor:self.contentView.widthAnchor].active = YES;
+    [self.adView.imageView.heightAnchor constraintEqualToAnchor:self.contentView.heightAnchor].active = YES;
+    [self.adView.imageView.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
+    [self.adView.imageView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
+    self.adView.imageView.alpha = 0.4;
     
     // 头像
     self.adView.iconImageView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -101,10 +112,11 @@
     
     // mediaView
     self.adView.mediaView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.adView.mediaView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
-    [self.adView.mediaView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
-    [self.adView.mediaView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor].active = YES;
-    [self.adView.mediaView.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor].active = YES;
+    [self.adView.mediaView.widthAnchor constraintEqualToAnchor:self.contentView.widthAnchor].active = YES;
+    self.consH = [self.adView.mediaView.heightAnchor constraintEqualToAnchor:self.contentView.heightAnchor];
+    self.consH.active = YES;
+    [self.adView.mediaView.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor].active = YES;
+    [self.adView.mediaView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
     
     // logoView
     self.adView.logoView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -129,7 +141,12 @@
                                                                     self.adView.titleLabel,
                                                                     self.adView.descLabel]];
     }
-    
+    [dataObject bindImageViews:@[self.adView.imageView] placeholder:nil];
+    if (dataObject.imageWidth > 0) {
+        self.consH.active = NO;
+        self.consH = [self.adView.mediaView.heightAnchor constraintEqualToAnchor:self.contentView.widthAnchor multiplier:(float)dataObject.imageHeight/(float)dataObject.imageWidth];
+        self.consH.active = YES;
+    }
     NSString *imageName = dataObject.isAppAd ? @"feed_download" : @"feed_link";
     UIImage *image = [UIImage imageNamed:imageName];
     [self.adView.clickButton setImage:image forState:UIControlStateNormal];

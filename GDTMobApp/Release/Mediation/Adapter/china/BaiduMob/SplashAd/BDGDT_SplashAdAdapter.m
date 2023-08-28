@@ -29,8 +29,6 @@ static NSString *s_appId = nil;
 @synthesize backgroundImage;
 @synthesize fetchDelay;
 @synthesize skipButtonCenter;
-@synthesize needZoomOut;
-@synthesize splashZoomOutView;
 @synthesize shouldLoadFullscreenAd;
 
 #pragma mark - GDTSplashAdNetworkConnectorProtocol

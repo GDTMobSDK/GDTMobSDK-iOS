@@ -293,7 +293,7 @@
  */
 - (void)muteEnable:(BOOL)flag
 {
-
+    [self.videoView setVideoMute:flag];
 }
 
 /**

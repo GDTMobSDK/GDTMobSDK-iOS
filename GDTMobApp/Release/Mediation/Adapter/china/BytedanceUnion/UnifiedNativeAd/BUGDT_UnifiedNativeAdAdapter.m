@@ -29,7 +29,6 @@ static BOOL s_sdkInitializationSuccess = NO;
 + (void)updateAppId:(NSString *)appId extStr:(NSString *)extStr {
     if (BUAdSDKManager.appID.length == 0) {
         BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
-        configuration.territory = BUAdSDKTerritory_CN;
         configuration.appID = appId;
         [BUAdSDKManager startWithAsyncCompletionHandler:^(BOOL success, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{

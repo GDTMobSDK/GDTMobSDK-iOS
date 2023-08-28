@@ -26,7 +26,6 @@
 		0AC566DA201224350078BCBE /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC566D9201224350078BCBE /* libGDTMobSDK.a */; };
 		0AD129E41F8B70940066A847 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD129E31F8B70940066A847 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		495D517A2834CF4900A50DA3 /* GDTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D50B02834CF4900A50DA3 /* GDTNavigationController.m */; };
-		495D517B2834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D50B22834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m */; };
 		495D51A52834CF4900A50DA3 /* GDTAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511B2834CF4900A50DA3 /* GDTAdViewController.m */; };
 		495D51A62834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */; };
 		495D51A72834CF4900A50DA3 /* UnifiedNativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511F2834CF4900A50DA3 /* UnifiedNativeAdViewController.m */; };
@@ -74,7 +73,6 @@
 		495D51D52834CF4900A50DA3 /* GDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51792834CF4900A50DA3 /* GDTAppDelegate.m */; };
 		495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */; };
 		CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */; };
-		CBA2D0D42907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */; };
 		CC086A001B53B3F8002E0A51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0869FC1B53AD7E002E0A51 /* libz.tbd */; };
 		CCA4684C184C55AA00DE642A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684B184C55AA00DE642A /* Foundation.framework */; };
 		CCA4684E184C55AA00DE642A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684D184C55AA00DE642A /* CoreGraphics.framework */; };
@@ -125,7 +123,6 @@
 		3BB7B6FC25667705005A2000 /* GDTSplashZoomOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashZoomOutView.h; sourceTree = "<group>"; };
 		495D50B02834CF4900A50DA3 /* GDTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTNavigationController.m; sourceTree = "<group>"; };
 		495D50B12834CF4900A50DA3 /* GDTAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdViewController.h; sourceTree = "<group>"; };
-		495D50B22834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDTSplashZoomOutView+GDTDraggable.m"; sourceTree = "<group>"; };
 		495D511A2834CF4900A50DA3 /* GDTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAppDelegate.h; sourceTree = "<group>"; };
 		495D511B2834CF4900A50DA3 /* GDTAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTAdViewController.m; sourceTree = "<group>"; };
 		495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdVideoConfigView.m; sourceTree = "<group>"; };
@@ -200,7 +197,6 @@
 		495D51742834CF4900A50DA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		495D51752834CF4900A50DA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		495D51762834CF4900A50DA3 /* GDTMobSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDTMobSample-Info.plist"; sourceTree = "<group>"; };
-		495D51772834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDTSplashZoomOutView+GDTDraggable.h"; sourceTree = "<group>"; };
 		495D51782834CF4900A50DA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		495D51792834CF4900A50DA3 /* GDTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTAppDelegate.m; sourceTree = "<group>"; };
 		495D51DB2834D0F200A50DA3 /* GDTAdViewController+Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDTAdViewController+Sample.h"; sourceTree = "<group>"; };
@@ -323,8 +319,6 @@
 				495D51792834CF4900A50DA3 /* GDTAppDelegate.m */,
 				495D516D2834CF4900A50DA3 /* GDTNavigationController.h */,
 				495D50B02834CF4900A50DA3 /* GDTNavigationController.m */,
-				495D51772834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.h */,
-				495D50B22834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m */,
 				495D51782834CF4900A50DA3 /* Images.xcassets */,
 				495D516E2834CF4900A50DA3 /* Supporting Files */,
 			);
@@ -668,14 +662,12 @@
 				495D51BE2834CF4900A50DA3 /* S2SBiddingManager.m in Sources */,
 				495D51AB2834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m in Sources */,
 				495D51B02834CF4900A50DA3 /* UnifiedNativeAdCustomView.m in Sources */,
-				495D517B2834CF4900A50DA3 /* GDTSplashZoomOutView+GDTDraggable.m in Sources */,
 				495D51A52834CF4900A50DA3 /* GDTAdViewController.m in Sources */,
 				495D51B92834CF4900A50DA3 /* NativeExpressVideoConfigView.m in Sources */,
 				495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */,
 				495D51B72834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m in Sources */,
 				CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */,
 				495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */,
-				CBA2D0D42907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m in Sources */,
 				495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */,
 				495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */,
 				495D51CB2834CF4900A50DA3 /* DemoUtil.m in Sources */,
@@ -774,7 +766,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53BVK9ETZD;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -783,7 +775,7 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -891,7 +883,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53BVK9ETZD;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -900,7 +892,7 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -931,7 +923,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 53BVK9ETZD;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -940,7 +932,7 @@
 				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

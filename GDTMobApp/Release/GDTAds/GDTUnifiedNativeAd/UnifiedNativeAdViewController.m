@@ -74,7 +74,6 @@ static NSInteger ADVTYPE_COUNT = 6;
                         @[@"视频Feed", @"UnifiedNativeAdFeedVideoTableViewController"],
                         @[@"沉浸式视频流", @"UnifiedNativeAdPortraitVideoViewController"],
                         @[@"视频信息流", @"UnifiedNativeAdPortraitFeedViewController"],
-                        @[@"视频贴片广告-自定义播放器", @"UnifiedNativeCustomVideoPlayerViewController"],
                         ];
     
     self.tableView.delegate = self;

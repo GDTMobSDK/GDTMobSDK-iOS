@@ -10,7 +10,7 @@
 #import "GDTSDKConfig.h"
 #import <sys/utsname.h>
 
-static NSString * const kS2SUrl = @"https://mi.gdt.qq.com/server_bidding";
+NSString * const kS2SUrl = @"https://mi.gdt.qq.com/server_bidding";
 
 @implementation S2SBiddingManager
 
@@ -21,8 +21,7 @@ static NSString * const kS2SUrl = @"https://mi.gdt.qq.com/server_bidding";
         return;
     }
 
-    NSURL *url = [NSURL URLWithString:kS2SUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self getUrl]];
     NSURLSession *session = [NSURLSession sharedSession];
     request.HTTPMethod = @"POST";
     [request setValue:@"2.5" forHTTPHeaderField:@"X-OpenRTB-Version"];
@@ -58,6 +57,10 @@ static NSString * const kS2SUrl = @"https://mi.gdt.qq.com/server_bidding";
         });
     }];
     [dataTask resume];
+}
+
++(NSURL *)getUrl{
+    return [NSURL URLWithString:kS2SUrl];
 }
 
 @end

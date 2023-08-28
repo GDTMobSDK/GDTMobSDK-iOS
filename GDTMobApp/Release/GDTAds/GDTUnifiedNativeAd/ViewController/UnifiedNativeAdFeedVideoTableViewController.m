@@ -13,7 +13,7 @@
 #import "UnifiedNativeAdThreeImageCell.h"
 #import "GDTAppDelegate.h"
 
-@interface UnifiedNativeAdFeedVideoTableViewController () <GDTUnifiedNativeAdDelegate, GDTUnifiedNativeAdViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface UnifiedNativeAdFeedVideoTableViewController () <GDTUnifiedNativeAdDelegate, GDTUnifiedNativeAdViewDelegate, UITableViewDelegate, UITableViewDataSource, GDTMediaViewDelegate>
 
 @property (nonatomic, strong) GDTUnifiedNativeAd *unifiedNativeAd;
 @property (nonatomic, strong) NSArray *adDataArray;
@@ -98,6 +98,7 @@
     if (dataObject.isVideoAd) {
         dataObject.videoConfig = self.videoConfig;
         UnifiedNativeAdFeedVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdFeedVideoCell"];
+        cell.adView.mediaView.delegate = self;
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         return cell;
     } else if (dataObject.isThreeImgsAd) {
@@ -251,6 +252,10 @@
 - (void)gdtAdComplainSuccess:(id)ad {
     NSLog(@"%s",__FUNCTION__);
     NSLog(@"广告投诉成功");
+}
+
+- (void)gdt_mediaViewDidTapped:(GDTMediaView *)mediaView {
+    NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark - property getter

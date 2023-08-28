@@ -28,6 +28,7 @@
  * splash ad (material) failed to load
  */
 - (void)ksad_splashAd:(KSSplashAdView *)splashAdView didFailWithError:(NSError *)error {
+    [splashAdView removeFromSuperview];
     if (error.code != 40004) {
         [self.connector adapter_splashAdFailToPresent:self.adapter withError:error];
     }
@@ -39,12 +40,18 @@
     [self.connector adapter_splashAdExposured:self.adapter];
 }
 
-/**
- * splash ad clicked
- * @param inMiniWindow whether click in mini window
- */
-- (void)ksad_splashAd:(KSSplashAdView *)splashAdView didClick:(BOOL)inMiniWindow {
+- (void)ksad_splashAdDidClick:(KSSplashAdView *)splashAdView {
     [self.connector adapter_splashAdClicked:self.adapter];
+}
+
+- (void)ksad_splashAd:(KSSplashAdView *)splashAdView didSkip:(NSTimeInterval)showDuration {
+    [splashAdView removeFromSuperview];
+    [self.connector adapter_splashAdClosed:self.adapter];
+}
+
+- (void)ksad_splashAdDidAutoDismiss:(KSSplashAdView *)splashAdView {
+    [splashAdView removeFromSuperview];
+    [self.connector adapter_splashAdClosed:self.adapter];
 }
 
 @end

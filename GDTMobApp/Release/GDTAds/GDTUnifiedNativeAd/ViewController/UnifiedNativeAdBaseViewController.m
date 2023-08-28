@@ -8,6 +8,9 @@
 
 #import "UnifiedNativeAdBaseViewController.h"
 #import "GDTUnifiedNativeAd.h"
+#if DEBUG
+#import "GDTAppDelegate.h"
+#endif
 
 @interface UnifiedNativeAdBaseViewController ()
 
@@ -18,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+#if DEBUG
+    self.placementId = self.placementId ? : @"3050349752532954";
+#endif
 }
 
 /*

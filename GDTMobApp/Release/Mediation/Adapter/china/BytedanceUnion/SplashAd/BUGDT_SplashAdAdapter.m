@@ -32,7 +32,6 @@ static BOOL s_sdkInitializationSuccess = NO;
 @synthesize backgroundImage;
 @synthesize fetchDelay;
 @synthesize skipButtonCenter;
-@synthesize needZoomOut;
 @synthesize shouldLoadFullscreenAd;
 
 #pragma mark - GDTSplashAdNetworkConnectorProtocol
@@ -40,7 +39,6 @@ static BOOL s_sdkInitializationSuccess = NO;
 + (void)updateAppId:(NSString *)appId extStr:(NSString *)extStr {
     if (BUAdSDKManager.appID.length == 0) {
         BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
-        configuration.territory = BUAdSDKTerritory_CN;
         configuration.appID = appId;
         [BUAdSDKManager startWithAsyncCompletionHandler:^(BOOL success, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -93,10 +91,6 @@ static BOOL s_sdkInitializationSuccess = NO;
 
 - (BOOL)isAdValid {
     return YES;
-}
-
-- (GDTSplashZoomOutView *)splashZoomOutView {
-    return nil;
 }
 
 - (NSDictionary *)extraInfo {
