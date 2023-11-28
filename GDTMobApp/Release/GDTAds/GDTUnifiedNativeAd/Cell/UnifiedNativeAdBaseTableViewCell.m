@@ -61,6 +61,9 @@
     self.adView.rightImageView.accessibilityIdentifier = @"rightImageView_id";
 }
 
+- (void)adaptCustomSize {
+    
+}
 
 #pragma mark - public
 - (void)setupWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject delegate:(id<GDTUnifiedNativeAdViewDelegate>)delegate vc:(UIViewController *)vc

@@ -72,7 +72,6 @@
 		495D51D42834CF4900A50DA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495D51782834CF4900A50DA3 /* Images.xcassets */; };
 		495D51D52834CF4900A50DA3 /* GDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51792834CF4900A50DA3 /* GDTAppDelegate.m */; };
 		495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */; };
-		CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */; };
 		CC086A001B53B3F8002E0A51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0869FC1B53AD7E002E0A51 /* libz.tbd */; };
 		CCA4684C184C55AA00DE642A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684B184C55AA00DE642A /* Foundation.framework */; };
 		CCA4684E184C55AA00DE642A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684D184C55AA00DE642A /* CoreGraphics.framework */; };
@@ -219,10 +218,6 @@
 		CB5526E925BAEDA3008057BC /* GDTSplashAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
 		CB673B4D24EB87E5008AD066 /* GDTAdTestSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdTestSetting.h; sourceTree = "<group>"; };
 		CB673B4E24EB87E5008AD066 /* GDTLoadAdParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTLoadAdParams.h; sourceTree = "<group>"; };
-		CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlayerVideoView.m; sourceTree = "<group>"; };
-		CB9F95CA290F7B6000131487 /* CustomPlayerVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlayerVideoView.h; sourceTree = "<group>"; };
-		CBA2D0D22907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeCustomVideoPlayerViewController.h; sourceTree = "<group>"; };
-		CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeCustomVideoPlayerViewController.m; sourceTree = "<group>"; };
 		CC0869FC1B53AD7E002E0A51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CC6587FB186174DE00CC3B45 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CCA46848184C55AA00DE642A /* GDTMobSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDTMobSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,8 +379,6 @@
 		495D51342834CF4900A50DA3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CBA2D0D22907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.h */,
-				CBA2D0D32907FF6F00A45897 /* UnifiedNativeCustomVideoPlayerViewController.m */,
 				495D51352834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.h */,
 				495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */,
 				495D51382834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.h */,
@@ -497,8 +490,6 @@
 		CB0C91062906806100567380 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB9F95CA290F7B6000131487 /* CustomPlayerVideoView.h */,
-				CB9F95C9290F7B6000131487 /* CustomPlayerVideoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -666,7 +657,6 @@
 				495D51B92834CF4900A50DA3 /* NativeExpressVideoConfigView.m in Sources */,
 				495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */,
 				495D51B72834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m in Sources */,
-				CB9F95CB290F7B6000131487 /* CustomPlayerVideoView.m in Sources */,
 				495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */,
 				495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */,
 				495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */,

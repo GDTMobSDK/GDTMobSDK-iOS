@@ -84,31 +84,6 @@
 #pragma mark - public
 - (void)setupWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject delegate:(id<GDTUnifiedNativeAdViewDelegate>)delegate vc:(UIViewController *)vc
 {
-    if (!CGSizeEqualToSize(self.customSize, [UnifiedNativeAdFeedVideoCell customSize])) {
-        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewW]];
-        if ([UnifiedNativeAdFeedVideoCell customSize].width > 0) {
-            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:0 constant:[UnifiedNativeAdFeedVideoCell customSize].width];
-        } else {
-            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.adView attribute:NSLayoutAttributeWidth multiplier:1 constant:-16];
-        }
-        [NSLayoutConstraint activateConstraints:@[self.consMediaViewW]];
-        self.customSize = [UnifiedNativeAdFeedVideoCell customSize];
-    }
-    
-    CGFloat imageRate = 16 / 9.0;
-    if (dataObject.imageHeight > 0) {
-        imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
-    }
-    
-    if (self.imageRate != imageRate) {
-        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewH]];
-        if (dataObject.imageWidth > 0 && dataObject.imageHeight > 0) {
-            self.consMediaViewH = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.adView.mediaView attribute:NSLayoutAttributeWidth multiplier:1/imageRate constant:0];
-        }
-        [NSLayoutConstraint activateConstraints:@[self.consMediaViewH]];
-        self.imageRate = imageRate;
-    }
-        
     self.adView.delegate = delegate; // adView 广告回调
     self.adView.viewController = vc; // 跳转 VC
     
@@ -166,19 +141,16 @@
 + (CGFloat)cellHeightWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject
 {
     CGFloat height = 0;
-    CGFloat imageRate = 16 / 9;
+    CGFloat imageRate = 16.0 / 9.0;
     if (dataObject.imageHeight > 0) {
         imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
     }
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 16;
     CGFloat imageWidth = width;
-    height = 130 + imageWidth / imageRate;
+    height = 134 + imageWidth / imageRate;
     //
     if (!CGSizeEqualToSize(CGSizeZero, self.customSize)) {
-        if ((self.customSize.height <= 0)) {
-            CGFloat imageRate = dataObject.imageWidth / (CGFloat)dataObject.imageHeight;
-            return 122 + self.customSize.width / imageRate;
-        } else {
+        if ((self.customSize.height > 0)) {
             return 122 + self.customSize.height;
         }
     }
@@ -187,6 +159,25 @@
 }
 
 #pragma mark - private
+- (void)adaptCustomSize {
+    if (!CGSizeEqualToSize(self.customSize, [UnifiedNativeAdFeedVideoCell customSize])) {
+        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewW]];
+        [NSLayoutConstraint deactivateConstraints:@[self.consMediaViewH]];
+        if ([UnifiedNativeAdFeedVideoCell customSize].width > 0) {
+            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:0 constant:[UnifiedNativeAdFeedVideoCell customSize].width];
+        } else {
+            self.consMediaViewW = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.adView attribute:NSLayoutAttributeWidth multiplier:1 constant:-16];
+        }
+        if ([UnifiedNativeAdFeedVideoCell customSize].height > 0) {
+            self.consMediaViewH = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:0 constant:[UnifiedNativeAdFeedVideoCell customSize].height];
+        } else {
+            self.consMediaViewH = [NSLayoutConstraint constraintWithItem:self.adView.mediaView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.adView attribute:NSLayoutAttributeHeight multiplier:1 constant:-134];
+        }
+        [NSLayoutConstraint activateConstraints:@[self.consMediaViewW,self.consMediaViewH]];
+        self.customSize = [UnifiedNativeAdFeedVideoCell customSize];
+    }
+}
+
 - (void)clickMuteSwitch
 {
     [self.adView.mediaView muteEnable:self.muteSwitch.on];

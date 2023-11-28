@@ -144,6 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) BOOL allowCustomVideoPlayer;
 
+
 @property (nonatomic, readonly) id <GDTVideoAdReporter>videoAdReporter;
 
 /**

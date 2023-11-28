@@ -11,17 +11,19 @@
 #import "GDTAppDelegate.h"
 #import "S2SBiddingManager.h"
 
-#define kBannerWidthHeightRatio 6.4
+static const NSUInteger kBannerMinHeight = 48;//banner最小高度
+static const CGFloat kBannerMaxLayoutAspectRatio = 0.32; //banner最大高宽比
+
 @interface UnifiedBannerViewController () <GDTUnifiedBannerViewDelegate>
 @property (nonatomic, strong) GDTUnifiedBannerView *bannerView;
-
+ 
 @property (weak, nonatomic) IBOutlet UITextField *placementIdText;
 @property (weak, nonatomic) IBOutlet UITextField *refreshIntervalText;
 @property (weak, nonatomic) IBOutlet UISwitch *animationSwitch;
-@property (weak, nonatomic) IBOutlet UISlider *widthSlide;
 @property (weak, nonatomic) IBOutlet UISlider *heightSlide;
-@property (weak, nonatomic) IBOutlet UILabel *widthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UISlider *layoutAspectRatioSlide;
+@property (weak, nonatomic) IBOutlet UILabel *layoutAspectRatioLabel;
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UILabel *tokenLabel;
 @property (nonatomic, assign) BOOL useToken;
@@ -39,12 +41,15 @@
 }
 
 - (void)setupViews {
-    self.widthSlide.maximumValue = [UIScreen mainScreen].bounds.size.width + 100;
-    self.heightSlide.maximumValue = self.widthSlide.maximumValue;
-    self.widthSlide.value = [UIScreen mainScreen].bounds.size.width;
-    self.heightSlide.value = self.widthSlide.value / kBannerWidthHeightRatio;
-    self.widthLabel.text = [NSString stringWithFormat:@"%d", (int)self.widthSlide.value];
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    self.heightSlide.minimumValue = kBannerMinHeight;
+    self.heightSlide.maximumValue = screenWidth * kBannerMaxLayoutAspectRatio;
+    self.heightSlide.value = 60;
+    self.layoutAspectRatioSlide.minimumValue = kBannerMinHeight / screenWidth;//根据新banner模版规则（广告位高宽比最大值为0.32）
+    self.layoutAspectRatioSlide.maximumValue = kBannerMaxLayoutAspectRatio;
+    self.layoutAspectRatioSlide.value = self.heightSlide.value / screenWidth;
     self.heightLabel.text = [NSString stringWithFormat:@"%d", (int)self.heightSlide.value];
+    self.layoutAspectRatioLabel.text = [NSString stringWithFormat:@"%0.3f", self.layoutAspectRatioSlide.value];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -69,11 +74,10 @@
 }
 
 - (IBAction)slideValueChanged:(id)sender {
-    if (sender == self.widthSlide) {
-        self.widthLabel.text = [NSString stringWithFormat:@"%d", (int)self.widthSlide.value];
-    }
-    else if (sender == self.heightSlide) {
+    if (sender == self.heightSlide) {
         self.heightLabel.text = [NSString stringWithFormat:@"%d", (int)self.heightSlide.value];
+    }else if(sender == self.layoutAspectRatioSlide){
+        self.layoutAspectRatioLabel.text = [NSString stringWithFormat:@"%0.3f", self.layoutAspectRatioSlide.value];
     }
 }
 
@@ -120,7 +124,9 @@
 - (GDTUnifiedBannerView *)bannerView
 {
     if (!_bannerView) {
-        CGRect rect = {CGPointZero, CGSizeMake((int)self.widthSlide.value, (int)self.heightSlide.value)};
+        NSUInteger height = self.heightSlide.value;
+        CGFloat width = height / self.layoutAspectRatioSlide.value;
+        CGRect rect = {CGPointZero, CGSizeMake(width,height)};
         NSString *placementId = self.placementIdText.text.length > 0 ? self.placementIdText.text: self.placementIdText.placeholder;
         if (self.useToken) {
             _bannerView = [[GDTUnifiedBannerView alloc] initWithPlacementId:placementId

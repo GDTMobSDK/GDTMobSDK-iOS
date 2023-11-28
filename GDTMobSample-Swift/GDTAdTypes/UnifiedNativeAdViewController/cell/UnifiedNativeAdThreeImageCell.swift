@@ -13,8 +13,8 @@ class UnifiedNativeAdThreeImageCell: UnifiedNativeAdBaseTableViewCell {
     override func setupWithUnifiedNativeAdDataObject(dataObject: GDTUnifiedNativeAdDataObject, delegate: GDTUnifiedNativeAdViewDelegate, vc: UIViewController) {
         
         var imageRate:CGFloat = 228 / 150.0
-        if dataObject.imageHeight > 0 {
-            imageRate = CGFloat(dataObject.imageWidth / dataObject.imageHeight)
+        if dataObject.imageHeight > 0 && dataObject.imageWidth > 0 {
+            imageRate = CGFloat(dataObject.imageWidth) / CGFloat(dataObject.imageHeight)
         }
         let width = UIScreen.main.bounds.width - 16
         self.adView.backgroundColor = UIColor.gray
@@ -37,8 +37,8 @@ class UnifiedNativeAdThreeImageCell: UnifiedNativeAdBaseTableViewCell {
     override class func cellHeightWithUnifiedNativeAdDataObject(dataObject:GDTUnifiedNativeAdDataObject)->CGFloat{
         var height:CGFloat = 0
         var imageRate:CGFloat = 228 / 150.0
-        if dataObject.imageHeight > 0 {
-            imageRate = CGFloat(dataObject.imageWidth / dataObject.imageHeight)
+        if dataObject.imageHeight > 0  && dataObject.imageWidth > 0 {
+            imageRate = CGFloat(dataObject.imageWidth) / CGFloat(dataObject.imageHeight)
         }
         let width:CGFloat = UIScreen.main.bounds.width - 16
         let imageWidth = (width - 16) / 3;

@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) GDTUnifiedNativeAd *unifiedNativeAd;
 @property (nonatomic, strong) NSArray *adDataArray;
+@property (nonatomic, strong) NSMutableArray *adCellArray;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -25,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.adCellArray = [[NSMutableArray alloc] init];
+    
     if (self.useToken) {
         self.unifiedNativeAd = [[GDTUnifiedNativeAd alloc] initWithPlacementId:self.placementId token:self.token];
     } else {
@@ -34,10 +37,6 @@
     self.unifiedNativeAd.maxVideoDuration = self.maxVideoDuration;
     self.unifiedNativeAd.delegate = self;
     [self.view addSubview:self.tableView];
-    [self.tableView registerClass:[UnifiedNativeAdFeedVideoCell class] forCellReuseIdentifier:@"UnifiedNativeAdFeedVideoCell"];
-    [self.tableView registerClass:[UnifiedNativeAdImageCell class] forCellReuseIdentifier:@"UnifiedNativeAdImageCell"];
-    [self.tableView registerClass:[UnifiedNativeAdThreeImageCell class] forCellReuseIdentifier:@"UnifiedNativeAdThreeImageCell"];
-    [self.tableView reloadData];
     [self.unifiedNativeAd loadAdWithAdCount:10];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"自定义播放器尺寸" style:UIBarButtonItemStylePlain target:self action:@selector(customMediaViewSize)];
@@ -52,9 +51,15 @@
         textField.clearButtonMode = UITextFieldViewModeAlways;
         textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Height";
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *imageW = alertController.textFields.firstObject;
-        [UnifiedNativeAdFeedVideoCell setCustomSize:CGSizeMake(imageW.text.integerValue, 0)];
+        UITextField *imageH = alertController.textFields.lastObject;
+        [UnifiedNativeAdFeedVideoCell setCustomSize:CGSizeMake(imageW.text.integerValue, imageH.text.integerValue)];
         [self.tableView reloadData];
     }];
     [alertController addAction:action];
@@ -95,25 +100,35 @@
 {
     GDTUnifiedNativeAdDataObject *dataObject = self.adDataArray[indexPath.row];
     NSLog(@"eCPM:%ld eCPMLevel:%@ videoDuration:%lf", [dataObject eCPM], [dataObject eCPMLevel], [dataObject duration]);
+
+    UnifiedNativeAdBaseTableViewCell *returnCell = nil;
+    
+    if (self.adCellArray.count > indexPath.row) {
+        returnCell = self.adCellArray[indexPath.row];
+        [returnCell adaptCustomSize];
+        return returnCell;
+    }
+
     if (dataObject.isVideoAd) {
         dataObject.videoConfig = self.videoConfig;
-        UnifiedNativeAdFeedVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdFeedVideoCell"];
+        UnifiedNativeAdFeedVideoCell *cell = [[UnifiedNativeAdFeedVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UnifiedNativeAdFeedVideoCell"];
         cell.adView.mediaView.delegate = self;
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
-        return cell;
+        returnCell = cell;
     } else if (dataObject.isThreeImgsAd) {
-        UnifiedNativeAdThreeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdThreeImageCell"];
+        UnifiedNativeAdThreeImageCell *cell = [[UnifiedNativeAdThreeImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UnifiedNativeAdThreeImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.leftImageView, cell.adView.midImageView, cell.adView.rightImageView] placeholder:nil];
-        
-        return cell;
+        returnCell = cell;
     } else {
-        UnifiedNativeAdImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UnifiedNativeAdImageCell"];
+        UnifiedNativeAdImageCell *cell = [[UnifiedNativeAdImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UnifiedNativeAdImageCell"];
         [cell setupWithUnifiedNativeAdDataObject:dataObject delegate:self vc:self];
         [dataObject bindImageViews:@[cell.adView.imageView] placeholder:nil];
-        
-        return cell;
+        returnCell = cell;
     }
+    [returnCell adaptCustomSize];
+    [self.adCellArray addObject:returnCell];
+    return returnCell;
 }
 
 /**
@@ -158,7 +173,6 @@
         NSLog(@"成功请求到广告数据");
         for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
             NSLog(@"extraInfo: %@", obj.extraInfo);
-            NSLog(@"allowCustomVideoPlayer:%d videoUrl:%@", obj.allowCustomVideoPlayer, obj.videoUrl);
         }
         self.adDataArray = unifiedNativeAdDataObjects;
         [self.tableView reloadData];

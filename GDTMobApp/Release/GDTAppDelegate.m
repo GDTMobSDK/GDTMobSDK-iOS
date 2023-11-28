@@ -103,6 +103,7 @@
 {
     NSLog(@"%s",__FUNCTION__);
 }
+
 -(void)splashAdClosed:(GDTSplashAd *)splashAd
 {
     NSLog(@"%s",__FUNCTION__);

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UnifiedNativeAdBaseTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UnifiedNativeAdCustomView *adView;
-
+- (void)adaptCustomSize;
 - (void)setupWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject delegate:(id <GDTUnifiedNativeAdViewDelegate>)delegate vc:(UIViewController *)vc;
 + (CGFloat)cellHeightWithUnifiedNativeAdDataObject:(GDTUnifiedNativeAdDataObject *)dataObject;
 

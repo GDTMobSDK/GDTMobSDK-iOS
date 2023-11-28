@@ -125,7 +125,6 @@
         [self.tableView reloadData];
         for (GDTUnifiedNativeAdDataObject *obj in unifiedNativeAdDataObjects) {
             NSLog(@"extraInfo: %@", obj.extraInfo);
-            NSLog(@"allowCustomVideoPlayer:%d videoUrl:%@", obj.allowCustomVideoPlayer, obj.videoUrl);
         }
         // 在 bidding 结束之后, 调用对应的竞胜/竞败接口
         [self reportBiddingResult];

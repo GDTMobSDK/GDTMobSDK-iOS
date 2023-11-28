@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GDTAdTestSetting : NSObject
 @property (nonatomic, copy, nullable) NSString *playableUrl;//测试时使用的试玩广告地址
+@property (nonatomic, copy, nullable) NSString *deviceId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -160,16 +160,6 @@ typedef NS_ENUM(NSInteger, GDTVastAdEventType) {
 @property (nonatomic, readonly) BOOL isAdValid;
 
 /**
- * 视频URL，当allowCustomVideoPlayer为YES时才会返回非空的URL
- */
-@property (nonatomic, readonly) NSString *videoUrl;
-
-/**
- * 是否允许自定义播放器功能，若要开启请联系运营同学
- */
-@property (nonatomic, readonly) BOOL allowCustomVideoPlayer;
-
-/**
  判断两个自渲染2.0广告数据是否相等
 
  @param dataObject 需要对比的自渲染2.0广告数据对象

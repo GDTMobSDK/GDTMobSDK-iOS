@@ -116,7 +116,9 @@ extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
 /**
  自渲染2.0视图注册方法
  
- 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ @warning 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ @warning 需要注意的是 -[GDTUnifiedNativeAdView registerDataObject:clickableViews:]方法需要避免重复多次调用的情况
+ @warning 当广告不需要展示并且销毁的时候，需要调用 -[GDTUnifiedNativeAdView unregisterDataObject]方法，即registerDataObject方法需要与unregisterDataObject方法成对调用
  
  @param dataObject 数据对象，必传字段
  @param clickableViews 可点击的视图数组，此数组内的广告元素才可以响应广告对应的点击事件
@@ -128,7 +130,9 @@ extern NSString* const kGDTUnifiedNativeAdKeyVideoDuration;
 /**
  自渲染2.0视图注册方法
  
- 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ @warning 调用方法之前请先判断[dataObject isAdValid]是否为YES，当为NO时调用不生效
+ @warning 需要注意的是 -[GDTUnifiedNativeAdView registerDataObject:clickableViews:customClickableViews:]方法需要避免重复多次调用的情况
+ @warning 当广告不需要展示并且销毁的时候，需要调用 -[GDTUnifiedNativeAdView unregisterDataObject]方法，即registerDataObject方法需要与unregisterDataObject方法成对调用
  
  @param dataObject 数据对象，必传字段
  @param clickableViews 可点击的视图数组，此数组内的广告元素才可以响应广告对应的点击事件

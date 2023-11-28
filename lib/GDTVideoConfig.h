@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL detailPageEnable;
 
 /**
- 是否支持用户点击 MediaView 改变视频播放暂停状态，默认 YES
+ 是否支持用户点击 MediaView 改变视频播放暂停状态，默认 NO
  设为 YES 时，用户点击会切换播放器播放、暂停状态
  */
 @property (nonatomic, assign) BOOL userControlEnable;
