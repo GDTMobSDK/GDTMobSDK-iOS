@@ -78,7 +78,7 @@ static NSString *Mediator_STR = @"100014";
 }
 
 - (IBAction)selectADVStyle:(id)sender {
-    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     NSArray *advTypeTextArray = [self getAdvTypeTextArray];
     
     for (NSInteger i = 0; i < advTypeTextArray.count; i++) {

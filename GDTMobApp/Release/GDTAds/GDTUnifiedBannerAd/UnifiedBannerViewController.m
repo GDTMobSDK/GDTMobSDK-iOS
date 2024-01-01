@@ -97,7 +97,7 @@ static const CGFloat kBannerMaxLayoutAspectRatio = 0.32; //banner最大高宽比
 - (void)setupBannerView:(GDTUnifiedBannerView *)bannerView {}
 
 - (IBAction)choosePlacementId:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择广告位" message:nil preferredStyle:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"广点通" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.placementIdText.text = nil;
     }];

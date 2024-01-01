@@ -82,7 +82,7 @@ static NSInteger ADVTYPE_COUNT = 6;
 }
 
 - (IBAction)selectADVStyle:(id)sender {
-    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *advStyleAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告样式" message:nil preferredStyle:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     NSArray *advTypePosIDArray = @[
                                   ONE_BIGPHOTO_STR,
                                   THREE_PHOTO_OR_ONE_PHOTO_STR,

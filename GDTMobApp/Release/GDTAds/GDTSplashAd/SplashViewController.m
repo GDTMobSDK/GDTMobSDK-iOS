@@ -53,7 +53,7 @@ static NSString *VIDEO_AD_PLACEMENTID = @"7003628706619303";
     [preloadSplashAd preloadSplashOrderWithPlacementId:placementId];
 }
 - (IBAction)changePlacementID:(id)sender {
-    UIAlertController *changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *changePosIdController = [UIAlertController alertControllerWithTitle:@"选择广告类型" message:nil preferredStyle:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     if (changePosIdController.popoverPresentationController) {
         [changePosIdController.popoverPresentationController setPermittedArrowDirections:0];//去掉arrow箭头
         changePosIdController.popoverPresentationController.sourceView=self.view;

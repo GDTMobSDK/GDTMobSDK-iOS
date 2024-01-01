@@ -14,11 +14,25 @@
 
 /**
  SDK 注册接口，请在 app 初始化时调用。
- @param appId - 媒体ID
- 
+ @param appId - 开发者平台注册得到的appId
  @return 注册是否成功。
 */
-+ (BOOL)registerAppId:(NSString *)appId;
++ (BOOL)registerAppId:(NSString *)appId GDT_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用initWithAppId和startWithCompletionHandler新接口");
+
+/**
+ * SDK初始化
+ * @param appId - 开发者平台注册得到的appId
+ * @return 初始化是否成功
+ * @note 调用initWithAppId接口后，请尽快调用startWithCompletionHandler接口；如果不调用startWithCompletionHandler接口，会影响SDK功能。
+ */
++ (BOOL)initWithAppId:(NSString *)appId;
+
+/**
+ * 启动SDK
+ * @param handler - 启动成功|失败的结果回调
+ * @note 请先调用initWithAppId接口，再调用startWithCompletionHandler接口。
+ */
++ (void)startWithCompletionHandler:(void(^)(BOOL success, NSError *error))handler;
 
 /**
  * 提供给聚合平台用来设定SDK 流量分类

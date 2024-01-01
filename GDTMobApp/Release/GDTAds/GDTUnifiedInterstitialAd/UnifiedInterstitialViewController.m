@@ -123,7 +123,7 @@ static NSString *VIDEO_PLACEMENT_ID_STR = @"6050298509489032";
 }
 
 - (IBAction)changePid:(id)sender {
-    UIAlertController *changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *changePidAlertController = [UIAlertController alertControllerWithTitle:@"请选择需要的广告位" message:nil preferredStyle:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet];
     NSArray *posIDArray = @[
                                   @[@"插屏图文", @"1050652855580392"],
                                   @[@"插屏视频", VIDEO_PLACEMENT_ID_STR],

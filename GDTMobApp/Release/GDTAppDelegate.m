@@ -25,12 +25,21 @@
 
     self.window.rootViewController = self.nav;
     [self.window makeKeyAndVisible];
-    BOOL result = [GDTSDKConfig registerAppId:kGDTMobSDKAppId];
+
     //设置地理位置信息
     //[GDTSDKConfig setExtraUserData:@{@"lng":@"116.3899", @"lat":@"39.8766", @"loc_time":@"1639450944"}];
+
+    // 初始化SDK
+    BOOL result = [GDTSDKConfig initWithAppId:kGDTMobSDKAppId];
     if (result) {
-        NSLog(@"注册成功");
+        NSLog(@"初始化成功");
     }
+    // 启动SDK
+    [GDTSDKConfig startWithCompletionHandler:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"启动成功");
+        }
+    }];
 
     return YES;
 }
