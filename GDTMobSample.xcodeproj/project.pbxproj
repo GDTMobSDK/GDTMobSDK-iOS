@@ -1,0 +1,1013 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CCB663101BABBDA600290F1F /* dailybuild */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CCB663111BABBDA700290F1F /* Build configuration list for PBXAggregateTarget "dailybuild" */;
+			buildPhases = (
+				CCB663171BABBDC400290F1F /* ShellScript */,
+			);
+			dependencies = (
+				CCB663161BABBDB500290F1F /* PBXTargetDependency */,
+			);
+			name = dailybuild;
+			productName = dailybuild;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0A60F4601FFE14F500B4BFAB /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A60F45F1FFE14F500B4BFAB /* libxml2.tbd */; };
+		0AC566DA201224350078BCBE /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC566D9201224350078BCBE /* libGDTMobSDK.a */; };
+		0AD129E41F8B70940066A847 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD129E31F8B70940066A847 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49094F052B88655300F105C4 /* NativeFullExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49094F002B88655300F105C4 /* NativeFullExpressAdViewController.m */; };
+		49094F062B88655300F105C4 /* NativeFullExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49094F022B88655300F105C4 /* NativeFullExpressAdViewController.xib */; };
+		49094F072B88655300F105C4 /* NativeFullVideoAdViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49094F032B88655300F105C4 /* NativeFullVideoAdViewCell.m */; };
+		49094F082B88655300F105C4 /* NativeFullVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49094F042B88655300F105C4 /* NativeFullVideoAdViewController.m */; };
+		495D517A2834CF4900A50DA3 /* GDTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D50B02834CF4900A50DA3 /* GDTNavigationController.m */; };
+		495D51A52834CF4900A50DA3 /* GDTAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511B2834CF4900A50DA3 /* GDTAdViewController.m */; };
+		495D51A62834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */; };
+		495D51A72834CF4900A50DA3 /* UnifiedNativeAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D511F2834CF4900A50DA3 /* UnifiedNativeAdViewController.m */; };
+		495D51A82834CF4900A50DA3 /* UnifiedNativeAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51212834CF4900A50DA3 /* UnifiedNativeAdViewController.xib */; };
+		495D51A92834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51232834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.m */; };
+		495D51AA2834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51272834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.m */; };
+		495D51AB2834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51292834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m */; };
+		495D51AC2834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D512B2834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.m */; };
+		495D51AD2834CF4900A50DA3 /* DemoPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D512D2834CF4900A50DA3 /* DemoPlayerTableViewCell.m */; };
+		495D51AE2834CF4900A50DA3 /* UnifiedNativeAdImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D512E2834CF4900A50DA3 /* UnifiedNativeAdImageCell.m */; };
+		495D51AF2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D512F2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m */; };
+		495D51B02834CF4900A50DA3 /* UnifiedNativeAdCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51322834CF4900A50DA3 /* UnifiedNativeAdCustomView.m */; };
+		495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */; };
+		495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */; };
+		495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */; };
+		495D51B52834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */; };
+		495D51B62834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51412834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.m */; };
+		495D51B72834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51422834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m */; };
+		495D51B82834CF4900A50DA3 /* NativeExpressAdConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51442834CF4900A50DA3 /* NativeExpressAdConfigView.m */; };
+		495D51B92834CF4900A50DA3 /* NativeExpressVideoConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51472834CF4900A50DA3 /* NativeExpressVideoConfigView.m */; };
+		495D51BA2834CF4900A50DA3 /* NativeExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51492834CF4900A50DA3 /* NativeExpressAdViewController.xib */; };
+		495D51BB2834CF4900A50DA3 /* NativeExpressVideoAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D514A2834CF4900A50DA3 /* NativeExpressVideoAdViewController.xib */; };
+		495D51BC2834CF4900A50DA3 /* NativeExpressVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D514C2834CF4900A50DA3 /* NativeExpressVideoAdViewController.m */; };
+		495D51BD2834CF4900A50DA3 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D514D2834CF4900A50DA3 /* NativeExpressAdViewController.m */; };
+		495D51BE2834CF4900A50DA3 /* S2SBiddingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D514F2834CF4900A50DA3 /* S2SBiddingManager.m */; };
+		495D51C12834CF4900A50DA3 /* UnifiedBannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51562834CF4900A50DA3 /* UnifiedBannerViewController.xib */; };
+		495D51C22834CF4900A50DA3 /* UnifiedBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51572834CF4900A50DA3 /* UnifiedBannerViewController.m */; };
+		495D51C52834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D515E2834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.m */; };
+		495D51C62834CF4900A50DA3 /* UnifiedInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D515F2834CF4900A50DA3 /* UnifiedInterstitialViewController.m */; };
+		495D51C72834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51612834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.xib */; };
+		495D51C82834CF4900A50DA3 /* UnifiedInterstitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51622834CF4900A50DA3 /* UnifiedInterstitialViewController.xib */; };
+		495D51C92834CF4900A50DA3 /* RewardVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51642834CF4900A50DA3 /* RewardVideoViewController.m */; };
+		495D51CA2834CF4900A50DA3 /* RewardVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D51652834CF4900A50DA3 /* RewardVideoViewController.xib */; };
+		495D51CB2834CF4900A50DA3 /* DemoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51672834CF4900A50DA3 /* DemoUtil.m */; };
+		495D51CC2834CF4900A50DA3 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D516B2834CF4900A50DA3 /* SplashViewController.m */; };
+		495D51CD2834CF4900A50DA3 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D516C2834CF4900A50DA3 /* SplashViewController.xib */; };
+		495D51CE2834CF4900A50DA3 /* gdtdetection.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 495D516F2834CF4900A50DA3 /* gdtdetection.aiff */; };
+		495D51CF2834CF4900A50DA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 495D51702834CF4900A50DA3 /* InfoPlist.strings */; };
+		495D51D12834CF4900A50DA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51742834CF4900A50DA3 /* main.m */; };
+		495D51D22834CF4900A50DA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495D51752834CF4900A50DA3 /* Launch Screen.storyboard */; };
+		495D51D32834CF4900A50DA3 /* GDTMobSample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 495D51762834CF4900A50DA3 /* GDTMobSample-Info.plist */; };
+		495D51D42834CF4900A50DA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495D51782834CF4900A50DA3 /* Images.xcassets */; };
+		495D51D52834CF4900A50DA3 /* GDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51792834CF4900A50DA3 /* GDTAppDelegate.m */; };
+		495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */; };
+		49A08BE62B84BA40008A4630 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A08BE52B84BA40008A4630 /* libc++.tbd */; };
+		CC086A001B53B3F8002E0A51 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0869FC1B53AD7E002E0A51 /* libz.tbd */; };
+		CCA4684C184C55AA00DE642A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684B184C55AA00DE642A /* Foundation.framework */; };
+		CCA4684E184C55AA00DE642A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684D184C55AA00DE642A /* CoreGraphics.framework */; };
+		CCA46850184C55AA00DE642A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA4684F184C55AA00DE642A /* UIKit.framework */; };
+		CCA46985184C593900DE642A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA46984184C593900DE642A /* CoreTelephony.framework */; };
+		CCA46987184C594500DE642A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA46986184C594500DE642A /* SystemConfiguration.framework */; };
+		CCA46989184C594E00DE642A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA46988184C594E00DE642A /* QuartzCore.framework */; };
+		CCA46996184C615E00DE642A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA46995184C615E00DE642A /* CoreLocation.framework */; };
+		CCB3BC3E186AAFA1007C3070 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6587FB186174DE00CC3B45 /* Security.framework */; };
+		CCD1C6471E1BB64500C9F835 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD1C6461E1BB64500C9F835 /* AVFoundation.framework */; };
+		CCD3C306184CCA9900E4577A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA46980184C592600DE642A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCB663151BABBDB500290F1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCA46840184C55AA00DE642A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCA46847184C55AA00DE642A;
+			remoteInfo = GDTMobApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A053B44248A487E006E6138 /* GDTAdParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdParams.h; sourceTree = "<group>"; };
+		0A60F45F1FFE14F500B4BFAB /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		0A60F4621FFE153900B4BFAB /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		0AC566D9201224350078BCBE /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
+		0AD129E31F8B70940066A847 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0AF51F9A231FB1DD00245A69 /* GDTRewardVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTRewardVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		0AF51F9B231FB1DD00245A69 /* GDTRewardVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTRewardVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		0AF51F9C231FB1DD00245A69 /* GDTBaseAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTBaseAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		3B96DCA922FBC2F9004724B4 /* GDTMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMediaView.h; sourceTree = "<group>"; };
+		3B96DCAA22FBC2F9004724B4 /* GDTUnifiedNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedNativeAd.h; sourceTree = "<group>"; };
+		3B96DCAB22FBC2F9004724B4 /* GDTLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTLogoView.h; sourceTree = "<group>"; };
+		3B96DCAC22FBC2F9004724B4 /* GDTUnifiedNativeAdDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedNativeAdDataObject.h; sourceTree = "<group>"; };
+		3B96DCAD22FBC2F9004724B4 /* GDTVideoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTVideoConfig.h; sourceTree = "<group>"; };
+		3B96DCAE22FBC2F9004724B4 /* GDTUnifiedBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedBannerView.h; sourceTree = "<group>"; };
+		3B96DCAF22FBC2F9004724B4 /* GDTNativeExpressAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAd.h; sourceTree = "<group>"; };
+		3B96DCB022FBC2F9004724B4 /* GDTNativeExpressAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdView.h; sourceTree = "<group>"; };
+		3B96DCB222FBC2F9004724B4 /* GDTUnifiedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAd.h; sourceTree = "<group>"; };
+		3B96DCB322FBC2F9004724B4 /* GDTSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKConfig.h; sourceTree = "<group>"; };
+		3B96DCB422FBC2F9004724B4 /* GDTRewardVideoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTRewardVideoAd.h; sourceTree = "<group>"; };
+		3B96DCB622FBC2F9004724B4 /* GDTSDKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKDefines.h; sourceTree = "<group>"; };
+		3B96DCB722FBC2F9004724B4 /* GDTUnifiedNativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedNativeAdView.h; sourceTree = "<group>"; };
+		3B96DCB822FBC2F9004724B4 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		49094EFE2B88655200F105C4 /* NativeFullVideoAdViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeFullVideoAdViewCell.h; sourceTree = "<group>"; };
+		49094EFF2B88655300F105C4 /* NativeFullVideoAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeFullVideoAdViewController.h; sourceTree = "<group>"; };
+		49094F002B88655300F105C4 /* NativeFullExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeFullExpressAdViewController.m; sourceTree = "<group>"; };
+		49094F012B88655300F105C4 /* NativeFullExpressAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeFullExpressAdViewController.h; sourceTree = "<group>"; };
+		49094F022B88655300F105C4 /* NativeFullExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeFullExpressAdViewController.xib; sourceTree = "<group>"; };
+		49094F032B88655300F105C4 /* NativeFullVideoAdViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeFullVideoAdViewCell.m; sourceTree = "<group>"; };
+		49094F042B88655300F105C4 /* NativeFullVideoAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeFullVideoAdViewController.m; sourceTree = "<group>"; };
+		495D50B02834CF4900A50DA3 /* GDTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTNavigationController.m; sourceTree = "<group>"; };
+		495D50B12834CF4900A50DA3 /* GDTAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdViewController.h; sourceTree = "<group>"; };
+		495D511A2834CF4900A50DA3 /* GDTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAppDelegate.h; sourceTree = "<group>"; };
+		495D511B2834CF4900A50DA3 /* GDTAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTAdViewController.m; sourceTree = "<group>"; };
+		495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdVideoConfigView.m; sourceTree = "<group>"; };
+		495D511F2834CF4900A50DA3 /* UnifiedNativeAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdViewController.m; sourceTree = "<group>"; };
+		495D51202834CF4900A50DA3 /* UnifiedNativeAdCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdCustomView.h; sourceTree = "<group>"; };
+		495D51212834CF4900A50DA3 /* UnifiedNativeAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdViewController.xib; sourceTree = "<group>"; };
+		495D51232834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdFeedVideoCell.m; sourceTree = "<group>"; };
+		495D51242834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitVideoTableViewCell.h; sourceTree = "<group>"; };
+		495D51252834CF4900A50DA3 /* UnifiedNativeAdImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdImageCell.h; sourceTree = "<group>"; };
+		495D51262834CF4900A50DA3 /* DemoPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPlayerTableViewCell.h; sourceTree = "<group>"; };
+		495D51272834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativePortraitCollectionViewCell.m; sourceTree = "<group>"; };
+		495D51282834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdThreeImageCell.h; sourceTree = "<group>"; };
+		495D51292834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdBaseTableViewCell.m; sourceTree = "<group>"; };
+		495D512A2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdFeedVideoCell.h; sourceTree = "<group>"; };
+		495D512B2834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdPortraitVideoTableViewCell.m; sourceTree = "<group>"; };
+		495D512C2834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativePortraitCollectionViewCell.h; sourceTree = "<group>"; };
+		495D512D2834CF4900A50DA3 /* DemoPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPlayerTableViewCell.m; sourceTree = "<group>"; };
+		495D512E2834CF4900A50DA3 /* UnifiedNativeAdImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdImageCell.m; sourceTree = "<group>"; };
+		495D512F2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdThreeImageCell.m; sourceTree = "<group>"; };
+		495D51302834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdBaseTableViewCell.h; sourceTree = "<group>"; };
+		495D51312834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdVideoConfigView.h; sourceTree = "<group>"; };
+		495D51322834CF4900A50DA3 /* UnifiedNativeAdCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdCustomView.m; sourceTree = "<group>"; };
+		495D51332834CF4900A50DA3 /* UnifiedNativeAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdViewController.h; sourceTree = "<group>"; };
+		495D51352834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdFeedImageViewController.h; sourceTree = "<group>"; };
+		495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdPortraitDetailViewController.m; sourceTree = "<group>"; };
+		495D51382834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdFeedVideoTableViewController.h; sourceTree = "<group>"; };
+		495D51392834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitVideoViewController.h; sourceTree = "<group>"; };
+		495D513A2834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdBaseViewController.h; sourceTree = "<group>"; };
+		495D513B2834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitFeedViewController.h; sourceTree = "<group>"; };
+		495D513C2834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedNativeAdPortraitDetailViewController.h; sourceTree = "<group>"; };
+		495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdFeedImageViewController.m; sourceTree = "<group>"; };
+		495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdFeedVideoTableViewController.m; sourceTree = "<group>"; };
+		495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdBaseViewController.m; sourceTree = "<group>"; };
+		495D51412834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdPortraitVideoViewController.m; sourceTree = "<group>"; };
+		495D51422834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedNativeAdPortraitFeedViewController.m; sourceTree = "<group>"; };
+		495D51442834CF4900A50DA3 /* NativeExpressAdConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdConfigView.m; sourceTree = "<group>"; };
+		495D51452834CF4900A50DA3 /* NativeExpressAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressAdViewController.h; sourceTree = "<group>"; };
+		495D51462834CF4900A50DA3 /* NativeExpressVideoAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressVideoAdViewController.h; sourceTree = "<group>"; };
+		495D51472834CF4900A50DA3 /* NativeExpressVideoConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressVideoConfigView.m; sourceTree = "<group>"; };
+		495D51482834CF4900A50DA3 /* NativeExpressAdConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressAdConfigView.h; sourceTree = "<group>"; };
+		495D51492834CF4900A50DA3 /* NativeExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAdViewController.xib; sourceTree = "<group>"; };
+		495D514A2834CF4900A50DA3 /* NativeExpressVideoAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressVideoAdViewController.xib; sourceTree = "<group>"; };
+		495D514B2834CF4900A50DA3 /* NativeExpressVideoConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressVideoConfigView.h; sourceTree = "<group>"; };
+		495D514C2834CF4900A50DA3 /* NativeExpressVideoAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressVideoAdViewController.m; sourceTree = "<group>"; };
+		495D514D2834CF4900A50DA3 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
+		495D514E2834CF4900A50DA3 /* DemoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoUtil.h; sourceTree = "<group>"; };
+		495D514F2834CF4900A50DA3 /* S2SBiddingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S2SBiddingManager.m; sourceTree = "<group>"; };
+		495D51552834CF4900A50DA3 /* UnifiedBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedBannerViewController.h; sourceTree = "<group>"; };
+		495D51562834CF4900A50DA3 /* UnifiedBannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedBannerViewController.xib; sourceTree = "<group>"; };
+		495D51572834CF4900A50DA3 /* UnifiedBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedBannerViewController.m; sourceTree = "<group>"; };
+		495D515D2834CF4900A50DA3 /* UnifiedInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedInterstitialViewController.h; sourceTree = "<group>"; };
+		495D515E2834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedInterstitialFullScreenVideoViewController.m; sourceTree = "<group>"; };
+		495D515F2834CF4900A50DA3 /* UnifiedInterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnifiedInterstitialViewController.m; sourceTree = "<group>"; };
+		495D51602834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnifiedInterstitialFullScreenVideoViewController.h; sourceTree = "<group>"; };
+		495D51612834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedInterstitialFullScreenVideoViewController.xib; sourceTree = "<group>"; };
+		495D51622834CF4900A50DA3 /* UnifiedInterstitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedInterstitialViewController.xib; sourceTree = "<group>"; };
+		495D51642834CF4900A50DA3 /* RewardVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardVideoViewController.m; sourceTree = "<group>"; };
+		495D51652834CF4900A50DA3 /* RewardVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardVideoViewController.xib; sourceTree = "<group>"; };
+		495D51662834CF4900A50DA3 /* RewardVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardVideoViewController.h; sourceTree = "<group>"; };
+		495D51672834CF4900A50DA3 /* DemoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoUtil.m; sourceTree = "<group>"; };
+		495D51682834CF4900A50DA3 /* S2SBiddingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S2SBiddingManager.h; sourceTree = "<group>"; };
+		495D516A2834CF4900A50DA3 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		495D516B2834CF4900A50DA3 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		495D516C2834CF4900A50DA3 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		495D516D2834CF4900A50DA3 /* GDTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNavigationController.h; sourceTree = "<group>"; };
+		495D516F2834CF4900A50DA3 /* gdtdetection.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gdtdetection.aiff; sourceTree = "<group>"; };
+		495D51712834CF4900A50DA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		495D51732834CF4900A50DA3 /* GDTMobSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDTMobSample-Prefix.pch"; sourceTree = "<group>"; };
+		495D51742834CF4900A50DA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		495D51752834CF4900A50DA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		495D51762834CF4900A50DA3 /* GDTMobSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDTMobSample-Info.plist"; sourceTree = "<group>"; };
+		495D51782834CF4900A50DA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		495D51792834CF4900A50DA3 /* GDTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTAppDelegate.m; sourceTree = "<group>"; };
+		495D51DB2834D0F200A50DA3 /* GDTAdViewController+Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDTAdViewController+Sample.h"; sourceTree = "<group>"; };
+		495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDTAdViewController+Sample.m"; sourceTree = "<group>"; };
+		49A08BE52B84BA40008A4630 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		66B1833626B1490C00F28C54 /* GDTUnifiedBannerAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedBannerAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		66B1833726B1490C00F28C54 /* GDTUnifiedBannerAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedBannerAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB4E06AB290B882000558012 /* GDTPrivacyConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTPrivacyConfiguration.h; sourceTree = "<group>"; };
+		CB4E06AC290B882000558012 /* GDTNativeExpressAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		CB4E06AD290B882000558012 /* GDTVideoAdReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTVideoAdReporter.h; sourceTree = "<group>"; };
+		CB4E06AE290B882000558012 /* GDTNativeExpressAdViewAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdViewAdapterProtocol.h; sourceTree = "<group>"; };
+		CB4E06AF290B882000558012 /* GDTServerBiddingResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTServerBiddingResult.h; sourceTree = "<group>"; };
+		CB4E06B0290B882000558012 /* GDTAdProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdProtocol.h; sourceTree = "<group>"; };
+		CB4E06B1290B882000558012 /* GDTNativeExpressAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB5526E325BAEDA2008057BC /* GDTSplashAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		CB5526E425BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		CB5526E525BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedInterstitialAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB5526E625BAEDA2008057BC /* GDTUnifiedNativeAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedNativeAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		CB5526E725BAEDA2008057BC /* GDTServerSideVerificationOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTServerSideVerificationOptions.h; sourceTree = "<group>"; };
+		CB5526E825BAEDA3008057BC /* GDTUnifiedNativeAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTUnifiedNativeAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB5526E925BAEDA3008057BC /* GDTSplashAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		CB673B4D24EB87E5008AD066 /* GDTAdTestSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTAdTestSetting.h; sourceTree = "<group>"; };
+		CB673B4E24EB87E5008AD066 /* GDTLoadAdParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTLoadAdParams.h; sourceTree = "<group>"; };
+		CC0869FC1B53AD7E002E0A51 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CC6587FB186174DE00CC3B45 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CCA46848184C55AA00DE642A /* GDTMobSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDTMobSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA4684B184C55AA00DE642A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CCA4684D184C55AA00DE642A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CCA4684F184C55AA00DE642A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CCA46980184C592600DE642A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CCA46984184C593900DE642A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CCA46986184C594500DE642A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CCA46988184C594E00DE642A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CCA46995184C615E00DE642A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CCD1C6461E1BB64500C9F835 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCA46845184C55AA00DE642A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A08BE62B84BA40008A4630 /* libc++.tbd in Frameworks */,
+				0A60F4601FFE14F500B4BFAB /* libxml2.tbd in Frameworks */,
+				0AD129E41F8B70940066A847 /* WebKit.framework in Frameworks */,
+				CCD1C6471E1BB64500C9F835 /* AVFoundation.framework in Frameworks */,
+				CC086A001B53B3F8002E0A51 /* libz.tbd in Frameworks */,
+				CCB3BC3E186AAFA1007C3070 /* Security.framework in Frameworks */,
+				CCD3C306184CCA9900E4577A /* AdSupport.framework in Frameworks */,
+				CCA46996184C615E00DE642A /* CoreLocation.framework in Frameworks */,
+				0AC566DA201224350078BCBE /* libGDTMobSDK.a in Frameworks */,
+				CCA46989184C594E00DE642A /* QuartzCore.framework in Frameworks */,
+				CCA46987184C594500DE642A /* SystemConfiguration.framework in Frameworks */,
+				CCA46985184C593900DE642A /* CoreTelephony.framework in Frameworks */,
+				CCA4684E184C55AA00DE642A /* CoreGraphics.framework in Frameworks */,
+				CCA46850184C55AA00DE642A /* UIKit.framework in Frameworks */,
+				CCA4684C184C55AA00DE642A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AC566D0201224350078BCBE /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				CB4E06B0290B882000558012 /* GDTAdProtocol.h */,
+				CB4E06B1290B882000558012 /* GDTNativeExpressAdNetworkAdapterProtocol.h */,
+				CB4E06AC290B882000558012 /* GDTNativeExpressAdNetworkConnectorProtocol.h */,
+				CB4E06AE290B882000558012 /* GDTNativeExpressAdViewAdapterProtocol.h */,
+				CB4E06AB290B882000558012 /* GDTPrivacyConfiguration.h */,
+				CB4E06AF290B882000558012 /* GDTServerBiddingResult.h */,
+				CB4E06AD290B882000558012 /* GDTVideoAdReporter.h */,
+				66B1833726B1490C00F28C54 /* GDTUnifiedBannerAdNetworkAdapterProtocol.h */,
+				66B1833626B1490C00F28C54 /* GDTUnifiedBannerAdNetworkConnectorProtocol.h */,
+				CB5526E725BAEDA2008057BC /* GDTServerSideVerificationOptions.h */,
+				CB5526E925BAEDA3008057BC /* GDTSplashAdNetworkAdapterProtocol.h */,
+				CB5526E325BAEDA2008057BC /* GDTSplashAdNetworkConnectorProtocol.h */,
+				CB5526E525BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkAdapterProtocol.h */,
+				CB5526E425BAEDA2008057BC /* GDTUnifiedInterstitialAdNetworkConnectorProtocol.h */,
+				CB5526E825BAEDA3008057BC /* GDTUnifiedNativeAdNetworkAdapterProtocol.h */,
+				CB5526E625BAEDA2008057BC /* GDTUnifiedNativeAdNetworkConnectorProtocol.h */,
+				CB673B4D24EB87E5008AD066 /* GDTAdTestSetting.h */,
+				CB673B4E24EB87E5008AD066 /* GDTLoadAdParams.h */,
+				0A053B44248A487E006E6138 /* GDTAdParams.h */,
+				0AF51F9C231FB1DD00245A69 /* GDTBaseAdNetworkAdapterProtocol.h */,
+				0AF51F9A231FB1DD00245A69 /* GDTRewardVideoAdNetworkAdapterProtocol.h */,
+				0AF51F9B231FB1DD00245A69 /* GDTRewardVideoAdNetworkConnectorProtocol.h */,
+				3B96DCB722FBC2F9004724B4 /* GDTUnifiedNativeAdView.h */,
+				3B96DCAF22FBC2F9004724B4 /* GDTNativeExpressAd.h */,
+				3B96DCB022FBC2F9004724B4 /* GDTNativeExpressAdView.h */,
+				3B96DCB422FBC2F9004724B4 /* GDTRewardVideoAd.h */,
+				3B96DCB322FBC2F9004724B4 /* GDTSDKConfig.h */,
+				3B96DCB622FBC2F9004724B4 /* GDTSDKDefines.h */,
+				3B96DCB822FBC2F9004724B4 /* GDTSplashAd.h */,
+				3B96DCAB22FBC2F9004724B4 /* GDTLogoView.h */,
+				3B96DCAE22FBC2F9004724B4 /* GDTUnifiedBannerView.h */,
+				3B96DCB222FBC2F9004724B4 /* GDTUnifiedInterstitialAd.h */,
+				3B96DCA922FBC2F9004724B4 /* GDTMediaView.h */,
+				3B96DCAA22FBC2F9004724B4 /* GDTUnifiedNativeAd.h */,
+				3B96DCAC22FBC2F9004724B4 /* GDTUnifiedNativeAdDataObject.h */,
+				3B96DCAD22FBC2F9004724B4 /* GDTVideoConfig.h */,
+				0AC566D9201224350078BCBE /* libGDTMobSDK.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		495D50AF2834CF4900A50DA3 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				495D51DA2834D0F200A50DA3 /* GDTSampleAdTypes */,
+				495D511C2834CF4900A50DA3 /* GDTAds */,
+				495D50B12834CF4900A50DA3 /* GDTAdViewController.h */,
+				495D511B2834CF4900A50DA3 /* GDTAdViewController.m */,
+				495D511A2834CF4900A50DA3 /* GDTAppDelegate.h */,
+				495D51792834CF4900A50DA3 /* GDTAppDelegate.m */,
+				495D516D2834CF4900A50DA3 /* GDTNavigationController.h */,
+				495D50B02834CF4900A50DA3 /* GDTNavigationController.m */,
+				495D51782834CF4900A50DA3 /* Images.xcassets */,
+				495D516E2834CF4900A50DA3 /* Supporting Files */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
+		495D511C2834CF4900A50DA3 /* GDTAds */ = {
+			isa = PBXGroup;
+			children = (
+				495D511D2834CF4900A50DA3 /* GDTUnifiedNativeAd */,
+				495D51432834CF4900A50DA3 /* GDTNativeExpressAd */,
+				495D514E2834CF4900A50DA3 /* DemoUtil.h */,
+				495D514F2834CF4900A50DA3 /* S2SBiddingManager.m */,
+				495D51542834CF4900A50DA3 /* GDTUnifiedBannerAd */,
+				495D515C2834CF4900A50DA3 /* GDTUnifiedInterstitialAd */,
+				495D51632834CF4900A50DA3 /* GDTRewardVideoAd */,
+				495D51672834CF4900A50DA3 /* DemoUtil.m */,
+				495D51682834CF4900A50DA3 /* S2SBiddingManager.h */,
+				495D51692834CF4900A50DA3 /* GDTSplashAd */,
+			);
+			path = GDTAds;
+			sourceTree = "<group>";
+		};
+		495D511D2834CF4900A50DA3 /* GDTUnifiedNativeAd */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C91062906806100567380 /* View */,
+				495D511E2834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m */,
+				495D511F2834CF4900A50DA3 /* UnifiedNativeAdViewController.m */,
+				495D51202834CF4900A50DA3 /* UnifiedNativeAdCustomView.h */,
+				495D51212834CF4900A50DA3 /* UnifiedNativeAdViewController.xib */,
+				495D51222834CF4900A50DA3 /* Cell */,
+				495D51312834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.h */,
+				495D51322834CF4900A50DA3 /* UnifiedNativeAdCustomView.m */,
+				495D51332834CF4900A50DA3 /* UnifiedNativeAdViewController.h */,
+				495D51342834CF4900A50DA3 /* ViewController */,
+			);
+			path = GDTUnifiedNativeAd;
+			sourceTree = "<group>";
+		};
+		495D51222834CF4900A50DA3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				495D51232834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.m */,
+				495D51242834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.h */,
+				495D51252834CF4900A50DA3 /* UnifiedNativeAdImageCell.h */,
+				495D51262834CF4900A50DA3 /* DemoPlayerTableViewCell.h */,
+				495D51272834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.m */,
+				495D51282834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.h */,
+				495D51292834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m */,
+				495D512A2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.h */,
+				495D512B2834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.m */,
+				495D512C2834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.h */,
+				495D512D2834CF4900A50DA3 /* DemoPlayerTableViewCell.m */,
+				495D512E2834CF4900A50DA3 /* UnifiedNativeAdImageCell.m */,
+				495D512F2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m */,
+				495D51302834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		495D51342834CF4900A50DA3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				495D51352834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.h */,
+				495D51372834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m */,
+				495D51382834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.h */,
+				495D51392834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.h */,
+				495D513A2834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.h */,
+				495D513B2834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.h */,
+				495D513C2834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.h */,
+				495D513E2834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m */,
+				495D513F2834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m */,
+				495D51402834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m */,
+				495D51412834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.m */,
+				495D51422834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		495D51432834CF4900A50DA3 /* GDTNativeExpressAd */ = {
+			isa = PBXGroup;
+			children = (
+				49094F012B88655300F105C4 /* NativeFullExpressAdViewController.h */,
+				49094F002B88655300F105C4 /* NativeFullExpressAdViewController.m */,
+				49094F022B88655300F105C4 /* NativeFullExpressAdViewController.xib */,
+				49094EFE2B88655200F105C4 /* NativeFullVideoAdViewCell.h */,
+				49094F032B88655300F105C4 /* NativeFullVideoAdViewCell.m */,
+				49094EFF2B88655300F105C4 /* NativeFullVideoAdViewController.h */,
+				49094F042B88655300F105C4 /* NativeFullVideoAdViewController.m */,
+				495D51442834CF4900A50DA3 /* NativeExpressAdConfigView.m */,
+				495D51452834CF4900A50DA3 /* NativeExpressAdViewController.h */,
+				495D51462834CF4900A50DA3 /* NativeExpressVideoAdViewController.h */,
+				495D51472834CF4900A50DA3 /* NativeExpressVideoConfigView.m */,
+				495D51482834CF4900A50DA3 /* NativeExpressAdConfigView.h */,
+				495D51492834CF4900A50DA3 /* NativeExpressAdViewController.xib */,
+				495D514A2834CF4900A50DA3 /* NativeExpressVideoAdViewController.xib */,
+				495D514B2834CF4900A50DA3 /* NativeExpressVideoConfigView.h */,
+				495D514C2834CF4900A50DA3 /* NativeExpressVideoAdViewController.m */,
+				495D514D2834CF4900A50DA3 /* NativeExpressAdViewController.m */,
+			);
+			path = GDTNativeExpressAd;
+			sourceTree = "<group>";
+		};
+		495D51542834CF4900A50DA3 /* GDTUnifiedBannerAd */ = {
+			isa = PBXGroup;
+			children = (
+				495D51552834CF4900A50DA3 /* UnifiedBannerViewController.h */,
+				495D51562834CF4900A50DA3 /* UnifiedBannerViewController.xib */,
+				495D51572834CF4900A50DA3 /* UnifiedBannerViewController.m */,
+			);
+			path = GDTUnifiedBannerAd;
+			sourceTree = "<group>";
+		};
+		495D515C2834CF4900A50DA3 /* GDTUnifiedInterstitialAd */ = {
+			isa = PBXGroup;
+			children = (
+				495D515D2834CF4900A50DA3 /* UnifiedInterstitialViewController.h */,
+				495D515E2834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.m */,
+				495D515F2834CF4900A50DA3 /* UnifiedInterstitialViewController.m */,
+				495D51602834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.h */,
+				495D51612834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.xib */,
+				495D51622834CF4900A50DA3 /* UnifiedInterstitialViewController.xib */,
+			);
+			path = GDTUnifiedInterstitialAd;
+			sourceTree = "<group>";
+		};
+		495D51632834CF4900A50DA3 /* GDTRewardVideoAd */ = {
+			isa = PBXGroup;
+			children = (
+				495D51642834CF4900A50DA3 /* RewardVideoViewController.m */,
+				495D51652834CF4900A50DA3 /* RewardVideoViewController.xib */,
+				495D51662834CF4900A50DA3 /* RewardVideoViewController.h */,
+			);
+			path = GDTRewardVideoAd;
+			sourceTree = "<group>";
+		};
+		495D51692834CF4900A50DA3 /* GDTSplashAd */ = {
+			isa = PBXGroup;
+			children = (
+				495D516A2834CF4900A50DA3 /* SplashViewController.h */,
+				495D516B2834CF4900A50DA3 /* SplashViewController.m */,
+				495D516C2834CF4900A50DA3 /* SplashViewController.xib */,
+			);
+			path = GDTSplashAd;
+			sourceTree = "<group>";
+		};
+		495D516E2834CF4900A50DA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				495D516F2834CF4900A50DA3 /* gdtdetection.aiff */,
+				495D51702834CF4900A50DA3 /* InfoPlist.strings */,
+				495D51732834CF4900A50DA3 /* GDTMobSample-Prefix.pch */,
+				495D51742834CF4900A50DA3 /* main.m */,
+				495D51752834CF4900A50DA3 /* Launch Screen.storyboard */,
+				495D51762834CF4900A50DA3 /* GDTMobSample-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		495D51DA2834D0F200A50DA3 /* GDTSampleAdTypes */ = {
+			isa = PBXGroup;
+			children = (
+				495D51DB2834D0F200A50DA3 /* GDTAdViewController+Sample.h */,
+				495D51DC2834D0F200A50DA3 /* GDTAdViewController+Sample.m */,
+			);
+			path = GDTSampleAdTypes;
+			sourceTree = "<group>";
+		};
+		CB0C91062906806100567380 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCA4683F184C55AA00DE642A = {
+			isa = PBXGroup;
+			children = (
+				CCA4684A184C55AA00DE642A /* Frameworks */,
+				CCA46851184C55AA00DE642A /* GDTMobApp */,
+				CCA46849184C55AA00DE642A /* Products */,
+				0AC566D0201224350078BCBE /* lib */,
+			);
+			sourceTree = "<group>";
+		};
+		CCA46849184C55AA00DE642A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCA46848184C55AA00DE642A /* GDTMobSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCA4684A184C55AA00DE642A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49A08BE52B84BA40008A4630 /* libc++.tbd */,
+				0A60F4621FFE153900B4BFAB /* libxml2.2.tbd */,
+				0A60F45F1FFE14F500B4BFAB /* libxml2.tbd */,
+				0AD129E31F8B70940066A847 /* WebKit.framework */,
+				CCD1C6461E1BB64500C9F835 /* AVFoundation.framework */,
+				CC0869FC1B53AD7E002E0A51 /* libz.tbd */,
+				CC6587FB186174DE00CC3B45 /* Security.framework */,
+				CCA46995184C615E00DE642A /* CoreLocation.framework */,
+				CCA46988184C594E00DE642A /* QuartzCore.framework */,
+				CCA46986184C594500DE642A /* SystemConfiguration.framework */,
+				CCA46984184C593900DE642A /* CoreTelephony.framework */,
+				CCA46980184C592600DE642A /* AdSupport.framework */,
+				CCA4684B184C55AA00DE642A /* Foundation.framework */,
+				CCA4684D184C55AA00DE642A /* CoreGraphics.framework */,
+				CCA4684F184C55AA00DE642A /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA46851184C55AA00DE642A /* GDTMobApp */ = {
+			isa = PBXGroup;
+			children = (
+				495D50AF2834CF4900A50DA3 /* Release */,
+			);
+			path = GDTMobApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCA46847184C55AA00DE642A /* GDTMobSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCA46874184C55AA00DE642A /* Build configuration list for PBXNativeTarget "GDTMobSample" */;
+			buildPhases = (
+				CCA46844184C55AA00DE642A /* Sources */,
+				CCA46845184C55AA00DE642A /* Frameworks */,
+				CCA46846184C55AA00DE642A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GDTMobSample;
+			productName = GDTMobApp;
+			productReference = CCA46848184C55AA00DE642A /* GDTMobSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCA46840184C55AA00DE642A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GDT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Tencent;
+				TargetAttributes = {
+					CCA46847184C55AA00DE642A = {
+						DevelopmentTeam = 53BVK9ETZD;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					CCB663101BABBDA600290F1F = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = HKB8WPFBR9;
+					};
+				};
+			};
+			buildConfigurationList = CCA46843184C55AA00DE642A /* Build configuration list for PBXProject "GDTMobSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = CCA4683F184C55AA00DE642A;
+			productRefGroup = CCA46849184C55AA00DE642A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCA46847184C55AA00DE642A /* GDTMobSample */,
+				CCB663101BABBDA600290F1F /* dailybuild */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCA46846184C55AA00DE642A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495D51C12834CF4900A50DA3 /* UnifiedBannerViewController.xib in Resources */,
+				495D51D22834CF4900A50DA3 /* Launch Screen.storyboard in Resources */,
+				495D51CF2834CF4900A50DA3 /* InfoPlist.strings in Resources */,
+				495D51CD2834CF4900A50DA3 /* SplashViewController.xib in Resources */,
+				495D51CA2834CF4900A50DA3 /* RewardVideoViewController.xib in Resources */,
+				495D51A82834CF4900A50DA3 /* UnifiedNativeAdViewController.xib in Resources */,
+				495D51D32834CF4900A50DA3 /* GDTMobSample-Info.plist in Resources */,
+				495D51BA2834CF4900A50DA3 /* NativeExpressAdViewController.xib in Resources */,
+				495D51D42834CF4900A50DA3 /* Images.xcassets in Resources */,
+				495D51BB2834CF4900A50DA3 /* NativeExpressVideoAdViewController.xib in Resources */,
+				495D51C82834CF4900A50DA3 /* UnifiedInterstitialViewController.xib in Resources */,
+				495D51C72834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.xib in Resources */,
+				49094F062B88655300F105C4 /* NativeFullExpressAdViewController.xib in Resources */,
+				495D51CE2834CF4900A50DA3 /* gdtdetection.aiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CCB663171BABBDC400290F1F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# compress application.\n\n/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload\n\n/bin/cp -R $CONFIGURATION_BUILD_DIR/GDTMobSample.app $CONFIGURATION_BUILD_DIR/Payload\n\n/bin/cp images/logo_itunes.png $CONFIGURATION_BUILD_DIR/iTunesArtwork\n\ncd $CONFIGURATION_BUILD_DIR\n\n# zip up the HelloWorld directory\n\n/usr/bin/zip -r GDTMobSample.ipa Payload iTunesArtwork\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCA46844184C55AA00DE642A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495D51BE2834CF4900A50DA3 /* S2SBiddingManager.m in Sources */,
+				495D51AB2834CF4900A50DA3 /* UnifiedNativeAdBaseTableViewCell.m in Sources */,
+				495D51B02834CF4900A50DA3 /* UnifiedNativeAdCustomView.m in Sources */,
+				495D51A52834CF4900A50DA3 /* GDTAdViewController.m in Sources */,
+				495D51B92834CF4900A50DA3 /* NativeExpressVideoConfigView.m in Sources */,
+				495D51B32834CF4900A50DA3 /* UnifiedNativeAdFeedImageViewController.m in Sources */,
+				495D51B72834CF4900A50DA3 /* UnifiedNativeAdPortraitFeedViewController.m in Sources */,
+				495D51DD2834D0F200A50DA3 /* GDTAdViewController+Sample.m in Sources */,
+				495D51B12834CF4900A50DA3 /* UnifiedNativeAdPortraitDetailViewController.m in Sources */,
+				495D51B42834CF4900A50DA3 /* UnifiedNativeAdFeedVideoTableViewController.m in Sources */,
+				49094F082B88655300F105C4 /* NativeFullVideoAdViewController.m in Sources */,
+				495D51CB2834CF4900A50DA3 /* DemoUtil.m in Sources */,
+				495D51BC2834CF4900A50DA3 /* NativeExpressVideoAdViewController.m in Sources */,
+				495D51AF2834CF4900A50DA3 /* UnifiedNativeAdThreeImageCell.m in Sources */,
+				495D51A92834CF4900A50DA3 /* UnifiedNativeAdFeedVideoCell.m in Sources */,
+				49094F052B88655300F105C4 /* NativeFullExpressAdViewController.m in Sources */,
+				495D51A72834CF4900A50DA3 /* UnifiedNativeAdViewController.m in Sources */,
+				495D51D12834CF4900A50DA3 /* main.m in Sources */,
+				495D51AE2834CF4900A50DA3 /* UnifiedNativeAdImageCell.m in Sources */,
+				495D51D52834CF4900A50DA3 /* GDTAppDelegate.m in Sources */,
+				495D51AA2834CF4900A50DA3 /* UnifiedNativePortraitCollectionViewCell.m in Sources */,
+				495D51C92834CF4900A50DA3 /* RewardVideoViewController.m in Sources */,
+				495D51A62834CF4900A50DA3 /* UnifiedNativeAdVideoConfigView.m in Sources */,
+				495D51CC2834CF4900A50DA3 /* SplashViewController.m in Sources */,
+				495D51B62834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoViewController.m in Sources */,
+				495D51AC2834CF4900A50DA3 /* UnifiedNativeAdPortraitVideoTableViewCell.m in Sources */,
+				495D51B52834CF4900A50DA3 /* UnifiedNativeAdBaseViewController.m in Sources */,
+				495D51AD2834CF4900A50DA3 /* DemoPlayerTableViewCell.m in Sources */,
+				495D517A2834CF4900A50DA3 /* GDTNavigationController.m in Sources */,
+				495D51C52834CF4900A50DA3 /* UnifiedInterstitialFullScreenVideoViewController.m in Sources */,
+				495D51C22834CF4900A50DA3 /* UnifiedBannerViewController.m in Sources */,
+				495D51BD2834CF4900A50DA3 /* NativeExpressAdViewController.m in Sources */,
+				49094F072B88655300F105C4 /* NativeFullVideoAdViewCell.m in Sources */,
+				495D51C62834CF4900A50DA3 /* UnifiedInterstitialViewController.m in Sources */,
+				495D51B82834CF4900A50DA3 /* NativeExpressAdConfigView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCB663161BABBDB500290F1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCA46847184C55AA00DE642A /* GDTMobSample */;
+			targetProxy = CCB663151BABBDB500290F1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		495D51702834CF4900A50DA3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495D51712834CF4900A50DA3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC78CEA61BA6D813006A1546 /* DailyBuild */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tencent Technology (Shenzhen) Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tencent Technology (Shenzhen) Co., Ltd";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE = "32d8f732-d114-494a-adda-1c2bdeec6d7e";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7s armv7 arm64";
+			};
+			name = DailyBuild;
+		};
+		CC78CEA71BA6D813006A1546 /* DailyBuild */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53BVK9ETZD;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qq.gdt.GDTMobSample;
+				PRODUCT_NAME = GDTMobSample;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = DailyBuild;
+		};
+		CCA46872184C55AA00DE642A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7s armv7 arm64";
+			};
+			name = Debug;
+		};
+		CCA46873184C55AA00DE642A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7s armv7 arm64";
+			};
+			name = Release;
+		};
+		CCA46875184C55AA00DE642A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53BVK9ETZD;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qq.gdt.GDTMobSample;
+				PRODUCT_NAME = GDTMobSample;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CCA46876184C55AA00DE642A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53BVK9ETZD;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDTMobApp/Release/Supporting Files/GDTMobSample-Prefix.pch";
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				INFOPLIST_FILE = "GDTMobApp/Release/Supporting Files/GDTMobSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qq.gdt.GDTMobSample;
+				PRODUCT_NAME = GDTMobSample;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CCB663121BABBDA700290F1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HKB8WPFBR9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
+			};
+			name = Debug;
+		};
+		CCB663131BABBDA700290F1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HKB8WPFBR9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
+			};
+			name = Release;
+		};
+		CCB663141BABBDA700290F1F /* DailyBuild */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HKB8WPFBR9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "32d8f732-d114-494a-adda-1c2bdeec6d7e";
+				PROVISIONING_PROFILE_SPECIFIER = "071e9f06-a481-46d5-9792-8bf0152abd64";
+				VALID_ARCHS = "x86_64 arm64";
+			};
+			name = DailyBuild;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCA46843184C55AA00DE642A /* Build configuration list for PBXProject "GDTMobSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA46872184C55AA00DE642A /* Debug */,
+				CCA46873184C55AA00DE642A /* Release */,
+				CC78CEA61BA6D813006A1546 /* DailyBuild */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CCA46874184C55AA00DE642A /* Build configuration list for PBXNativeTarget "GDTMobSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA46875184C55AA00DE642A /* Debug */,
+				CCA46876184C55AA00DE642A /* Release */,
+				CC78CEA71BA6D813006A1546 /* DailyBuild */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CCB663111BABBDA700290F1F /* Build configuration list for PBXAggregateTarget "dailybuild" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB663121BABBDA700290F1F /* Debug */,
+				CCB663131BABBDA700290F1F /* Release */,
+				CCB663141BABBDA700290F1F /* DailyBuild */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCA46840184C55AA00DE642A /* Project object */;
+}
