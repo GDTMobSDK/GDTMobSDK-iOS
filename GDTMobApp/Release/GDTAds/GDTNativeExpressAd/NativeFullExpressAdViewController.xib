@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NativeFullExpressAdViewController">
+            <connections>
+                <outlet property="textField" destination="yCT-V9-ccC" id="Gpp-mH-qet"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhf-ct-VHG">
+                    <rect key="frame" x="297" y="108.66666666666667" width="80" height="35.000000000000014"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="HTf-gS-hTD"/>
+                        <constraint firstAttribute="height" constant="35" id="dNn-CO-lpk"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="更换"/>
+                    <connections>
+                        <action selector="changeIdAction:" destination="-1" eventType="touchUpInside" id="ECx-zI-ENn"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCT-V9-ccC">
+                    <rect key="frame" x="16" y="109" width="249" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krc-nO-oea">
+                    <rect key="frame" x="257" y="173.66666666666666" width="120" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="IUK-QW-2km"/>
+                        <constraint firstAttribute="width" constant="120" id="Sif-yg-LYt"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="请求并展示"/>
+                    <connections>
+                        <action selector="loadAndShowAction:" destination="-1" eventType="touchUpInside" id="PXG-TO-cXv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="qJD-ys-HRV"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yCT-V9-ccC" firstAttribute="top" secondItem="qJD-ys-HRV" secondAttribute="top" constant="50" id="3FE-Pb-UfA"/>
+                <constraint firstItem="qJD-ys-HRV" firstAttribute="trailing" secondItem="krc-nO-oea" secondAttribute="trailing" constant="16" id="70m-BW-rVv"/>
+                <constraint firstItem="uhf-ct-VHG" firstAttribute="trailing" secondItem="yCT-V9-ccC" secondAttribute="trailing" constant="112" id="9yb-AM-qww"/>
+                <constraint firstItem="yCT-V9-ccC" firstAttribute="leading" secondItem="qJD-ys-HRV" secondAttribute="leading" constant="16" id="KDK-cU-4L3"/>
+                <constraint firstItem="uhf-ct-VHG" firstAttribute="centerY" secondItem="yCT-V9-ccC" secondAttribute="centerY" id="n7t-LH-udQ"/>
+                <constraint firstItem="krc-nO-oea" firstAttribute="top" secondItem="uhf-ct-VHG" secondAttribute="bottom" constant="30" id="suD-RQ-dz1"/>
+                <constraint firstItem="qJD-ys-HRV" firstAttribute="trailing" secondItem="uhf-ct-VHG" secondAttribute="trailing" constant="16" id="tb4-BF-BIr"/>
+            </constraints>
+            <point key="canvasLocation" x="113.74045801526717" y="35.91549295774648"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
